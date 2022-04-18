@@ -16,6 +16,34 @@
 		113F15A527DED95200D52C55 /* MoneyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15A427DED95200D52C55 /* MoneyTrackerTests.swift */; };
 		113F15AF27DED95200D52C55 /* MoneyTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15AE27DED95200D52C55 /* MoneyTrackerUITests.swift */; };
 		113F15B127DED95200D52C55 /* MoneyTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15B027DED95200D52C55 /* MoneyTrackerUITestsLaunchTests.swift */; };
+		113F15BF27DEDB3100D52C55 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15BE27DEDB3100D52C55 /* Transaction.swift */; };
+		113F15C127DEDB4A00D52C55 /* TransactionsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15C027DEDB4A00D52C55 /* TransactionsContainer.swift */; };
+		113F15C327DEDB7800D52C55 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15C227DEDB7800D52C55 /* Category.swift */; };
+		113F15C527DEDB8E00D52C55 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15C427DEDB8E00D52C55 /* TransactionType.swift */; };
+		113F15C727DEDBA800D52C55 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15C627DEDBA800D52C55 /* User.swift */; };
+		113F15CA27DEDBF000D52C55 /* UserRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15C927DEDBF000D52C55 /* UserRemoteDataSource.swift */; };
+		113F15CC27DEDC3500D52C55 /* CategoryRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15CB27DEDC3500D52C55 /* CategoryRemoteDataSource.swift */; };
+		113F15CE27DEDC6E00D52C55 /* TransactionRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15CD27DEDC6E00D52C55 /* TransactionRemoteDataSource.swift */; };
+		113F15D127DEDCCF00D52C55 /* TransactionContainerRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15D027DEDCCF00D52C55 /* TransactionContainerRemoteDataSource.swift */; };
+		113F15D327DEDDCB00D52C55 /* GetAllTransactionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15D227DEDDCB00D52C55 /* GetAllTransactionsInteractor.swift */; };
+		113F15D527DEDE8F00D52C55 /* GetTransactionsFromContainerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15D427DEDE8F00D52C55 /* GetTransactionsFromContainerInteractor.swift */; };
+		11801D7C27FCD37300D9AB4D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 11801D7B27FCD37300D9AB4D /* FirebaseAnalytics */; };
+		11801D7E27FCD37300D9AB4D /* FirebaseAnalyticsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 11801D7D27FCD37300D9AB4D /* FirebaseAnalyticsSwift-Beta */; };
+		11801D8027FCD37300D9AB4D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 11801D7F27FCD37300D9AB4D /* FirebaseAuth */; };
+		11801D8227FCD37300D9AB4D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 11801D8127FCD37300D9AB4D /* FirebaseCrashlytics */; };
+		11801D8427FCD37300D9AB4D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 11801D8327FCD37300D9AB4D /* FirebaseDatabase */; };
+		11801D8627FCD37300D9AB4D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 11801D8527FCD37300D9AB4D /* FirebaseFirestore */; };
+		11801D8827FCD37300D9AB4D /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 11801D8727FCD37300D9AB4D /* FirebaseFirestoreSwift-Beta */; };
+		11801D8A27FCD37300D9AB4D /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 11801D8927FCD37300D9AB4D /* FirebaseRemoteConfig */; };
+		11801D8C27FCD37300D9AB4D /* FirebaseRemoteConfigSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 11801D8B27FCD37300D9AB4D /* FirebaseRemoteConfigSwift-Beta */; };
+		11801D8E27FCDAAD00D9AB4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11801D8D27FCDAAD00D9AB4D /* GoogleService-Info.plist */; };
+		11801D9227FCDB9C00D9AB4D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11801D9127FCDB9C00D9AB4D /* LoginView.swift */; };
+		11801D9427FCDE8400D9AB4D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11801D9327FCDE8400D9AB4D /* LoginViewModel.swift */; };
+		11801D9727FDE16D00D9AB4D /* AuthenticateUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11801D9627FDE16D00D9AB4D /* AuthenticateUserInteractor.swift */; };
+		11801D9A27FDE30D00D9AB4D /* AuthenticateUserInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11801D9927FDE30D00D9AB4D /* AuthenticateUserInteractorImpl.swift */; };
+		11801D9D27FDE36A00D9AB4D /* CurrentUserLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11801D9C27FDE36A00D9AB4D /* CurrentUserLocalDataSource.swift */; };
+		11801DA027FDE37D00D9AB4D /* CurrentUserLocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11801D9F27FDE37D00D9AB4D /* CurrentUserLocalDataSourceImpl.swift */; };
+		118BCED627FCD1410057FF91 /* UserRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118BCED527FCD1410057FF91 /* UserRemoteDataSourceImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +76,25 @@
 		113F15AA27DED95200D52C55 /* MoneyTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		113F15AE27DED95200D52C55 /* MoneyTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITests.swift; sourceTree = "<group>"; };
 		113F15B027DED95200D52C55 /* MoneyTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		113F15BE27DEDB3100D52C55 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		113F15C027DEDB4A00D52C55 /* TransactionsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsContainer.swift; sourceTree = "<group>"; };
+		113F15C227DEDB7800D52C55 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		113F15C427DEDB8E00D52C55 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
+		113F15C627DEDBA800D52C55 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		113F15C927DEDBF000D52C55 /* UserRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSource.swift; sourceTree = "<group>"; };
+		113F15CB27DEDC3500D52C55 /* CategoryRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteDataSource.swift; sourceTree = "<group>"; };
+		113F15CD27DEDC6E00D52C55 /* TransactionRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRemoteDataSource.swift; sourceTree = "<group>"; };
+		113F15D027DEDCCF00D52C55 /* TransactionContainerRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionContainerRemoteDataSource.swift; sourceTree = "<group>"; };
+		113F15D227DEDDCB00D52C55 /* GetAllTransactionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllTransactionsInteractor.swift; sourceTree = "<group>"; };
+		113F15D427DEDE8F00D52C55 /* GetTransactionsFromContainerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionsFromContainerInteractor.swift; sourceTree = "<group>"; };
+		11801D8D27FCDAAD00D9AB4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		11801D9127FCDB9C00D9AB4D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		11801D9327FCDE8400D9AB4D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		11801D9627FDE16D00D9AB4D /* AuthenticateUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUserInteractor.swift; sourceTree = "<group>"; };
+		11801D9927FDE30D00D9AB4D /* AuthenticateUserInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUserInteractorImpl.swift; sourceTree = "<group>"; };
+		11801D9C27FDE36A00D9AB4D /* CurrentUserLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserLocalDataSource.swift; sourceTree = "<group>"; };
+		11801D9F27FDE37D00D9AB4D /* CurrentUserLocalDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserLocalDataSourceImpl.swift; sourceTree = "<group>"; };
+		118BCED527FCD1410057FF91 /* UserRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +102,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11801D8427FCD37300D9AB4D /* FirebaseDatabase in Frameworks */,
+				11801D8C27FCD37300D9AB4D /* FirebaseRemoteConfigSwift-Beta in Frameworks */,
+				11801D7E27FCD37300D9AB4D /* FirebaseAnalyticsSwift-Beta in Frameworks */,
+				11801D8827FCD37300D9AB4D /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				11801D8227FCD37300D9AB4D /* FirebaseCrashlytics in Frameworks */,
+				11801D8027FCD37300D9AB4D /* FirebaseAuth in Frameworks */,
+				11801D7C27FCD37300D9AB4D /* FirebaseAnalytics in Frameworks */,
+				11801D8627FCD37300D9AB4D /* FirebaseFirestore in Frameworks */,
+				11801D8A27FCD37300D9AB4D /* FirebaseRemoteConfig in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +154,10 @@
 		113F158D27DED95000D52C55 /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				11801D8F27FCDB7E00D9AB4D /* View */,
+				11801D8D27FCDAAD00D9AB4D /* GoogleService-Info.plist */,
+				113F15C827DEDBB400D52C55 /* Interactor */,
+				113F15BD27DEDABF00D52C55 /* Data */,
 				113F158E27DED95000D52C55 /* MoneyTrackerApp.swift */,
 				113F159027DED95000D52C55 /* ContentView.swift */,
 				113F159227DED95200D52C55 /* Assets.xcassets */,
@@ -133,6 +193,101 @@
 			path = MoneyTrackerUITests;
 			sourceTree = "<group>";
 		};
+		113F15BD27DEDABF00D52C55 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				113F15BE27DEDB3100D52C55 /* Transaction.swift */,
+				113F15C027DEDB4A00D52C55 /* TransactionsContainer.swift */,
+				113F15C227DEDB7800D52C55 /* Category.swift */,
+				113F15C427DEDB8E00D52C55 /* TransactionType.swift */,
+				113F15C627DEDBA800D52C55 /* User.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		113F15C827DEDBB400D52C55 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				11801D9B27FDE35400D9AB4D /* LocalDataSource */,
+				11801D9527FDE11300D9AB4D /* Interactors */,
+				113F15CF27DEDC9A00D52C55 /* RemoteDataSource */,
+				113F15D227DEDDCB00D52C55 /* GetAllTransactionsInteractor.swift */,
+				113F15D427DEDE8F00D52C55 /* GetTransactionsFromContainerInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		113F15CF27DEDC9A00D52C55 /* RemoteDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				118BCED427FCD1270057FF91 /* Implementation */,
+				113F15C927DEDBF000D52C55 /* UserRemoteDataSource.swift */,
+				113F15CB27DEDC3500D52C55 /* CategoryRemoteDataSource.swift */,
+				113F15CD27DEDC6E00D52C55 /* TransactionRemoteDataSource.swift */,
+				113F15D027DEDCCF00D52C55 /* TransactionContainerRemoteDataSource.swift */,
+			);
+			path = RemoteDataSource;
+			sourceTree = "<group>";
+		};
+		11801D8F27FCDB7E00D9AB4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11801D9027FCDB8800D9AB4D /* Login */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11801D9027FCDB8800D9AB4D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				11801D9127FCDB9C00D9AB4D /* LoginView.swift */,
+				11801D9327FCDE8400D9AB4D /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		11801D9527FDE11300D9AB4D /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				11801D9827FDE2FD00D9AB4D /* Impl */,
+				11801D9627FDE16D00D9AB4D /* AuthenticateUserInteractor.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		11801D9827FDE2FD00D9AB4D /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				11801D9927FDE30D00D9AB4D /* AuthenticateUserInteractorImpl.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
+		11801D9B27FDE35400D9AB4D /* LocalDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				11801D9E27FDE37000D9AB4D /* Impl */,
+				11801D9C27FDE36A00D9AB4D /* CurrentUserLocalDataSource.swift */,
+			);
+			path = LocalDataSource;
+			sourceTree = "<group>";
+		};
+		11801D9E27FDE37000D9AB4D /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				11801D9F27FDE37D00D9AB4D /* CurrentUserLocalDataSourceImpl.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
+		118BCED427FCD1270057FF91 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				118BCED527FCD1410057FF91 /* UserRemoteDataSourceImpl.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +304,17 @@
 			dependencies = (
 			);
 			name = MoneyTracker;
+			packageProductDependencies = (
+				11801D7B27FCD37300D9AB4D /* FirebaseAnalytics */,
+				11801D7D27FCD37300D9AB4D /* FirebaseAnalyticsSwift-Beta */,
+				11801D7F27FCD37300D9AB4D /* FirebaseAuth */,
+				11801D8127FCD37300D9AB4D /* FirebaseCrashlytics */,
+				11801D8327FCD37300D9AB4D /* FirebaseDatabase */,
+				11801D8527FCD37300D9AB4D /* FirebaseFirestore */,
+				11801D8727FCD37300D9AB4D /* FirebaseFirestoreSwift-Beta */,
+				11801D8927FCD37300D9AB4D /* FirebaseRemoteConfig */,
+				11801D8B27FCD37300D9AB4D /* FirebaseRemoteConfigSwift-Beta */,
+			);
 			productName = MoneyTracker;
 			productReference = 113F158B27DED95000D52C55 /* MoneyTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +387,9 @@
 				Base,
 			);
 			mainGroup = 113F158227DED95000D52C55;
+			packageReferences = (
+				11801D7A27FCD37300D9AB4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 113F158C27DED95000D52C55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -239,6 +408,7 @@
 			files = (
 				113F159627DED95200D52C55 /* Preview Assets.xcassets in Resources */,
 				113F159327DED95200D52C55 /* Assets.xcassets in Resources */,
+				11801D8E27FCDAAD00D9AB4D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,10 +433,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				113F15D327DEDDCB00D52C55 /* GetAllTransactionsInteractor.swift in Sources */,
+				118BCED627FCD1410057FF91 /* UserRemoteDataSourceImpl.swift in Sources */,
+				113F15D127DEDCCF00D52C55 /* TransactionContainerRemoteDataSource.swift in Sources */,
+				113F15C527DEDB8E00D52C55 /* TransactionType.swift in Sources */,
+				113F15C127DEDB4A00D52C55 /* TransactionsContainer.swift in Sources */,
 				113F159827DED95200D52C55 /* Persistence.swift in Sources */,
+				11801D9A27FDE30D00D9AB4D /* AuthenticateUserInteractorImpl.swift in Sources */,
+				113F15CE27DEDC6E00D52C55 /* TransactionRemoteDataSource.swift in Sources */,
+				11801D9727FDE16D00D9AB4D /* AuthenticateUserInteractor.swift in Sources */,
 				113F159B27DED95200D52C55 /* MoneyTracker.xcdatamodeld in Sources */,
+				11801D9427FCDE8400D9AB4D /* LoginViewModel.swift in Sources */,
+				11801DA027FDE37D00D9AB4D /* CurrentUserLocalDataSourceImpl.swift in Sources */,
 				113F159127DED95000D52C55 /* ContentView.swift in Sources */,
+				113F15C727DEDBA800D52C55 /* User.swift in Sources */,
+				11801D9227FCDB9C00D9AB4D /* LoginView.swift in Sources */,
 				113F158F27DED95000D52C55 /* MoneyTrackerApp.swift in Sources */,
+				113F15D527DEDE8F00D52C55 /* GetTransactionsFromContainerInteractor.swift in Sources */,
+				113F15BF27DEDB3100D52C55 /* Transaction.swift in Sources */,
+				11801D9D27FDE36A00D9AB4D /* CurrentUserLocalDataSource.swift in Sources */,
+				113F15CC27DEDC3500D52C55 /* CategoryRemoteDataSource.swift in Sources */,
+				113F15C327DEDB7800D52C55 /* Category.swift in Sources */,
+				113F15CA27DEDBF000D52C55 /* UserRemoteDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +781,65 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11801D7A27FCD37300D9AB4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11801D7B27FCD37300D9AB4D /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11801D7A27FCD37300D9AB4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		11801D7D27FCD37300D9AB4D /* FirebaseAnalyticsSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11801D7A27FCD37300D9AB4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAnalyticsSwift-Beta";
+		};
+		11801D7F27FCD37300D9AB4D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11801D7A27FCD37300D9AB4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		11801D8127FCD37300D9AB4D /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11801D7A27FCD37300D9AB4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		11801D8327FCD37300D9AB4D /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11801D7A27FCD37300D9AB4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		11801D8527FCD37300D9AB4D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11801D7A27FCD37300D9AB4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		11801D8727FCD37300D9AB4D /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11801D7A27FCD37300D9AB4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+		11801D8927FCD37300D9AB4D /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11801D7A27FCD37300D9AB4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		11801D8B27FCD37300D9AB4D /* FirebaseRemoteConfigSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11801D7A27FCD37300D9AB4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseRemoteConfigSwift-Beta";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		113F159927DED95200D52C55 /* MoneyTracker.xcdatamodeld */ = {
