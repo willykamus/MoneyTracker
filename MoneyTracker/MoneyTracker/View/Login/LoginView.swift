@@ -37,7 +37,7 @@ struct LoginView: View {
             }
             .padding()
             .fullScreenCover(isPresented: $viewModel.goToHomeScreen) {
-                Text("Home")
+                CreateTransactionContainer()
             }
         }
     }

@@ -10,6 +10,16 @@ import Firebase
 
 class UserRemoteDataSourceImpl: UserRemoteDataSource {
     
+    func currentUser() -> User? {
+        guard let user = Auth.auth().currentUser else {
+            return nil
+        }
+        
+        return User(id: user.uid, email: user.email!, password: "")
+        
+        
+    }
+    
     func save(email: String, password: String) async -> Result<User, Error> {
         do {
             let userData = try await Auth.auth().createUser(withEmail: email, password: password)

@@ -10,5 +10,5 @@ import Foundation
 protocol TransactionsContainerRemoteDataSource {
     func getContainers() async -> [TransactionsContainer]
     func createDataBase(for user: User)
-    func createContainer(container: TransactionsContainer) -> Bool
+    func createContainer(container: TransactionsContainer, user: User) -> Bool
 }
