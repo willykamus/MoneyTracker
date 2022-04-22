@@ -10,4 +10,5 @@ import Foundation
 protocol UserRemoteDataSource {
     func save(email: String, password: String) async -> Result<User,Error>
     func authenticate(email: String, password: String) async -> Result<User,Error>
+    func currentUser() -> User?
 }
