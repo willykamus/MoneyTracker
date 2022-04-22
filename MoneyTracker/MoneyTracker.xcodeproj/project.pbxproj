@@ -36,6 +36,9 @@
 		115218982812E37600E8DA5A /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 115218972812E37600E8DA5A /* FirebaseRemoteConfig */; };
 		1152189A2812E37600E8DA5A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 115218992812E37600E8DA5A /* FirebaseStorage */; };
 		1152189C2812E37600E8DA5A /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 1152189B2812E37600E8DA5A /* FirebaseStorageSwift-Beta */; };
+		1152189F2813202C00E8DA5A /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152189E2813202C00E8DA5A /* HomeScreenView.swift */; };
+		115218A12813204B00E8DA5A /* WalletsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115218A02813204B00E8DA5A /* WalletsView.swift */; };
+		115218A32813221A00E8DA5A /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115218A22813221A00E8DA5A /* TransactionsView.swift */; };
 		11801D8E27FCDAAD00D9AB4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11801D8D27FCDAAD00D9AB4D /* GoogleService-Info.plist */; };
 		11801D9227FCDB9C00D9AB4D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11801D9127FCDB9C00D9AB4D /* LoginView.swift */; };
 		11801D9427FCDE8400D9AB4D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11801D9327FCDE8400D9AB4D /* LoginViewModel.swift */; };
@@ -95,6 +98,9 @@
 		113F15D027DEDCCF00D52C55 /* TransactionContainerRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionContainerRemoteDataSource.swift; sourceTree = "<group>"; };
 		113F15D227DEDDCB00D52C55 /* GetAllTransactionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllTransactionsInteractor.swift; sourceTree = "<group>"; };
 		113F15D427DEDE8F00D52C55 /* GetTransactionsFromContainerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionsFromContainerInteractor.swift; sourceTree = "<group>"; };
+		1152189E2813202C00E8DA5A /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
+		115218A02813204B00E8DA5A /* WalletsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsView.swift; sourceTree = "<group>"; };
+		115218A22813221A00E8DA5A /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		11801D8D27FCDAAD00D9AB4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		11801D9127FCDB9C00D9AB4D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		11801D9327FCDE8400D9AB4D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -245,9 +251,20 @@
 			path = RemoteDataSource;
 			sourceTree = "<group>";
 		};
+		1152189D2813201900E8DA5A /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1152189E2813202C00E8DA5A /* HomeScreenView.swift */,
+				115218A02813204B00E8DA5A /* WalletsView.swift */,
+				115218A22813221A00E8DA5A /* TransactionsView.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
 		11801D8F27FCDB7E00D9AB4D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1152189D2813201900E8DA5A /* HomeScreen */,
 				11801D9027FCDB8800D9AB4D /* Login */,
 				11F873AD280DD7090017DB9D /* CreateTransactionContainer.swift */,
 				11F873B1280DDB370017DB9D /* CreateTransactionContainerViewModel.swift */,
@@ -460,7 +477,9 @@
 				113F15D327DEDDCB00D52C55 /* GetAllTransactionsInteractor.swift in Sources */,
 				11F873AE280DD7090017DB9D /* CreateTransactionContainer.swift in Sources */,
 				118BCED627FCD1410057FF91 /* UserRemoteDataSourceImpl.swift in Sources */,
+				115218A12813204B00E8DA5A /* WalletsView.swift in Sources */,
 				113F15D127DEDCCF00D52C55 /* TransactionContainerRemoteDataSource.swift in Sources */,
+				115218A32813221A00E8DA5A /* TransactionsView.swift in Sources */,
 				113F15C527DEDB8E00D52C55 /* TransactionType.swift in Sources */,
 				11F873B4280DDC550017DB9D /* CreateTransactionContainerInteractorImpl.swift in Sources */,
 				11F873BA280DDEBE0017DB9D /* TransactionsContainerRemoteEntity.swift in Sources */,
@@ -486,6 +505,7 @@
 				113F15CC27DEDC3500D52C55 /* CategoryRemoteDataSource.swift in Sources */,
 				113F15C327DEDB7800D52C55 /* Category.swift in Sources */,
 				11F873B6280DDDCF0017DB9D /* TransactionsContainerRemoteDataSourceImpl.swift in Sources */,
+				1152189F2813202C00E8DA5A /* HomeScreenView.swift in Sources */,
 				113F15CA27DEDBF000D52C55 /* UserRemoteDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
