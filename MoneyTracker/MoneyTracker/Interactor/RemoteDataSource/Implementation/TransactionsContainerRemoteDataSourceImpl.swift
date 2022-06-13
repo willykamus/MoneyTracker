@@ -21,7 +21,7 @@ class TransactionsContainerRemoteDataSourceImpl: TransactionsContainerRemoteData
             let query = try await reference.getDocuments()
             for document in query.documents {
                 let remoteEntity = try document.data(as: TransactionsContainerRemoteEntity.self)
-                var container = TransactionsContainerRemoteEntityMapper().toTransactionContainer(remoteEntity: remoteEntity!)
+                var container = TransactionsContainerRemoteEntityMapper().toTransactionContainer(remoteEntity: remoteEntity)
                 let transactions = await self.getTransactions(from: document, container: container)
                 container.transactions = transactions
                 containers.append(container)
@@ -54,7 +54,7 @@ class TransactionsContainerRemoteDataSourceImpl: TransactionsContainerRemoteData
             let query = try await document.reference.collection("transactions").getDocuments()
             for transaction in query.documents {
                 let entity = try transaction.data(as: TransactionRemoteEntity.self)
-                transactions.append(TransactionRemoteEntityMapper().toTransaction(remoteEntity: entity!))
+                transactions.append(TransactionRemoteEntityMapper().toTransaction(remoteEntity: entity))
             }
             return transactions
         } catch {
