@@ -12,12 +12,18 @@ struct WalletsView: View {
     @ObservedObject var viewModel: TransactionsContainerListViewModel
     
     var body: some View {
-        List {
-            ForEach(viewModel.transactionsContainer) { transactionContainer in
-                Section {
-                    TransactionsContainerRow(transactionsContainer: transactionContainer)
+        NavigationView {
+            List {
+                ForEach(viewModel.transactionsContainer) { transactionContainer in
+                    Section {
+                        NavigationLink {
+                            TransactionListView()
+                        } label: {
+                            TransactionsContainerRow(transactionsContainer: transactionContainer)
+                        }
+                    }
                 }
-            }
+            }.navigationTitle("Wallets")
         }
     }
 }
