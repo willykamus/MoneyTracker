@@ -9,21 +9,33 @@ import SwiftUI
 
 struct WalletsView: View {
     
-    @ObservedObject var viewModel: TransactionsContainerListViewModel
+    @ObservedObject var viewModel: TransactionsContainerListViewModel = TransactionsContainerListViewModel()
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.transactionsContainer) { transactionContainer in
-                    Section {
-                        NavigationLink {
-                            TransactionListView()
-                        } label: {
-                            TransactionsContainerRow(transactionsContainer: transactionContainer)
+            Group {
+                if !viewModel.noContainerMessage.isEmpty {
+                    VStack {
+                        Text(viewModel.noContainerMessage)
+                    }
+                } else {
+                    List {
+                        ForEach(viewModel.transactionsContainer) { transactionContainer in
+                            Section {
+                                NavigationLink {
+                                    TransactionListView()
+                                } label: {
+                                    TransactionsContainerRow(transactionsContainer: transactionContainer)
+                                }
+                            }
                         }
                     }
                 }
-            }.navigationTitle("Wallets")
+            }
+            .navigationTitle("Wallets")
+            .task {
+                await viewModel.getContainers()
+            }
         }
     }
 }

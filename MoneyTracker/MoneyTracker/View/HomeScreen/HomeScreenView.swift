@@ -9,14 +9,9 @@ import SwiftUI
 
 struct HomeScreenView: View {
     
-    @ObservedObject var viewModel: TransactionsContainerListViewModel = TransactionsContainerListViewModel()
-    
     var body: some View {
         TabView {
-            WalletsView(viewModel: viewModel)
-                .task {
-                    await viewModel.getContainers()
-                }
+            WalletsView()
                 .tabItem {
                     Label("Wallets", systemImage: "wallet.pass")
                 }

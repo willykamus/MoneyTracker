@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleDataTransport.git",
       "state" : {
-        "revision" : "b905c49326b72211531ed9d7baa02d724828a8dc",
-        "version" : "9.1.4"
+        "revision" : "5056b15c5acbb90cd214fe4d6138bdf5a740e5a8",
+        "version" : "9.2.0"
       }
     },
     {
@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/grpc/grpc-ios.git",
       "state" : {
-        "revision" : "2af4f6e9c2b18beae228f50b1198c641be859d2b",
-        "version" : "1.44.2-grpc"
+        "revision" : "abd2d5a4347efa0454606a788678a5d8ec223738",
+        "version" : "1.44.0-grpc"
       }
     },
     {
@@ -95,8 +95,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/promises.git",
       "state" : {
-        "revision" : "46c1e6b5ac09d8f82c991061c659f67e573d425d",
-        "version" : "2.1.0"
+        "revision" : "3e4e743631e86c8c70dbc6efdc7beaa6e90fd3bb",
+        "version" : "2.1.1"
       }
     },
     {

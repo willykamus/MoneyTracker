@@ -3,4 +3,70 @@
    uuid = "E1E761FB-B43C-4047-9F59-E4C9871C79B4"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5435517-0C2C-47C9-8B86-722D5CE5CE42"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoneyTracker/Interactor/RemoteDataSource/Implementation/TransactionsContainerRemoteDataSourceImpl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "getContainers()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2DB9A254-732A-4084-8F0C-9B7DAAAF74CA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoneyTracker/Interactor/RemoteDataSource/Implementation/TransactionsContainerRemoteDataSourceImpl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "getContainers()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2DB9A254-732A-4084-8F0C-9B7DAAAF74CA - 6bfb244d8e785ac0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoneyTracker.TransactionsContainerRemoteDataSourceImpl.getContainers() async -&gt; Swift.Array&lt;MoneyTracker.TransactionsContainer&gt;"
+                  moduleName = "MoneyTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kamus/MoneyTracker/MoneyTracker/MoneyTracker/Interactor/RemoteDataSource/Implementation/TransactionsContainerRemoteDataSourceImpl.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "1557">
+               </Location>
+               <Location
+                  uuid = "2DB9A254-732A-4084-8F0C-9B7DAAAF74CA - 95936a76001d7833"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for MoneyTracker.TransactionsContainerRemoteDataSourceImpl.getContainers() async -&gt; Swift.Array&lt;MoneyTracker.TransactionsContainer&gt;"
+                  moduleName = "MoneyTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kamus/MoneyTracker/MoneyTracker/MoneyTracker/Interactor/RemoteDataSource/Implementation/TransactionsContainerRemoteDataSourceImpl.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "596">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
