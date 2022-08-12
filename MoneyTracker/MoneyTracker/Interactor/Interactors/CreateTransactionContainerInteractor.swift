@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CreateTransactionContainerInteractor {
-    func execute(title: String)
+    func execute(title: String) -> Bool
 }
