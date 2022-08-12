@@ -13,7 +13,7 @@ struct WalletsView: View {
     
     var body: some View {
         NavigationView {
-            Group {
+            ZStack {
                 if !viewModel.noContainerMessage.isEmpty {
                     VStack {
                         Text(viewModel.noContainerMessage)
@@ -21,21 +21,31 @@ struct WalletsView: View {
                 } else {
                     List {
                         ForEach(viewModel.transactionsContainer) { transactionContainer in
-                            Section {
-                                NavigationLink {
-                                    TransactionListView()
-                                } label: {
-                                    TransactionsContainerRow(transactionsContainer: transactionContainer)
-                                }
+                            NavigationLink {
+                                TransactionListView()
+                            } label: {
+                                TransactionsContainerRow(transactionsContainer: transactionContainer)
                             }
                         }
                     }
                 }
+                
+                VStack {
+                    Spacer()
+                    
+                    HStack {
+                        Spacer()
+                        FloatingButton(action: { self.viewModel.walletCreated.toggle() })
+                            .padding(.horizontal,32)
+                            .padding(.vertical,16)
+                    }
+                }
             }
             .navigationTitle("Wallets")
-            .task {
-                await viewModel.getContainers()
+            .sheet(isPresented: self.$viewModel.walletCreated) {
+                CreateWalletView(walletCreated: self.$viewModel.walletCreated)
             }
+            
         }
     }
 }

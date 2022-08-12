@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		113B825028A1C7C700BAEB7C /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B824F28A1C7C600BAEB7C /* FloatingButton.swift */; };
+		113B825228A1DAD500BAEB7C /* CreateWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B825128A1DAD500BAEB7C /* CreateWalletView.swift */; };
+		113B825428A1DCBE00BAEB7C /* CreateWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B825328A1DCBE00BAEB7C /* CreateWalletViewModel.swift */; };
 		113F158F27DED95000D52C55 /* MoneyTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F158E27DED95000D52C55 /* MoneyTrackerApp.swift */; };
 		113F159127DED95000D52C55 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F159027DED95000D52C55 /* ContentView.swift */; };
 		113F159327DED95200D52C55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 113F159227DED95200D52C55 /* Assets.xcassets */; };
@@ -89,6 +92,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		113B824F28A1C7C600BAEB7C /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		113B825128A1DAD500BAEB7C /* CreateWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletView.swift; sourceTree = "<group>"; };
+		113B825328A1DCBE00BAEB7C /* CreateWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletViewModel.swift; sourceTree = "<group>"; };
 		113F158B27DED95000D52C55 /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		113F158E27DED95000D52C55 /* MoneyTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerApp.swift; sourceTree = "<group>"; };
 		113F159027DED95000D52C55 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -291,6 +297,8 @@
 				11FF37792815E4C300466965 /* CreateTransactionView.swift */,
 				11FF377B2815E4D700466965 /* CreateTransactionViewModel.swift */,
 				11FF377D2815EBCA00466965 /* AvailableTransactionContainersView.swift */,
+				113B825128A1DAD500BAEB7C /* CreateWalletView.swift */,
+				113B825328A1DCBE00BAEB7C /* CreateWalletViewModel.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -303,6 +311,7 @@
 				11F873AD280DD7090017DB9D /* CreateTransactionContainer.swift */,
 				11F873B1280DDB370017DB9D /* CreateTransactionContainerViewModel.swift */,
 				115218A428132AC600E8DA5A /* TransactionsContainerRow.swift */,
+				113B824F28A1C7C600BAEB7C /* FloatingButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -518,6 +527,7 @@
 			files = (
 				113F15D327DEDDCB00D52C55 /* GetAllTransactionsInteractor.swift in Sources */,
 				11FF37782815E40400466965 /* FloatingButtonView.swift in Sources */,
+				113B825028A1C7C700BAEB7C /* FloatingButton.swift in Sources */,
 				11F873AE280DD7090017DB9D /* CreateTransactionContainer.swift in Sources */,
 				118BCED627FCD1410057FF91 /* UserRemoteDataSourceImpl.swift in Sources */,
 				115218A12813204B00E8DA5A /* WalletsView.swift in Sources */,
@@ -544,6 +554,7 @@
 				11801D9427FCDE8400D9AB4D /* LoginViewModel.swift in Sources */,
 				11801DA027FDE37D00D9AB4D /* CurrentUserLocalDataSourceImpl.swift in Sources */,
 				113F159127DED95000D52C55 /* ContentView.swift in Sources */,
+				113B825228A1DAD500BAEB7C /* CreateWalletView.swift in Sources */,
 				113F15C727DEDBA800D52C55 /* User.swift in Sources */,
 				11F873B8280DDE920017DB9D /* TransactionsContainerRemoteEntityMapper.swift in Sources */,
 				11F873BC280DDF8F0017DB9D /* FirestoreDataBase.swift in Sources */,
@@ -554,6 +565,7 @@
 				115218AB28132B9200E8DA5A /* TransactionsContainerListViewModel.swift in Sources */,
 				113F15BF27DEDB3100D52C55 /* Transaction.swift in Sources */,
 				11801D9D27FDE36A00D9AB4D /* CurrentUserLocalDataSource.swift in Sources */,
+				113B825428A1DCBE00BAEB7C /* CreateWalletViewModel.swift in Sources */,
 				113F15CC27DEDC3500D52C55 /* CategoryRemoteDataSource.swift in Sources */,
 				113F15C327DEDB7800D52C55 /* Category.swift in Sources */,
 				11F873B6280DDDCF0017DB9D /* TransactionsContainerRemoteDataSourceImpl.swift in Sources */,

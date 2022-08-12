@@ -17,9 +17,11 @@ class CreateTransactionContainerInteractorImpl: CreateTransactionContainerIntera
         self.transactionContainerRemoteDataSource = transactionContainerRemoteDataSource
     }
     
-    func execute(title: String) {
+    func execute(title: String) -> Bool {
         if let user: User = userRemoteDataSource.currentUser() {
-            transactionContainerRemoteDataSource.createContainer(container: TransactionsContainer(id: UUID().uuidString, name: title), user: user)
+            return transactionContainerRemoteDataSource.createContainer(container: TransactionsContainer(id: UUID().uuidString, name: title), user: user)
         }
+        
+        return false
     }
 }

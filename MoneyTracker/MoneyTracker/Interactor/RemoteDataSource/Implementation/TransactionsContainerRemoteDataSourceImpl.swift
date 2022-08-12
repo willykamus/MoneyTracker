@@ -15,22 +15,24 @@ class TransactionsContainerRemoteDataSourceImpl: TransactionsContainerRemoteData
     func getContainers() async -> [TransactionsContainer] {
         var containers: [TransactionsContainer] = []
         let user  = userRemoteDataSource.currentUser()
-        let id: String = user!.id
-        let reference = FirestoreDataBase.database.collection("users").document(id).collection("transactionsContainers")
-        do {
-            let query = try await reference.getDocuments()
-            for document in query.documents {
-                let remoteEntity = try document.data(as: TransactionsContainerRemoteEntity.self)
-                var container = TransactionsContainerRemoteEntityMapper().toTransactionContainer(remoteEntity: remoteEntity)
-                let transactions = await self.getTransactions(from: document, container: container)
-                container.transactions = transactions
-                containers.append(container)
+        if let id: String = user?.id {
+            let reference = FirestoreDataBase.database.collection("users").document(id).collection("transactionsContainers")
+            do {
+                let query = try await reference.getDocuments()
+                for document in query.documents {
+                    let remoteEntity = try document.data(as: TransactionsContainerRemoteEntity.self)
+                    var container = TransactionsContainerRemoteEntityMapper().toTransactionContainer(remoteEntity: remoteEntity)
+                    let transactions = await self.getTransactions(from: document, container: container)
+                    container.transactions = transactions
+                    containers.append(container)
+                }
+                return containers
+            } catch {
+                print(error.localizedDescription)
+                return []
             }
-            return containers
-        } catch {
-            print(error.localizedDescription)
-            return []
         }
+        return []
     }
     
     func createDataBase(for user: User) {
