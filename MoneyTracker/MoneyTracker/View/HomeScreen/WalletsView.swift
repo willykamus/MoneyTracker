@@ -35,9 +35,13 @@ struct WalletsView: View {
                     
                     HStack {
                         Spacer()
-                        FloatingButton(action: { self.viewModel.walletCreated.toggle() })
-                            .padding(.horizontal,32)
-                            .padding(.vertical,16)
+                        Button {
+                            self.viewModel.walletCreated.toggle()
+                        } label: {
+                            FloatingButton()
+                        }
+                        .padding(.horizontal,32)
+                        .padding(.vertical,16)
                     }
                 }
             }

@@ -8,8 +8,8 @@
 import Foundation
 
 protocol TransactionRemoteDataSource {
-    func add(transaction: Transaction, to container: TransactionsContainer) async -> Bool
+    func add(transaction: Transaction, containerId: String, userId: String) async -> Bool
     func delete(transaction: Transaction)
-    func getTransactions(id: String) async -> [Transaction]
+    func getTransactions(containerId: String, userId: String) async -> [Transaction]
     func getAllTransactions() async -> [Transaction]
 }
