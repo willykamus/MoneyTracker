@@ -8,19 +8,22 @@
 import Foundation
 
 protocol GetTransactionsFromContainerInteractor {
-    func execute(id: String) async -> [Transaction]
+    func execute(containerId: String) async -> [Transaction]
 }
 
 class GetTransactionsFromContainerInteractorImpl: GetTransactionsFromContainerInteractor {
     
     var transactionRemoteDataSource: TransactionRemoteDataSource
+    var userRemoteDataSource: UserRemoteDataSource
     
-    init(transactionRemoteDataSource: TransactionRemoteDataSource) {
+    init(transactionRemoteDataSource: TransactionRemoteDataSource, userRemoteDataSource: UserRemoteDataSource) {
         self.transactionRemoteDataSource = transactionRemoteDataSource
+        self.userRemoteDataSource = userRemoteDataSource
     }
     
-    func execute(id: String) async -> [Transaction] {
-        return await self.transactionRemoteDataSource.getTransactions(id: id)
+    func execute(containerId: String) async -> [Transaction] {
+        let user = userRemoteDataSource.currentUser()
+        return await self.transactionRemoteDataSource.getTransactions(containerId: containerId, userId: user!.id)
     }
     
     

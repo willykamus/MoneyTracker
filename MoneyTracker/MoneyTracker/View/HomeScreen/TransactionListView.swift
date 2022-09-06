@@ -22,7 +22,7 @@ struct TransactionListView: View {
                     Button(action: {
                         self.createTransactionOpened.toggle()
                     }, label: {
-                        FloatingButtonView()
+                        FloatingButton()
                     })
                 }
                 .padding(.bottom,20)
