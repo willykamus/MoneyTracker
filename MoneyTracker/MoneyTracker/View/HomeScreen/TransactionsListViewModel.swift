@@ -12,4 +12,12 @@ class TransactionsListViewModel: ObservableObject {
     @Published var transactions: [Transaction] = []
     
     
+    let getTransactionsFromContainerInteractor: GetTransactionsFromContainerInteractor = GetTransactionsFromContainerInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
+    
+    func getTransactions(container: TransactionsContainer) async {
+        self.transactions = container.transactions ?? []
+    }
+    
+    
+    
 }

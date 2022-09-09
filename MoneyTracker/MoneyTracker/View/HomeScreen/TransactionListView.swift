@@ -10,10 +10,22 @@ import SwiftUI
 struct TransactionListView: View {
     
     @State var createTransactionOpened: Bool = false
+    @StateObject var viewModel = TransactionsListViewModel()
+    @Binding var transactionsContainer: TransactionsContainer
     
     var body: some View {
         ZStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            
+            List {
+                ForEach(viewModel.transactions, id: \.self) { transaction in
+                    Text(String(transaction.amount))
+                }
+            }
+            .onAppear {
+                Task {
+                    await self.viewModel.getTransactions(container: self.transactionsContainer)
+                }
+            }
             
             VStack {
                 Spacer()
@@ -42,6 +54,6 @@ struct TransactionListView: View {
 
 struct TransactionListView_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionListView()
+        TransactionListView(transactionsContainer: .constant(TransactionsContainer(id: "", transactions: [], name: "")))
     }
 }
