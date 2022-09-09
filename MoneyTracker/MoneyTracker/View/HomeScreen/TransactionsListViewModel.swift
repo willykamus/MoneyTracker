@@ -15,8 +15,7 @@ class TransactionsListViewModel: ObservableObject {
     let getTransactionsFromContainerInteractor: GetTransactionsFromContainerInteractor = GetTransactionsFromContainerInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
     
     func getTransactions(container: TransactionsContainer) async {
-        let transactions = await self.getTransactionsFromContainerInteractor.execute(containerId: container.id)
-        self.transactions = transactions
+        self.transactions = container.transactions ?? []
     }
     
     
