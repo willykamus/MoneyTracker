@@ -18,7 +18,12 @@ struct TransactionListView: View {
             
             List {
                 ForEach(viewModel.transactions, id: \.self) { transaction in
-                    Text(String(transaction.amount))
+                    HStack {
+                        Text(String(transaction.category))
+                        Spacer()
+                        Text(String(transaction.amount))
+                            .foregroundColor(.gray)
+                    }
                 }
             }
             .onAppear {
