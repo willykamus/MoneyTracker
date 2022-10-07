@@ -8,7 +8,5 @@
 import Foundation
 
 protocol CategoryRemoteDataSource {
-    func getCategories() async -> [Category]
-    func getIncomeCategories(completed: @escaping (Result<[Category], Error>) -> Void)
-    func getExpenseCategories(completed: @escaping (Result<[Category], Error>) -> Void)
+    func getCategories() async -> Result<[Category],Error>
 }
