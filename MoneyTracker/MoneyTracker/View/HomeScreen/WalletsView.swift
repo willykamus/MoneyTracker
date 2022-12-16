@@ -22,7 +22,7 @@ struct WalletsView: View {
                     List {
                         ForEach(viewModel.transactionsContainer) { transactionContainer in
                             NavigationLink {
-                                TransactionListView(transactionsContainer: .constant(transactionContainer))
+                                TransactionListView(transactionsContainer: transactionContainer)
                             } label: {
                                 TransactionsContainerRow(transactionsContainer: transactionContainer)
                             }
