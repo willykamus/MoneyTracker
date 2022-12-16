@@ -11,11 +11,10 @@ struct TransactionListView: View {
     
     @State var createTransactionOpened: Bool = false
     @StateObject var viewModel = TransactionsListViewModel()
-    @Binding var transactionsContainer: TransactionsContainer
+    @State var transactionsContainer: TransactionsContainer
     
     var body: some View {
         ZStack {
-            
             List {
                 ForEach(viewModel.transactions, id: \.self) { transaction in
                     HStack {
@@ -29,6 +28,13 @@ struct TransactionListView: View {
             .onAppear {
                 Task {
                     await self.viewModel.getTransactions(container: self.transactionsContainer)
+                }
+            }
+            .onChange(of: self.createTransactionOpened) { value in
+                if !value {
+                    Task {
+                        await self.viewModel.getTransactions(container: self.transactionsContainer)
+                    }
                 }
             }
             
@@ -59,6 +65,6 @@ struct TransactionListView: View {
 
 struct TransactionListView_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionListView(transactionsContainer: .constant(TransactionsContainer(id: "", transactions: [], name: "")))
+        TransactionListView(transactionsContainer: TransactionsContainer(id: "", transactions: [], name: ""))
     }
 }
