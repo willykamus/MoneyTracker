@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1100E2CC28A6E3AE00FE7B57 /* TransactionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100E2CB28A6E3AE00FE7B57 /* TransactionsListViewModel.swift */; };
 		1100E2CE28A6E46300FE7B57 /* TransactionRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100E2CD28A6E46300FE7B57 /* TransactionRemoteDataSourceImpl.swift */; };
+		11217C00294C354500B405BB /* TransactionSortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11217BFF294C354500B405BB /* TransactionSortOption.swift */; };
+		11217C03294CBC2A00B405BB /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11217C02294CBC2A00B405BB /* TransactionRowView.swift */; };
 		113B825028A1C7C700BAEB7C /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B824F28A1C7C600BAEB7C /* FloatingButton.swift */; };
 		113B825228A1DAD500BAEB7C /* CreateWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B825128A1DAD500BAEB7C /* CreateWalletView.swift */; };
 		113B825428A1DCBE00BAEB7C /* CreateWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B825328A1DCBE00BAEB7C /* CreateWalletViewModel.swift */; };
@@ -50,6 +52,7 @@
 		11801D9D27FDE36A00D9AB4D /* CurrentUserLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11801D9C27FDE36A00D9AB4D /* CurrentUserLocalDataSource.swift */; };
 		11801DA027FDE37D00D9AB4D /* CurrentUserLocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11801D9F27FDE37D00D9AB4D /* CurrentUserLocalDataSourceImpl.swift */; };
 		118BCED627FCD1410057FF91 /* UserRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118BCED527FCD1410057FF91 /* UserRemoteDataSourceImpl.swift */; };
+		118D88DE294EB34E0051A900 /* TransactionsDisplayOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D88DD294EB34E0051A900 /* TransactionsDisplayOption.swift */; };
 		11BCF29C28CB7E7800123E68 /* CategoryRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BCF29B28CB7E7800123E68 /* CategoryRemoteDataSourceImpl.swift */; };
 		11BCF29E28CB808000123E68 /* CategoryRemoteEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BCF29D28CB808000123E68 /* CategoryRemoteEntityMapper.swift */; };
 		11BCF2A028CB80A900123E68 /* CategoryRemoteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BCF29F28CB80A900123E68 /* CategoryRemoteEntity.swift */; };
@@ -104,6 +107,8 @@
 /* Begin PBXFileReference section */
 		1100E2CB28A6E3AE00FE7B57 /* TransactionsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListViewModel.swift; sourceTree = "<group>"; };
 		1100E2CD28A6E46300FE7B57 /* TransactionRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
+		11217BFF294C354500B405BB /* TransactionSortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSortOption.swift; sourceTree = "<group>"; };
+		11217C02294CBC2A00B405BB /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowView.swift; sourceTree = "<group>"; };
 		113B824F28A1C7C600BAEB7C /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		113B825128A1DAD500BAEB7C /* CreateWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletView.swift; sourceTree = "<group>"; };
 		113B825328A1DCBE00BAEB7C /* CreateWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletViewModel.swift; sourceTree = "<group>"; };
@@ -148,6 +153,7 @@
 		11801D9C27FDE36A00D9AB4D /* CurrentUserLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserLocalDataSource.swift; sourceTree = "<group>"; };
 		11801D9F27FDE37D00D9AB4D /* CurrentUserLocalDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserLocalDataSourceImpl.swift; sourceTree = "<group>"; };
 		118BCED527FCD1410057FF91 /* UserRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
+		118D88DD294EB34E0051A900 /* TransactionsDisplayOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsDisplayOption.swift; sourceTree = "<group>"; };
 		11BCF29B28CB7E7800123E68 /* CategoryRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
 		11BCF29D28CB808000123E68 /* CategoryRemoteEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteEntityMapper.swift; sourceTree = "<group>"; };
 		11BCF29F28CB80A900123E68 /* CategoryRemoteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteEntity.swift; sourceTree = "<group>"; };
@@ -207,6 +213,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11217C01294CBBF100B405BB /* List */ = {
+			isa = PBXGroup;
+			children = (
+				11217C02294CBC2A00B405BB /* TransactionRowView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		113F158227DED95000D52C55 = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +291,7 @@
 				113F15C227DEDB7800D52C55 /* Category.swift */,
 				113F15C427DEDB8E00D52C55 /* TransactionType.swift */,
 				113F15C627DEDBA800D52C55 /* User.swift */,
+				11217BFF294C354500B405BB /* TransactionSortOption.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -321,6 +336,7 @@
 				113B825328A1DCBE00BAEB7C /* CreateWalletViewModel.swift */,
 				1100E2CB28A6E3AE00FE7B57 /* TransactionsListViewModel.swift */,
 				115FAD8E28F09F9F0012EEA5 /* AvailableCategoriesView.swift */,
+				118D88DD294EB34E0051A900 /* TransactionsDisplayOption.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -328,6 +344,7 @@
 		11801D8F27FCDB7E00D9AB4D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				11217C01294CBBF100B405BB /* List */,
 				1152189D2813201900E8DA5A /* HomeScreen */,
 				11801D9027FCDB8800D9AB4D /* Login */,
 				11F873AD280DD7090017DB9D /* CreateTransactionContainer.swift */,
@@ -562,6 +579,7 @@
 				118BCED627FCD1410057FF91 /* UserRemoteDataSourceImpl.swift in Sources */,
 				115218A12813204B00E8DA5A /* WalletsView.swift in Sources */,
 				115218A928132B2F00E8DA5A /* GetTransactionsContainerListInteractorImpl.swift in Sources */,
+				11217C00294C354500B405BB /* TransactionSortOption.swift in Sources */,
 				113F15D127DEDCCF00D52C55 /* TransactionContainerRemoteDataSource.swift in Sources */,
 				11BCF2A028CB80A900123E68 /* CategoryRemoteEntity.swift in Sources */,
 				115218A32813221A00E8DA5A /* TransactionsView.swift in Sources */,
@@ -584,6 +602,7 @@
 				11801D9A27FDE30D00D9AB4D /* AuthenticateUserInteractorImpl.swift in Sources */,
 				113F15CE27DEDC6E00D52C55 /* TransactionRemoteDataSource.swift in Sources */,
 				11801D9727FDE16D00D9AB4D /* AuthenticateUserInteractor.swift in Sources */,
+				11217C03294CBC2A00B405BB /* TransactionRowView.swift in Sources */,
 				11E0DA2228D1662200B2C29D /* GetCategoriesInteractorImpl.swift in Sources */,
 				113F159B27DED95200D52C55 /* MoneyTracker.xcdatamodeld in Sources */,
 				11801D9427FCDE8400D9AB4D /* LoginViewModel.swift in Sources */,
@@ -595,6 +614,7 @@
 				11F873B8280DDE920017DB9D /* TransactionsContainerRemoteEntityMapper.swift in Sources */,
 				11F873BC280DDF8F0017DB9D /* FirestoreDataBase.swift in Sources */,
 				11801D9227FCDB9C00D9AB4D /* LoginView.swift in Sources */,
+				118D88DE294EB34E0051A900 /* TransactionsDisplayOption.swift in Sources */,
 				11FF377A2815E4C300466965 /* CreateTransactionView.swift in Sources */,
 				11C8134F28B0212600E94FA9 /* SaveTransactionInteractor.swift in Sources */,
 				113F158F27DED95000D52C55 /* MoneyTrackerApp.swift in Sources */,
@@ -699,7 +719,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -754,7 +774,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -23,7 +23,7 @@ class CreateTransactionViewModel: ObservableObject {
     
     func save(category: Category) async -> Bool {
         if self.validateInput(category: category) {
-            let transaction = Transaction(id: UUID().uuidString, amount: Double(amount)!, category: category.name, date: selectedDate, containerId: selectedContainer!.id)
+            let transaction = Transaction(id: UUID().uuidString, amount: Double(amount)!, category: category.name, date: selectedDate, containerId: selectedContainer!.id, type: category.type)
             return await self.saveTransactionInteractor.execute(transaction: transaction, container: selectedContainer!)
         }
         return false

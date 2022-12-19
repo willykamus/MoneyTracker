@@ -23,7 +23,7 @@ struct CreateTransactionView: View {
                 }
                 
                 Section(header: Text("Date")) {
-                    DatePicker("Date", selection: self.$viewModel.selectedDate, displayedComponents: .date)
+                    DatePicker("Date", selection: self.$viewModel.selectedDate, in: ...Date(), displayedComponents: .date)
                         .datePickerStyle(DefaultDatePickerStyle())
                 }
                 

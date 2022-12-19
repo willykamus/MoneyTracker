@@ -14,6 +14,7 @@ struct TransactionRemoteEntity: Codable {
     var category: String
     var date: Date
     var containerId: String?
+    var type: String = ""
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -21,5 +22,6 @@ struct TransactionRemoteEntity: Codable {
         case amount
         case date
         case containerId
+        case type
     }
 }
