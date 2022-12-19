@@ -9,10 +9,14 @@ import Foundation
 
 class TransactionRemoteEntityMapper {
     func toTransaction(remoteEntity: TransactionRemoteEntity) -> Transaction {
-        return Transaction(id: remoteEntity.id ??  UUID().uuidString, amount: remoteEntity.amount, category: remoteEntity.category, date: remoteEntity.date, containerId: remoteEntity.containerId!)
+        return Transaction(id: remoteEntity.id ??  UUID().uuidString, amount: remoteEntity.amount, category: remoteEntity.category, date: remoteEntity.date, containerId: remoteEntity.containerId!, type: type(value: remoteEntity.type))
     }
     
     func toRemoteEntity(transaction: Transaction) -> TransactionRemoteEntity {
-        return TransactionRemoteEntity(id: transaction.id, amount: transaction.amount, category: transaction.category, date: transaction.date, containerId: transaction.containerId)
+        return TransactionRemoteEntity(id: transaction.id, amount: transaction.amount, category: transaction.category, date: transaction.date, containerId: transaction.containerId, type: transaction.type.rawValue)
+    }
+    
+    func type(value: String) -> TransactionType {
+        return TransactionType(rawValue: value) ?? .expense
     }
 }

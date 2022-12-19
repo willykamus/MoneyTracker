@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TransactionType: String {
+enum TransactionType: String, CaseIterable, Codable {
     case income
     case expense
 }
