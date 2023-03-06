@@ -7,40 +7,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "19BDD0B6-FF8B-400A-A550-A858C726E676"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MoneyTracker/View/HomeScreen/TransactionsListViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "getCurrentMonth()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2B14EA6F-205E-4ED8-810F-E3CD489BDA0E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MoneyTracker/View/HomeScreen/TransactionsListViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "selectMonth(month:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7C842B38-3446-4782-BCA2-82D01330C888"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoneyTracker/View/HomeScreen/TransactionsListViewModel.swift"
@@ -56,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "75B716C1-95B8-492F-AB6E-2AE6D72FB7C4"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoneyTracker/View/HomeScreen/TransactionsListViewModel.swift"
@@ -72,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C9622655-BB9E-4211-82B8-2C0A3433EBFE"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoneyTracker/View/HomeScreen/TransactionsListViewModel.swift"
@@ -82,6 +50,212 @@
             endingLineNumber = "123"
             landmarkName = "sortAll()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98594191-A2B6-4B84-B6A9-FB5CA798EA74"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoneyTrackerTests/MoneyTrackerTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "testTwoWeeksRecurrence()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C6A980C-E456-4CC0-B514-AF3CDBB8310D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoneyTracker/View/HomeScreen/CreateTransactionViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "save(category:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0CAE5CF5-9F55-40E8-A1AE-1EACBA86077E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoneyTracker/View/HomeScreen/CreateTransactionViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "save(category:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DEB537CD-9E9F-4573-8D69-5D2614110E23"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoneyTracker/Interactor/RemoteDataSource/Implementation/TransactionRemoteDataSourceImpl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "add(scheduleTransaction:containerId:userId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F501509-0834-4724-9645-95A748468981"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoneyTracker/Interactor/Interactors/Impl/SaveScheduleTransactionInteractorImpl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "execute(transaction:container:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6F501509-0834-4724-9645-95A748468981 - eb7d36e93b143dea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for MoneyTracker.SaveScheduleTransactionInteractorImpl.execute(transaction: MoneyTracker.ScheduledTransaction, container: MoneyTracker.TransactionsContainer) async -&gt; Swift.Bool"
+                  moduleName = "MoneyTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kamus/MoneyTracker/MoneyTracker/MoneyTracker/Interactor/Interactors/Impl/SaveScheduleTransactionInteractorImpl.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "279">
+               </Location>
+               <Location
+                  uuid = "6F501509-0834-4724-9645-95A748468981 - 8b810dbab2043fcc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for MoneyTracker.SaveScheduleTransactionInteractorImpl.execute(transaction: MoneyTracker.ScheduledTransaction, container: MoneyTracker.TransactionsContainer) async -&gt; Swift.Bool"
+                  moduleName = "MoneyTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kamus/MoneyTracker/MoneyTracker/MoneyTracker/Interactor/Interactors/Impl/SaveScheduleTransactionInteractorImpl.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  uuid = "6F501509-0834-4724-9645-95A748468981 - 463171e41ebd71ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for MoneyTracker.SaveScheduleTransactionInteractorImpl.execute(transaction: MoneyTracker.ScheduledTransaction, container: MoneyTracker.TransactionsContainer) async -&gt; Swift.Bool"
+                  moduleName = "MoneyTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kamus/MoneyTracker/MoneyTracker/MoneyTracker/Interactor/Interactors/Impl/SaveScheduleTransactionInteractorImpl.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "83">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB63C9A5-2D9A-4F6B-94FA-0F432EE8AA5F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoneyTracker/Interactor/RemoteDataSource/Implementation/TransactionRemoteDataSourceImpl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "add(transaction:containerId:userId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "061898A7-CD5C-442B-9200-D4BA77DCF81F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoneyTracker/View/HomeScreen/CreateTransactionViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "save(category:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "061898A7-CD5C-442B-9200-D4BA77DCF81F - 40f1c18a5752950c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for MoneyTracker.CreateTransactionViewModel.save(category: MoneyTracker.Category) async -&gt; Swift.Bool"
+                  moduleName = "MoneyTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kamus/MoneyTracker/MoneyTracker/MoneyTracker/View/HomeScreen/CreateTransactionViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "2077">
+               </Location>
+               <Location
+                  uuid = "061898A7-CD5C-442B-9200-D4BA77DCF81F - ba837fb78b1b0da9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for MoneyTracker.CreateTransactionViewModel.save(category: MoneyTracker.Category) async -&gt; Swift.Bool"
+                  moduleName = "MoneyTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kamus/MoneyTracker/MoneyTracker/MoneyTracker/View/HomeScreen/CreateTransactionViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  uuid = "061898A7-CD5C-442B-9200-D4BA77DCF81F - 8a2e82a2bcb3550e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for MoneyTracker.CreateTransactionViewModel.save(category: MoneyTracker.Category) async -&gt; Swift.Bool"
+                  moduleName = "MoneyTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kamus/MoneyTracker/MoneyTracker/MoneyTracker/View/HomeScreen/CreateTransactionViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "106">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

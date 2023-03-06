@@ -15,6 +15,7 @@ struct TransactionsContainer: Identifiable, Hashable, Codable {
     
     var id: String
     var transactions: [Transaction]?
+    var scheduledTransactions: [ScheduledTransaction]?
     var name: String
     
     enum CodingKeys: String, CodingKey {

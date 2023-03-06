@@ -14,7 +14,7 @@ class TransactionsContainerRemoteEntityMapper {
     }
     
     func toTransactionContainer(remoteEntity: TransactionsContainerRemoteEntity) -> TransactionsContainer {
-        return TransactionsContainer(id: remoteEntity.id ?? UUID().uuidString, transactions: nil, name: remoteEntity.name)
+        return TransactionsContainer(id: remoteEntity.id ?? UUID().uuidString, transactions: [], scheduledTransactions: [], name: remoteEntity.name)
     }
 
 }

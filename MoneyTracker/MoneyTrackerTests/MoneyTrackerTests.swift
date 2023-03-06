@@ -19,11 +19,57 @@ class MoneyTrackerTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        // Given
+        let transaction = Transaction(id: "1", amount: 1, category: "Casa", date: Date(), containerId: "2", type: .expense, recurrence: .never)
+        
+        // When
+        let startOfMonth = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: Date())))!
+        print(startOfMonth)
+        let lastOfMonth = Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth)!
+        print(lastOfMonth)
+        let weeks = Calendar.current.dateComponents([.weekOfMonth], from: Date(), to: lastOfMonth).weekOfMonth
+        print(weeks)
+        let days = Calendar.current.numberOfDaysBetween(from: Date(), to: Date().endOfMonth())
+        print(days)
+        let currentDay = Calendar.current.dateComponents([.day], from: transaction.date).day
+        print(currentDay)
+        print(2 % 2)
+    }
+    
+    func testDailyRecurrence() {
+        // Given
+        let transaction = Transaction(id: "1", amount: 1.0, category: "category", date: Date.now, containerId: "wallet", type: .income, recurrence: .day)
+        
+        // When
+        let interactor: CreateMonthScheduleTransactions = CreateMonthScheduleTransactionsImpl()
+        let transactions = interactor.execute(transactions: [transaction])
+        
+        // Then
+        XCTAssertEqual(transactions.count, 6)
+    }
+    
+    func testWeeklyRecurrence() {
+        // Given
+        let transaction = Transaction(id: "1", amount: 1.0, category: "category", date: Date(timeIntervalSince1970: 1675253635), containerId: "wallet", type: .income, recurrence: .week)
+        
+        // When
+        let interactor: CreateMonthScheduleTransactions = CreateMonthScheduleTransactionsImpl()
+        let transactions = interactor.execute(transactions: [transaction])
+        print(transactions)
+        // Then
+        XCTAssertEqual(transactions.count, 3)
+    }
+    
+    func testTwoWeeksRecurrence() {
+        // Given
+        let transaction = Transaction(id: "1", amount: 1.0, category: "category", date: Date(timeIntervalSince1970: 1675253635), containerId: "wallet", type: .income, recurrence: .twoWeeks)
+        
+        // When
+        let interactor: CreateMonthScheduleTransactions = CreateMonthScheduleTransactionsImpl()
+        let transactions = interactor.execute(transactions: [transaction])
+        print(transactions)
+        // Then
+        XCTAssertEqual(transactions.count, 1)
     }
 
     func testPerformanceExample() throws {

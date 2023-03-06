@@ -16,14 +16,20 @@ class CreateTransactionViewModel: ObservableObject {
     @Published var inputsValidated: Bool = false
     @Published var incomeCategories: [Category] = []
     @Published var expensesCategories: [Category] = []
+    @Published var selectedRecurrence: Recurrence = .never
     
     let saveTransactionInteractor: SaveTransactionInteractor = SaveTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
+    let saveScheduleTransactionInteractor: SaveScheduleTransactionInteractor = SaveScheduleTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
     
     let getCategories: GetCategoriesInteractor = GetCategoriesInteractorImpl()
     
     func save(category: Category) async -> Bool {
         if self.validateInput(category: category) {
             let transaction = Transaction(id: UUID().uuidString, amount: Double(amount)!, category: category.name, date: selectedDate, containerId: selectedContainer!.id, type: category.type)
+            if selectedRecurrence != .never {
+                let scheduleTransaction = ScheduledTransaction(id: UUID().uuidString, transaction: transaction, recurrence: selectedRecurrence)
+                return await self.saveScheduleTransactionInteractor.execute(transaction: scheduleTransaction, container: selectedContainer!)
+            }
             return await self.saveTransactionInteractor.execute(transaction: transaction, container: selectedContainer!)
         }
         return false

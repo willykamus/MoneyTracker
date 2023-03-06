@@ -54,6 +54,16 @@ struct TransactionListView: View {
                 }.padding(.bottom, 16)
                 
                 List {
+                    if self.transactionsContainer.scheduledTransactions?.count ?? 0 > 0 {
+                        Section {
+                            NavigationLink {
+                                Text("Schedules transactions")
+                            } label: {
+                                Text("Schedules transactions")
+                            }
+
+                        }
+                    }
                     if !viewModel.sections.isEmpty {
                         ForEach(viewModel.sections, id: \.self) { section in
                             Section(section.title) {

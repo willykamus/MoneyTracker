@@ -11,6 +11,7 @@ struct CreateTransactionView: View {
     
     @Binding var createTransactionOpened: Bool
     @State var transactionContainersPresented: Bool = false
+    @State var recurrenceListOpened: Bool = false
     @State var selectedCategory: Category = Category(id: "", type: .income, name: "")
     @State var categoryListPresented: Bool = false
     @StateObject var viewModel: CreateTransactionViewModel = CreateTransactionViewModel()
@@ -23,7 +24,7 @@ struct CreateTransactionView: View {
                 }
                 
                 Section(header: Text("Date")) {
-                    DatePicker("Date", selection: self.$viewModel.selectedDate, in: ...Date(), displayedComponents: .date)
+                    DatePicker("Date", selection: self.$viewModel.selectedDate, displayedComponents: .date)
                         .datePickerStyle(DefaultDatePickerStyle())
                 }
                 
@@ -56,6 +57,16 @@ struct CreateTransactionView: View {
                                 Text(self.viewModel.selectedContainer?.name ?? "").foregroundColor(.gray)
                             }
                         })
+                }
+                
+                Section(header: Text("Recurrence")) {
+                    NavigationLink(destination: RecurrenceList(selectedRecurrence: self.$viewModel.selectedRecurrence, recurrenceListPresented: self.$recurrenceListOpened), isActive: self.$recurrenceListOpened) {
+                        HStack {
+                            Text("Recurrence")
+                            Spacer()
+                            Text(RecurrenceMapper().value(recurrence: self.viewModel.selectedRecurrence)).foregroundColor(.gray)
+                        }
+                    }
                 }
                 
                 Section {

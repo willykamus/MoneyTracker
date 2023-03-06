@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1100E2CC28A6E3AE00FE7B57 /* TransactionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100E2CB28A6E3AE00FE7B57 /* TransactionsListViewModel.swift */; };
 		1100E2CE28A6E46300FE7B57 /* TransactionRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100E2CD28A6E46300FE7B57 /* TransactionRemoteDataSourceImpl.swift */; };
+		110DC0A829980BE800D370FA /* TransactionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DC0A729980BE800D370FA /* TransactionState.swift */; };
+		110DC0AA299810C600D370FA /* ScheduledTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DC0A9299810C600D370FA /* ScheduledTransaction.swift */; };
+		110DC0AC29981CB100D370FA /* Recurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DC0AB29981CB100D370FA /* Recurrence.swift */; };
+		110DC0B12998706200D370FA /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DC0B02998706200D370FA /* DateExtension.swift */; };
 		11217C00294C354500B405BB /* TransactionSortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11217BFF294C354500B405BB /* TransactionSortOption.swift */; };
 		11217C03294CBC2A00B405BB /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11217C02294CBC2A00B405BB /* TransactionRowView.swift */; };
 		113B825028A1C7C700BAEB7C /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B824F28A1C7C600BAEB7C /* FloatingButton.swift */; };
@@ -80,6 +84,17 @@
 		11F873B8280DDE920017DB9D /* TransactionsContainerRemoteEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F873B7280DDE920017DB9D /* TransactionsContainerRemoteEntityMapper.swift */; };
 		11F873BA280DDEBE0017DB9D /* TransactionsContainerRemoteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F873B9280DDEBE0017DB9D /* TransactionsContainerRemoteEntity.swift */; };
 		11F873BC280DDF8F0017DB9D /* FirestoreDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F873BB280DDF8F0017DB9D /* FirestoreDataBase.swift */; };
+		11FACC7F29997F70002DC395 /* CreateMonthScheduleTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACC7E29997F70002DC395 /* CreateMonthScheduleTransactions.swift */; };
+		11FACC8229A6F711002DC395 /* RecurrenceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACC8129A6F711002DC395 /* RecurrenceMapper.swift */; };
+		11FACC8429A6FD39002DC395 /* RecurrenceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACC8329A6FD39002DC395 /* RecurrenceList.swift */; };
+		11FACC8629A7B45B002DC395 /* ScheduledTransactionRemoteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACC8529A7B45B002DC395 /* ScheduledTransactionRemoteEntity.swift */; };
+		11FACC8829A7B68C002DC395 /* ScheduledTransactionRemoteEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACC8729A7B68C002DC395 /* ScheduledTransactionRemoteEntityMapper.swift */; };
+		11FACC8A29A7DB8A002DC395 /* SaveScheduleTransactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACC8929A7DB8A002DC395 /* SaveScheduleTransactionInteractor.swift */; };
+		11FACC8C29A7DBC4002DC395 /* SaveScheduleTransactionInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACC8B29A7DBC4002DC395 /* SaveScheduleTransactionInteractorImpl.swift */; };
+		11FACC8E29ABC440002DC395 /* UpdateScheduledTransactionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACC8D29ABC440002DC395 /* UpdateScheduledTransactionsInteractor.swift */; };
+		11FACC9029ABC46A002DC395 /* UpdateScheduledTransactionsInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACC8F29ABC46A002DC395 /* UpdateScheduledTransactionsInteractorImpl.swift */; };
+		11FACC9229ABC6B1002DC395 /* DeleteScheduledTransactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACC9129ABC6B1002DC395 /* DeleteScheduledTransactionInteractor.swift */; };
+		11FACC9429ABC6DC002DC395 /* DeleteScheduledTransactionInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACC9329ABC6DC002DC395 /* DeleteScheduledTransactionInteractorImpl.swift */; };
 		11FF37762815E16D00466965 /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF37752815E16D00466965 /* TransactionListView.swift */; };
 		11FF37782815E40400466965 /* FloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF37772815E40400466965 /* FloatingButtonView.swift */; };
 		11FF377A2815E4C300466965 /* CreateTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF37792815E4C300466965 /* CreateTransactionView.swift */; };
@@ -107,6 +122,10 @@
 /* Begin PBXFileReference section */
 		1100E2CB28A6E3AE00FE7B57 /* TransactionsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListViewModel.swift; sourceTree = "<group>"; };
 		1100E2CD28A6E46300FE7B57 /* TransactionRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
+		110DC0A729980BE800D370FA /* TransactionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionState.swift; sourceTree = "<group>"; };
+		110DC0A9299810C600D370FA /* ScheduledTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledTransaction.swift; sourceTree = "<group>"; };
+		110DC0AB29981CB100D370FA /* Recurrence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recurrence.swift; sourceTree = "<group>"; };
+		110DC0B02998706200D370FA /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		11217BFF294C354500B405BB /* TransactionSortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSortOption.swift; sourceTree = "<group>"; };
 		11217C02294CBC2A00B405BB /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowView.swift; sourceTree = "<group>"; };
 		113B824F28A1C7C600BAEB7C /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
@@ -169,6 +188,17 @@
 		11F873B7280DDE920017DB9D /* TransactionsContainerRemoteEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsContainerRemoteEntityMapper.swift; sourceTree = "<group>"; };
 		11F873B9280DDEBE0017DB9D /* TransactionsContainerRemoteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsContainerRemoteEntity.swift; sourceTree = "<group>"; };
 		11F873BB280DDF8F0017DB9D /* FirestoreDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDataBase.swift; sourceTree = "<group>"; };
+		11FACC7E29997F70002DC395 /* CreateMonthScheduleTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMonthScheduleTransactions.swift; sourceTree = "<group>"; };
+		11FACC8129A6F711002DC395 /* RecurrenceMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceMapper.swift; sourceTree = "<group>"; };
+		11FACC8329A6FD39002DC395 /* RecurrenceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceList.swift; sourceTree = "<group>"; };
+		11FACC8529A7B45B002DC395 /* ScheduledTransactionRemoteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledTransactionRemoteEntity.swift; sourceTree = "<group>"; };
+		11FACC8729A7B68C002DC395 /* ScheduledTransactionRemoteEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledTransactionRemoteEntityMapper.swift; sourceTree = "<group>"; };
+		11FACC8929A7DB8A002DC395 /* SaveScheduleTransactionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveScheduleTransactionInteractor.swift; sourceTree = "<group>"; };
+		11FACC8B29A7DBC4002DC395 /* SaveScheduleTransactionInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveScheduleTransactionInteractorImpl.swift; sourceTree = "<group>"; };
+		11FACC8D29ABC440002DC395 /* UpdateScheduledTransactionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateScheduledTransactionsInteractor.swift; sourceTree = "<group>"; };
+		11FACC8F29ABC46A002DC395 /* UpdateScheduledTransactionsInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateScheduledTransactionsInteractorImpl.swift; sourceTree = "<group>"; };
+		11FACC9129ABC6B1002DC395 /* DeleteScheduledTransactionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteScheduledTransactionInteractor.swift; sourceTree = "<group>"; };
+		11FACC9329ABC6DC002DC395 /* DeleteScheduledTransactionInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteScheduledTransactionInteractorImpl.swift; sourceTree = "<group>"; };
 		11FF37752815E16D00466965 /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
 		11FF37772815E40400466965 /* FloatingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonView.swift; sourceTree = "<group>"; };
 		11FF37792815E4C300466965 /* CreateTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTransactionView.swift; sourceTree = "<group>"; };
@@ -213,6 +243,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		110DC0AF2998704E00D370FA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				110DC0B02998706200D370FA /* DateExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		11217C01294CBBF100B405BB /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +282,7 @@
 		113F158D27DED95000D52C55 /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				110DC0AF2998704E00D370FA /* Extension */,
 				11801D8F27FCDB7E00D9AB4D /* View */,
 				11801D8D27FCDAAD00D9AB4D /* GoogleService-Info.plist */,
 				113F15C827DEDBB400D52C55 /* Interactor */,
@@ -286,12 +325,16 @@
 		113F15BD27DEDABF00D52C55 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				11FACC8029A6F6FE002DC395 /* Mappers */,
 				113F15BE27DEDB3100D52C55 /* Transaction.swift */,
 				113F15C027DEDB4A00D52C55 /* TransactionsContainer.swift */,
 				113F15C227DEDB7800D52C55 /* Category.swift */,
 				113F15C427DEDB8E00D52C55 /* TransactionType.swift */,
 				113F15C627DEDBA800D52C55 /* User.swift */,
 				11217BFF294C354500B405BB /* TransactionSortOption.swift */,
+				110DC0A729980BE800D370FA /* TransactionState.swift */,
+				110DC0A9299810C600D370FA /* ScheduledTransaction.swift */,
+				110DC0AB29981CB100D370FA /* Recurrence.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -337,6 +380,7 @@
 				1100E2CB28A6E3AE00FE7B57 /* TransactionsListViewModel.swift */,
 				115FAD8E28F09F9F0012EEA5 /* AvailableCategoriesView.swift */,
 				118D88DD294EB34E0051A900 /* TransactionsDisplayOption.swift */,
+				11FACC8329A6FD39002DC395 /* RecurrenceList.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -373,6 +417,10 @@
 				115218A628132AF000E8DA5A /* GetTransactionsContainerListInteractor.swift */,
 				11C8134E28B0212600E94FA9 /* SaveTransactionInteractor.swift */,
 				11E0DA1F28D163E400B2C29D /* GetCategoriesInteractor.swift */,
+				11FACC7E29997F70002DC395 /* CreateMonthScheduleTransactions.swift */,
+				11FACC8929A7DB8A002DC395 /* SaveScheduleTransactionInteractor.swift */,
+				11FACC8D29ABC440002DC395 /* UpdateScheduledTransactionsInteractor.swift */,
+				11FACC9129ABC6B1002DC395 /* DeleteScheduledTransactionInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -385,6 +433,9 @@
 				115218A828132B2F00E8DA5A /* GetTransactionsContainerListInteractorImpl.swift */,
 				11C8135028B0215A00E94FA9 /* SaveTransactionInteractorImpl.swift */,
 				11E0DA2128D1662200B2C29D /* GetCategoriesInteractorImpl.swift */,
+				11FACC8B29A7DBC4002DC395 /* SaveScheduleTransactionInteractorImpl.swift */,
+				11FACC8F29ABC46A002DC395 /* UpdateScheduledTransactionsInteractorImpl.swift */,
+				11FACC9329ABC6DC002DC395 /* DeleteScheduledTransactionInteractorImpl.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -420,8 +471,18 @@
 				11BCF29B28CB7E7800123E68 /* CategoryRemoteDataSourceImpl.swift */,
 				11BCF29D28CB808000123E68 /* CategoryRemoteEntityMapper.swift */,
 				11BCF29F28CB80A900123E68 /* CategoryRemoteEntity.swift */,
+				11FACC8529A7B45B002DC395 /* ScheduledTransactionRemoteEntity.swift */,
+				11FACC8729A7B68C002DC395 /* ScheduledTransactionRemoteEntityMapper.swift */,
 			);
 			path = Implementation;
+			sourceTree = "<group>";
+		};
+		11FACC8029A6F6FE002DC395 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				11FACC8129A6F711002DC395 /* RecurrenceMapper.swift */,
+			);
+			path = Mappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -574,31 +635,42 @@
 			files = (
 				113F15D327DEDDCB00D52C55 /* GetAllTransactionsInteractor.swift in Sources */,
 				11FF37782815E40400466965 /* FloatingButtonView.swift in Sources */,
+				11FACC9229ABC6B1002DC395 /* DeleteScheduledTransactionInteractor.swift in Sources */,
 				113B825028A1C7C700BAEB7C /* FloatingButton.swift in Sources */,
+				110DC0AC29981CB100D370FA /* Recurrence.swift in Sources */,
 				11F873AE280DD7090017DB9D /* CreateTransactionContainer.swift in Sources */,
+				11FACC8C29A7DBC4002DC395 /* SaveScheduleTransactionInteractorImpl.swift in Sources */,
 				118BCED627FCD1410057FF91 /* UserRemoteDataSourceImpl.swift in Sources */,
 				115218A12813204B00E8DA5A /* WalletsView.swift in Sources */,
 				115218A928132B2F00E8DA5A /* GetTransactionsContainerListInteractorImpl.swift in Sources */,
 				11217C00294C354500B405BB /* TransactionSortOption.swift in Sources */,
 				113F15D127DEDCCF00D52C55 /* TransactionContainerRemoteDataSource.swift in Sources */,
+				11FACC8829A7B68C002DC395 /* ScheduledTransactionRemoteEntityMapper.swift in Sources */,
 				11BCF2A028CB80A900123E68 /* CategoryRemoteEntity.swift in Sources */,
 				115218A32813221A00E8DA5A /* TransactionsView.swift in Sources */,
 				11FF377C2815E4D700466965 /* CreateTransactionViewModel.swift in Sources */,
 				113F15C527DEDB8E00D52C55 /* TransactionType.swift in Sources */,
 				11E0DA2028D163E400B2C29D /* GetCategoriesInteractor.swift in Sources */,
+				110DC0A829980BE800D370FA /* TransactionState.swift in Sources */,
 				11C8135128B0215A00E94FA9 /* SaveTransactionInteractorImpl.swift in Sources */,
 				1100E2CC28A6E3AE00FE7B57 /* TransactionsListViewModel.swift in Sources */,
+				11FACC9429ABC6DC002DC395 /* DeleteScheduledTransactionInteractorImpl.swift in Sources */,
 				11F873B4280DDC550017DB9D /* CreateTransactionContainerInteractorImpl.swift in Sources */,
 				11F873BA280DDEBE0017DB9D /* TransactionsContainerRemoteEntity.swift in Sources */,
 				115218AF28132E9800E8DA5A /* TransactionRemoteEntityMapper.swift in Sources */,
+				110DC0AA299810C600D370FA /* ScheduledTransaction.swift in Sources */,
 				11F873B0280DD7670017DB9D /* CreateTransactionContainerInteractor.swift in Sources */,
 				115218AD28132E6A00E8DA5A /* TransactionRemoteEntity.swift in Sources */,
+				11FACC8429A6FD39002DC395 /* RecurrenceList.swift in Sources */,
 				113F15C127DEDB4A00D52C55 /* TransactionsContainer.swift in Sources */,
 				113F159827DED95200D52C55 /* Persistence.swift in Sources */,
 				11F873B2280DDB370017DB9D /* CreateTransactionContainerViewModel.swift in Sources */,
+				11FACC8629A7B45B002DC395 /* ScheduledTransactionRemoteEntity.swift in Sources */,
 				115218A728132AF000E8DA5A /* GetTransactionsContainerListInteractor.swift in Sources */,
 				11FF37762815E16D00466965 /* TransactionListView.swift in Sources */,
 				115218A528132AC600E8DA5A /* TransactionsContainerRow.swift in Sources */,
+				110DC0B12998706200D370FA /* DateExtension.swift in Sources */,
+				11FACC9029ABC46A002DC395 /* UpdateScheduledTransactionsInteractorImpl.swift in Sources */,
 				11801D9A27FDE30D00D9AB4D /* AuthenticateUserInteractorImpl.swift in Sources */,
 				113F15CE27DEDC6E00D52C55 /* TransactionRemoteDataSource.swift in Sources */,
 				11801D9727FDE16D00D9AB4D /* AuthenticateUserInteractor.swift in Sources */,
@@ -618,14 +690,18 @@
 				11FF377A2815E4C300466965 /* CreateTransactionView.swift in Sources */,
 				11C8134F28B0212600E94FA9 /* SaveTransactionInteractor.swift in Sources */,
 				113F158F27DED95000D52C55 /* MoneyTrackerApp.swift in Sources */,
+				11FACC8E29ABC440002DC395 /* UpdateScheduledTransactionsInteractor.swift in Sources */,
 				113F15D527DEDE8F00D52C55 /* GetTransactionsFromContainerInteractor.swift in Sources */,
 				11BCF29E28CB808000123E68 /* CategoryRemoteEntityMapper.swift in Sources */,
 				115218AB28132B9200E8DA5A /* TransactionsContainerListViewModel.swift in Sources */,
 				113F15BF27DEDB3100D52C55 /* Transaction.swift in Sources */,
 				1100E2CE28A6E46300FE7B57 /* TransactionRemoteDataSourceImpl.swift in Sources */,
+				11FACC8229A6F711002DC395 /* RecurrenceMapper.swift in Sources */,
 				11801D9D27FDE36A00D9AB4D /* CurrentUserLocalDataSource.swift in Sources */,
+				11FACC8A29A7DB8A002DC395 /* SaveScheduleTransactionInteractor.swift in Sources */,
 				113B825428A1DCBE00BAEB7C /* CreateWalletViewModel.swift in Sources */,
 				115FAD8F28F09F9F0012EEA5 /* AvailableCategoriesView.swift in Sources */,
+				11FACC7F29997F70002DC395 /* CreateMonthScheduleTransactions.swift in Sources */,
 				113F15CC27DEDC3500D52C55 /* CategoryRemoteDataSource.swift in Sources */,
 				113F15C327DEDB7800D52C55 /* Category.swift in Sources */,
 				11F873B6280DDDCF0017DB9D /* TransactionsContainerRemoteDataSourceImpl.swift in Sources */,
@@ -851,7 +927,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3JF6M2L57N;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ching.MoneyTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -871,7 +947,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3JF6M2L57N;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ching.MoneyTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
