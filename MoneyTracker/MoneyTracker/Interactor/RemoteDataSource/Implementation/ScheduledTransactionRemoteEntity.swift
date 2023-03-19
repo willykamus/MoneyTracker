@@ -14,7 +14,8 @@ struct ScheduledTransactionRemoteEntity: Codable {
     var category: String
     var nextDate: Date
     var endDate: Date?
-    var containerId: String?
+    var containerId: String
+    var containerName: String
     var type: String = ""
     var recurrence: String = ""
     
@@ -25,6 +26,7 @@ struct ScheduledTransactionRemoteEntity: Codable {
         case nextDate
         case endDate
         case containerId
+        case containerName
         case type
         case recurrence
     }

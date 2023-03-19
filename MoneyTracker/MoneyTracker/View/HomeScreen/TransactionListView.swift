@@ -57,7 +57,7 @@ struct TransactionListView: View {
                     if self.transactionsContainer.scheduledTransactions?.count ?? 0 > 0 {
                         Section {
                             NavigationLink {
-                                Text("Schedules transactions")
+                                ScheduledTransactionList(scheduleTransactions: self.transactionsContainer.scheduledTransactions!)
                             } label: {
                                 Text("Schedules transactions")
                             }

@@ -13,5 +13,6 @@ struct Transaction: Identifiable, Hashable, Codable {
     var category: String
     var date: Date
     var containerId: String
+    var containerName: String
     var type: TransactionType
 }
