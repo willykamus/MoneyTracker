@@ -17,8 +17,8 @@ class SaveScheduleTransactionInteractorImpl: SaveScheduleTransactionInteractor {
         self.userRemoteDataSource = userRemoteDataSource
     }
     
-    func execute(transaction: ScheduledTransaction, container: TransactionsContainer) async -> Bool {
+    func execute(transaction: ScheduledTransaction, container: TransactionsContainer) async {
         let user = userRemoteDataSource.currentUser()
-        return await self.transactionRemoteDataSource.add(scheduleTransaction: transaction, containerId: container.id, userId: user!.id)
+        await self.transactionRemoteDataSource.add(scheduleTransaction: transaction, containerId: container.id, userId: user!.id)
     }
 }

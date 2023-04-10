@@ -26,11 +26,27 @@ class CreateNextScheduleTransactionsImpl: CreateNextScheduleTransactions {
                 }
             case .week:
                 let weeks = Calendar.current.dateComponents([.weekOfMonth], from: date, to: date.endOfMonth()).weekOfMonth ?? 0
-                for i in 0..<weeks {
-                    let newTransaction = Transaction(id: "", amount: scheduledTransaction.transaction.amount, category: scheduledTransaction.transaction.category, date: Calendar.current.date(byAdding: .weekOfMonth, value: i + 1, to: date)!, containerId: scheduledTransaction.transaction.containerId, containerName: scheduledTransaction.transaction.containerName, type: scheduledTransaction.transaction.type)
-                    let scheduled = ScheduledTransaction(id: UUID().uuidString, transaction: newTransaction, recurrence: scheduledTransaction.recurrence)
-                    newTransactions.append(scheduled)
+                if weeks > 0 {
+                    for i in 0..<weeks {
+                        let newTransaction = Transaction(id: "", amount: scheduledTransaction.transaction.amount, category: scheduledTransaction.transaction.category, date: Calendar.current.date(byAdding: .weekOfMonth, value: i + 1, to: date)!, containerId: scheduledTransaction.transaction.containerId, containerName: scheduledTransaction.transaction.containerName, type: scheduledTransaction.transaction.type)
+                        let scheduled = ScheduledTransaction(id: UUID().uuidString, transaction: newTransaction, recurrence: scheduledTransaction.recurrence)
+                        newTransactions.append(scheduled)
+                    }
+                } else {
+                    let nextMonth = Calendar.current.date(byAdding: .weekOfMonth, value: 1, to: date)!
+                    let weeks = Calendar.current.dateComponents([.weekOfMonth], from: nextMonth, to: nextMonth.endOfMonth()).weekOfMonth ?? 0
+                    if weeks > 0 {
+                        let newTransaction = Transaction(id: "", amount: scheduledTransaction.transaction.amount, category: scheduledTransaction.transaction.category, date: nextMonth, containerId: scheduledTransaction.transaction.containerId, containerName: scheduledTransaction.transaction.containerName, type: scheduledTransaction.transaction.type)
+                        let scheduled = ScheduledTransaction(id: UUID().uuidString, transaction: newTransaction, recurrence: scheduledTransaction.recurrence)
+                        newTransactions.append(scheduled)
+                        for i in 0..<weeks {
+                            let newTransaction = Transaction(id: "", amount: scheduledTransaction.transaction.amount, category: scheduledTransaction.transaction.category, date: Calendar.current.date(byAdding: .weekOfMonth, value: i + 1, to: nextMonth)!, containerId: scheduledTransaction.transaction.containerId, containerName: scheduledTransaction.transaction.containerName, type: scheduledTransaction.transaction.type)
+                            let scheduled = ScheduledTransaction(id: UUID().uuidString, transaction: newTransaction, recurrence: scheduledTransaction.recurrence)
+                            newTransactions.append(scheduled)
+                        }
+                    }
                 }
+
             case .twoWeeks:
                 let remainingWeeks = Calendar.current.dateComponents([.weekOfMonth], from: date, to: date.endOfMonth()).weekOfMonth ?? 0
                 if (remainingWeeks / 2) >= 1 {
@@ -41,7 +57,7 @@ class CreateNextScheduleTransactionsImpl: CreateNextScheduleTransactions {
                     }
                 }
             case .month:
-                var newTransaction = Transaction(id: UUID().uuidString, amount: scheduledTransaction.transaction.amount, category: scheduledTransaction.transaction.category, date: Calendar.current.date(byAdding: .month, value: 1, to: date)!, containerId: scheduledTransaction.transaction.containerId, containerName: scheduledTransaction.transaction.containerName, type: scheduledTransaction.transaction.type)
+                let newTransaction = Transaction(id: UUID().uuidString, amount: scheduledTransaction.transaction.amount, category: scheduledTransaction.transaction.category, date: Calendar.current.date(byAdding: .month, value: 1, to: date)!, containerId: scheduledTransaction.transaction.containerId, containerName: scheduledTransaction.transaction.containerName, type: scheduledTransaction.transaction.type)
                 let scheduled = ScheduledTransaction(id: UUID().uuidString, transaction: newTransaction, recurrence: scheduledTransaction.recurrence)
                 newTransactions.append(scheduled)
             default:

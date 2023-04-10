@@ -11,6 +11,7 @@ struct ScheduledTransactionList: View {
     
     var scheduleTransactions: [ScheduledTransaction]
     
+    
     @StateObject var scheduledTransactionListViewModel: ScheduledTransactionListViewModel
     
     init(scheduleTransactions: [ScheduledTransaction]) {
@@ -20,12 +21,18 @@ struct ScheduledTransactionList: View {
     
     var body: some View {
         List(scheduledTransactionListViewModel.sections) { section in
-            Section(section.date.description) {
+            Section(getDateFormatted(date: section.date)) {
                 ForEach(section.scheduledTransactions, id: \.self) { scheduleTransaction in
                     ScheduledTransactionRow(scheduledTransaction: scheduleTransaction)
                 }
             }
-        }
+        }.listStyle(.grouped)
+    }
+    
+    private func getDateFormatted(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd"
+        return formatter.string(from: date)
     }
 }
 

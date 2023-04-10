@@ -17,66 +17,22 @@ class MoneyTrackerTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // Given
-        let transaction = Transaction(id: "1", amount: 1, category: "Casa", date: Date(), containerId: "2", type: .expense, recurrence: .never)
-        
-        // When
-        let startOfMonth = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: Date())))!
-        print(startOfMonth)
-        let lastOfMonth = Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth)!
-        print(lastOfMonth)
-        let weeks = Calendar.current.dateComponents([.weekOfMonth], from: Date(), to: lastOfMonth).weekOfMonth
-        print(weeks)
-        let days = Calendar.current.numberOfDaysBetween(from: Date(), to: Date().endOfMonth())
-        print(days)
-        let currentDay = Calendar.current.dateComponents([.day], from: transaction.date).day
-        print(currentDay)
-        print(2 % 2)
-    }
     
-    func testDailyRecurrence() {
-        // Given
-        let transaction = Transaction(id: "1", amount: 1.0, category: "category", date: Date.now, containerId: "wallet", type: .income, recurrence: .day)
+    func testDate() {
+        //Given
+        let date = Date(timeIntervalSince1970: 1680148800)
+        let scheduleTransaction = ScheduledTransaction(id: "1", transaction: Transaction(id: "2", amount: 1.0, category: "", date: date, containerId: "container", containerName: "Name", type: .expense), recurrence: .week)
         
         // When
-        let interactor: CreateMonthScheduleTransactions = CreateMonthScheduleTransactionsImpl()
-        let transactions = interactor.execute(transactions: [transaction])
+        let createNextScheduleTransactions: CreateNextScheduleTransactions = CreateNextScheduleTransactionsImpl()
+        let futureTransactions = createNextScheduleTransactions.execute(scheduledTransactions: [scheduleTransaction])
         
         // Then
-        XCTAssertEqual(transactions.count, 6)
-    }
-    
-    func testWeeklyRecurrence() {
-        // Given
-        let transaction = Transaction(id: "1", amount: 1.0, category: "category", date: Date(timeIntervalSince1970: 1675253635), containerId: "wallet", type: .income, recurrence: .week)
-        
-        // When
-        let interactor: CreateMonthScheduleTransactions = CreateMonthScheduleTransactionsImpl()
-        let transactions = interactor.execute(transactions: [transaction])
-        print(transactions)
-        // Then
-        XCTAssertEqual(transactions.count, 3)
-    }
-    
-    func testTwoWeeksRecurrence() {
-        // Given
-        let transaction = Transaction(id: "1", amount: 1.0, category: "category", date: Date(timeIntervalSince1970: 1675253635), containerId: "wallet", type: .income, recurrence: .twoWeeks)
-        
-        // When
-        let interactor: CreateMonthScheduleTransactions = CreateMonthScheduleTransactionsImpl()
-        let transactions = interactor.execute(transactions: [transaction])
-        print(transactions)
-        // Then
-        XCTAssertEqual(transactions.count, 1)
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        XCTAssertEqual(4, futureTransactions.count)
+        XCTAssertEqual(Calendar.current.date(byAdding: .weekOfMonth, value: 1, to: date)!, futureTransactions[0].transaction.date)
+        XCTAssertEqual(Calendar.current.date(byAdding: .weekOfMonth, value: 2, to: date)!, futureTransactions[1].transaction.date)
+        XCTAssertEqual(Calendar.current.date(byAdding: .weekOfMonth, value: 3, to: date)!, futureTransactions[2].transaction.date)
+        XCTAssertEqual(Calendar.current.date(byAdding: .weekOfMonth, value: 4, to: date)!, futureTransactions[3].transaction.date)
     }
 
 }

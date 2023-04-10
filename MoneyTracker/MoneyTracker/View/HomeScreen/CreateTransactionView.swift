@@ -72,7 +72,8 @@ struct CreateTransactionView: View {
                 Section {
                     Button {
                         Task {
-                            self.createTransactionOpened = await !self.viewModel.save(category: self.selectedCategory)
+                            await self.viewModel.save(category: self.selectedCategory)
+                            self.createTransactionOpened = false
                         }
                     } label: {
                         Text("Save")

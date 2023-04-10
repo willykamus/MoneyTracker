@@ -20,19 +20,26 @@ class CreateTransactionViewModel: ObservableObject {
     
     let saveTransactionInteractor: SaveTransactionInteractor = SaveTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
     let saveScheduleTransactionInteractor: SaveScheduleTransactionInteractor = SaveScheduleTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
+    let createNextScheduleTransactions: CreateNextScheduleTransactions = CreateNextScheduleTransactionsImpl()
     
     let getCategories: GetCategoriesInteractor = GetCategoriesInteractorImpl()
     
-    func save(category: Category) async -> Bool {
+    func save(category: Category) async {
         if self.validateInput(category: category) {
             let transaction = Transaction(id: UUID().uuidString, amount: Double(amount)!, category: category.name, date: selectedDate, containerId: selectedContainer!.id, containerName: selectedContainer!.name, type: category.type)
             if selectedRecurrence != .never {
                 let scheduleTransaction = ScheduledTransaction(id: UUID().uuidString, transaction: transaction, recurrence: selectedRecurrence)
-                return await self.saveScheduleTransactionInteractor.execute(transaction: scheduleTransaction, container: selectedContainer!)
+                await self.saveScheduleTransactionInteractor.execute(transaction: scheduleTransaction, container: selectedContainer!)
+                let transactions = createNextScheduleTransactions.execute(scheduledTransactions: [scheduleTransaction])
+                for transaction in transactions {
+                    await self.saveScheduleTransactionInteractor.execute(transaction: transaction, container: selectedContainer!)
+                }
             }
-            return await self.saveTransactionInteractor.execute(transaction: transaction, container: selectedContainer!)
+            if transaction.date < Date() {
+                await self.saveTransactionInteractor.execute(transaction: transaction, container: selectedContainer!)
+            }
+            
         }
-        return false
     }
     
     private func validateInput(category: Category) -> Bool {
