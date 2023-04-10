@@ -103,6 +103,9 @@
 		11FF377A2815E4C300466965 /* CreateTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF37792815E4C300466965 /* CreateTransactionView.swift */; };
 		11FF377C2815E4D700466965 /* CreateTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF377B2815E4D700466965 /* CreateTransactionViewModel.swift */; };
 		11FF377E2815EBCA00466965 /* AvailableTransactionContainersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF377D2815EBCA00466965 /* AvailableTransactionContainersView.swift */; };
+		1C9784F829E48A3200FA80C9 /* GetTransactionContainerCurrentTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9784F729E48A3200FA80C9 /* GetTransactionContainerCurrentTotal.swift */; };
+		1C9784FA29E48A6C00FA80C9 /* GetTransactionContainerCurrentTotalImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9784F929E48A6C00FA80C9 /* GetTransactionContainerCurrentTotalImpl.swift */; };
+		1C9784FE29E4908B00FA80C9 /* GetTransactionContainerCurrentTotalImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9784FD29E4908B00FA80C9 /* GetTransactionContainerCurrentTotalImplTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +213,9 @@
 		11FF37792815E4C300466965 /* CreateTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTransactionView.swift; sourceTree = "<group>"; };
 		11FF377B2815E4D700466965 /* CreateTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTransactionViewModel.swift; sourceTree = "<group>"; };
 		11FF377D2815EBCA00466965 /* AvailableTransactionContainersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTransactionContainersView.swift; sourceTree = "<group>"; };
+		1C9784F729E48A3200FA80C9 /* GetTransactionContainerCurrentTotal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionContainerCurrentTotal.swift; sourceTree = "<group>"; };
+		1C9784F929E48A6C00FA80C9 /* GetTransactionContainerCurrentTotalImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionContainerCurrentTotalImpl.swift; sourceTree = "<group>"; };
+		1C9784FD29E4908B00FA80C9 /* GetTransactionContainerCurrentTotalImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionContainerCurrentTotalImplTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				113F15A427DED95200D52C55 /* MoneyTrackerTests.swift */,
+				1C9784FD29E4908B00FA80C9 /* GetTransactionContainerCurrentTotalImplTest.swift */,
 			);
 			path = MoneyTrackerTests;
 			sourceTree = "<group>";
@@ -438,6 +445,7 @@
 				11FACC8929A7DB8A002DC395 /* SaveScheduleTransactionInteractor.swift */,
 				11FACC8D29ABC440002DC395 /* UpdateScheduledTransactionsInteractor.swift */,
 				11FACC9129ABC6B1002DC395 /* DeleteScheduledTransactionInteractor.swift */,
+				1C9784F729E48A3200FA80C9 /* GetTransactionContainerCurrentTotal.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -453,6 +461,7 @@
 				11FACC8B29A7DBC4002DC395 /* SaveScheduleTransactionInteractorImpl.swift */,
 				11FACC8F29ABC46A002DC395 /* UpdateScheduledTransactionsInteractorImpl.swift */,
 				11FACC9329ABC6DC002DC395 /* DeleteScheduledTransactionInteractorImpl.swift */,
+				1C9784F929E48A6C00FA80C9 /* GetTransactionContainerCurrentTotalImpl.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -654,11 +663,13 @@
 				11FF37782815E40400466965 /* FloatingButtonView.swift in Sources */,
 				11FACC9229ABC6B1002DC395 /* DeleteScheduledTransactionInteractor.swift in Sources */,
 				113B825028A1C7C700BAEB7C /* FloatingButton.swift in Sources */,
+				1C9784F829E48A3200FA80C9 /* GetTransactionContainerCurrentTotal.swift in Sources */,
 				110DC0AC29981CB100D370FA /* Recurrence.swift in Sources */,
 				11F873AE280DD7090017DB9D /* CreateTransactionContainer.swift in Sources */,
 				11FACC8C29A7DBC4002DC395 /* SaveScheduleTransactionInteractorImpl.swift in Sources */,
 				111AD74329B596080055B825 /* ScheduledTransactionList.swift in Sources */,
 				118BCED627FCD1410057FF91 /* UserRemoteDataSourceImpl.swift in Sources */,
+				1C9784FA29E48A6C00FA80C9 /* GetTransactionContainerCurrentTotalImpl.swift in Sources */,
 				115218A12813204B00E8DA5A /* WalletsView.swift in Sources */,
 				115218A928132B2F00E8DA5A /* GetTransactionsContainerListInteractorImpl.swift in Sources */,
 				11217C00294C354500B405BB /* TransactionSortOption.swift in Sources */,
@@ -735,6 +746,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C9784FE29E4908B00FA80C9 /* GetTransactionContainerCurrentTotalImplTest.swift in Sources */,
 				113F15A527DED95200D52C55 /* MoneyTrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

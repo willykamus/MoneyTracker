@@ -16,52 +16,55 @@ struct TransactionListView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                HStack {
-                    Spacer()
-                    
+                VStack {
                     HStack {
-                        Menu {
-                            ForEach(self.viewModel.transactionsDisplayOptionAvailable, id: \.self) { transactionsDisplayOption in
-                                Button(action: { self.viewModel.changeTransactionsDisplayOption(transactionsDisplayOption: transactionsDisplayOption)}, label: { Text(transactionsDisplayOption.rawValue) })
-                            }
-                        } label: {
-                            Text(self.viewModel.transactionsDisplayOptionTitle)
-                                .transaction { transaction in  transaction.animation = .none }
-                        }
-                        
-                        if self.viewModel.transactionsDisplayOption == .byMonth {
+                        Spacer()
+                        HStack {
                             Menu {
-                                ForEach(1...12, id: \.self) { int in
-                                    Button {
-                                        self.viewModel.selectMonth(month: int)
-                                    } label: {
-                                        Text(self.viewModel.getMonthString(value: int))
-                                    }
+                                ForEach(self.viewModel.transactionsDisplayOptionAvailable, id: \.self) { transactionsDisplayOption in
+                                    Button(action: { self.viewModel.changeTransactionsDisplayOption(transactionsDisplayOption: transactionsDisplayOption)}, label: { Text(transactionsDisplayOption.rawValue) })
                                 }
-                            } label : {
-                                Text(self.viewModel.selectedMonthString)
-                                    .transition(AnyTransition.slide.animation(.linear(duration:1.0)))
+                            } label: {
+                                Text(self.viewModel.transactionsDisplayOptionTitle)
+                                    .transaction { transaction in  transaction.animation = .none }
+                            }
+                            
+                            if self.viewModel.transactionsDisplayOption == .byMonth {
+                                Menu {
+                                    ForEach(1...12, id: \.self) { int in
+                                        Button {
+                                            self.viewModel.selectMonth(month: int)
+                                        } label: {
+                                            Text(self.viewModel.getMonthString(value: int))
+                                        }
+                                    }
+                                } label : {
+                                    Text(self.viewModel.selectedMonthString)
+                                        .transition(AnyTransition.slide.animation(.linear(duration:1.0)))
+                                }
                             }
                         }
-                    }
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 4)
-                    .background(.white)
-                    .clipShape(Capsule())
-                    .transition(AnyTransition.slide.animation(.linear(duration:1.0)))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 4)
+                        .background(.white)
+                        .clipShape(Capsule())
+                        .transition(AnyTransition.slide.animation(.linear(duration:1.0)))
 
-                    Spacer()
+                        Spacer()
+                    }
+                    
+                    Text(self.viewModel.currentTotal)
+                        
                 }.padding(.bottom, 16)
                 
                 List {
                     if self.transactionsContainer.scheduledTransactions?.count ?? 0 > 0 {
-                        Section {
+                        Section(header: Spacer(minLength: 0)) {
                             NavigationLink {
                                 ScheduledTransactionList(scheduleTransactions: self.transactionsContainer.scheduledTransactions!)
                             } label: {
                                 Text("Schedules transactions")
                             }
-
                         }
                     }
                     if !viewModel.sections.isEmpty {
