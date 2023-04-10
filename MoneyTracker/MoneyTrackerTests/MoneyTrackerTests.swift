@@ -17,20 +17,22 @@ class MoneyTrackerTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testDate() {
+        //Given
+        let date = Date(timeIntervalSince1970: 1680148800)
+        let scheduleTransaction = ScheduledTransaction(id: "1", transaction: Transaction(id: "2", amount: 1.0, category: "", date: date, containerId: "container", containerName: "Name", type: .expense), recurrence: .week)
+        
+        // When
+        let createNextScheduleTransactions: CreateNextScheduleTransactions = CreateNextScheduleTransactionsImpl()
+        let futureTransactions = createNextScheduleTransactions.execute(scheduledTransactions: [scheduleTransaction])
+        
+        // Then
+        XCTAssertEqual(4, futureTransactions.count)
+        XCTAssertEqual(Calendar.current.date(byAdding: .weekOfMonth, value: 1, to: date)!, futureTransactions[0].transaction.date)
+        XCTAssertEqual(Calendar.current.date(byAdding: .weekOfMonth, value: 2, to: date)!, futureTransactions[1].transaction.date)
+        XCTAssertEqual(Calendar.current.date(byAdding: .weekOfMonth, value: 3, to: date)!, futureTransactions[2].transaction.date)
+        XCTAssertEqual(Calendar.current.date(byAdding: .weekOfMonth, value: 4, to: date)!, futureTransactions[3].transaction.date)
     }
 
 }

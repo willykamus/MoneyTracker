@@ -10,10 +10,13 @@ import Foundation
 class GetTransactionsContainerListInteractorImpl: GetTransactionsContainerListInteractor {
     
     private let transactionContainerRemoteDataSource: TransactionsContainerRemoteDataSource = TransactionsContainerRemoteDataSourceImpl()
+    private let updateScheduledTransactionsInteractor: UpdateScheduledTransactionsInteractor = UpdateScheduledTransactionsInteractorImpl()
     
     func execute() async -> [TransactionsContainer] {
+        let containers = await transactionContainerRemoteDataSource.getContainers()
+        for container in containers {
+            await updateScheduledTransactionsInteractor.execute(container: container)
+        }
         return await transactionContainerRemoteDataSource.getContainers()
     }
-    
-    
 }

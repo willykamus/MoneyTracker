@@ -11,4 +11,6 @@ import FirebaseFirestoreSwift
 struct TransactionsContainerRemoteEntity: Codable {
     var id: String?
     var name: String
+    var transactions: [Transaction]?
+    var scheduledTransactions: [ScheduledTransaction]?
 }

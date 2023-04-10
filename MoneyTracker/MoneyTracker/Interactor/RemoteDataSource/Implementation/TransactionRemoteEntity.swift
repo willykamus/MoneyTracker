@@ -9,11 +9,12 @@ import Foundation
 import FirebaseFirestoreSwift
 
 struct TransactionRemoteEntity: Codable {
-    @DocumentID public var id: String?
+    @DocumentID var id: String?
     var amount: Double
     var category: String
     var date: Date
     var containerId: String?
+    var containerName: String
     var type: String = ""
     
     enum CodingKeys: String, CodingKey {
@@ -23,5 +24,6 @@ struct TransactionRemoteEntity: Codable {
         case date
         case containerId
         case type
+        case containerName
     }
 }

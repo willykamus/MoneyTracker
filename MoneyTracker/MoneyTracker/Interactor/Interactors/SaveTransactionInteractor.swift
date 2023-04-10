@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SaveTransactionInteractor {
-    func execute(transaction: Transaction, container: TransactionsContainer) async -> Bool
+    func execute(transaction: Transaction, container: TransactionsContainer) async
 }

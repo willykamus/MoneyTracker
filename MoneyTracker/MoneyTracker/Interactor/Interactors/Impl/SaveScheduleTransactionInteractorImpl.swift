@@ -1,13 +1,13 @@
 //
-//  SaveTransactionInteractorImpl.swift
+//  SaveScheduleTransactionInteractorImpl.swift
 //  MoneyTracker
 //
-//  Created by William Ching on 2022-08-19.
+//  Created by William Ching on 2023-02-23.
 //
 
 import Foundation
 
-class SaveTransactionInteractorImpl: SaveTransactionInteractor {
+class SaveScheduleTransactionInteractorImpl: SaveScheduleTransactionInteractor {
     
     let transactionRemoteDataSource: TransactionRemoteDataSource
     let userRemoteDataSource: UserRemoteDataSource
@@ -17,8 +17,8 @@ class SaveTransactionInteractorImpl: SaveTransactionInteractor {
         self.userRemoteDataSource = userRemoteDataSource
     }
     
-    func execute(transaction: Transaction, container: TransactionsContainer) async {
+    func execute(transaction: ScheduledTransaction, container: TransactionsContainer) async {
         let user = userRemoteDataSource.currentUser()
-        await self.transactionRemoteDataSource.add(transaction: transaction, containerId: container.id, userId: user!.id)
+        await self.transactionRemoteDataSource.add(scheduleTransaction: transaction, containerId: container.id, userId: user!.id)
     }
 }

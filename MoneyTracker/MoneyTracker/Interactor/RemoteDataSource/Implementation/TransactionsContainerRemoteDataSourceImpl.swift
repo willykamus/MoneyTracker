@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 import Firebase
 
 class TransactionsContainerRemoteDataSourceImpl: TransactionsContainerRemoteDataSource {
@@ -23,7 +24,9 @@ class TransactionsContainerRemoteDataSourceImpl: TransactionsContainerRemoteData
                     let remoteEntity = try document.data(as: TransactionsContainerRemoteEntity.self)
                     var container = TransactionsContainerRemoteEntityMapper().toTransactionContainer(remoteEntity: remoteEntity)
                     let transactions = await self.getTransactions(from: document, container: container)
+                    let scheduledTransactions = await self.getScheduledTransactions(from: document, container: container)
                     container.transactions = transactions
+                    container.scheduledTransactions = scheduledTransactions
                     containers.append(container)
                 }
                 return containers
@@ -57,6 +60,20 @@ class TransactionsContainerRemoteDataSourceImpl: TransactionsContainerRemoteData
             for transaction in query.documents {
                 let entity = try transaction.data(as: TransactionRemoteEntity.self)
                 transactions.append(TransactionRemoteEntityMapper().toTransaction(remoteEntity: entity))
+            }
+            return transactions
+        } catch {
+            return []
+        }
+    }
+    
+    private func getScheduledTransactions(from document: DocumentSnapshot, container: TransactionsContainer) async -> [ScheduledTransaction] {
+        do {
+            var transactions: [ScheduledTransaction] = []
+            let query = try await document.reference.collection("scheduleTransactions").getDocuments()
+            for transaction in query.documents {
+                let entity = try transaction.data(as: ScheduledTransactionRemoteEntity.self)
+                transactions.append(ScheduledTransactionRemoteEntityMapper().toScheduledTransaction(remoteEntity: entity))
             }
             return transactions
         } catch {

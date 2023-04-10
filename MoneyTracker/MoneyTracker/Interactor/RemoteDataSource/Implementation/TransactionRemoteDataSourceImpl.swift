@@ -8,22 +8,40 @@
 import Foundation
 
 class TransactionRemoteDataSourceImpl: TransactionRemoteDataSource {
-    
+
     let dataBase = FirestoreDataBase.database
     
-    func add(transaction: Transaction, containerId: String, userId: String) async -> Bool {
+    func add(transaction: Transaction, containerId: String, userId: String) async {
         let remoteEntity = TransactionRemoteEntityMapper().toRemoteEntity(transaction: transaction)
         let reference = dataBase.collection("users").document(userId).collection("transactionsContainers").document(containerId).collection("transactions")
         do {
             _ = try reference.addDocument(from: remoteEntity)
-            return true
+
         } catch {
-            return false
+
         }
     }
     
-    func delete(transaction: Transaction) {
+    func add(scheduleTransaction: ScheduledTransaction, containerId: String, userId: String) async {
+        let remoteEntity = ScheduledTransactionRemoteEntityMapper().toRemoteEntity(scheduledTransaction: scheduleTransaction)
+        let reference = dataBase.collection("users").document(userId).collection("transactionsContainers").document(containerId).collection("scheduleTransactions")
+        do {
+            _ = try reference.addDocument(from: remoteEntity)
+        } catch {
+            
+        }
+    }
+    
+    func delete(transaction: Transaction) async {
         
+    }
+    
+    func delete(scheduleTransactionId: String, containerId: String, userId: String) async {
+        do {
+            try await dataBase.collection("users").document(userId).collection("transactionsContainers").document(containerId).collection("scheduleTransactions").document(scheduleTransactionId).delete()
+        } catch {
+            
+        }
     }
     
     func getTransactions(containerId: String, userId: String) async -> [Transaction] {
