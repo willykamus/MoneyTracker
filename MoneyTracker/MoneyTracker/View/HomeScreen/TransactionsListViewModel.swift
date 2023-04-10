@@ -16,6 +16,7 @@ class TransactionsListViewModel: ObservableObject {
     @Published var transactionsDisplayOptionTitle: String = TransactionsDisplayOption.all.rawValue
     @Published var selectedMonth: Int = 0
     @Published var selectedMonthString: String = ""
+    @Published var currentTotal: String = ""
     
     private var originalTransactions: [Transaction] = []
     
@@ -26,13 +27,13 @@ class TransactionsListViewModel: ObservableObject {
     var transactionsDisplayOptionAvailable: [TransactionsDisplayOption] = TransactionsDisplayOption.allCases
     
     let getTransactionsFromContainerInteractor: GetTransactionsFromContainerInteractor = GetTransactionsFromContainerInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
+    let getTransactionContainerCurrentTotal: GetTransactionContainerCurrentTotal = GetTransactionContainerCurrentTotalImpl()
     
-    func getTransactions(container: TransactionsContainer) async {
-        let transactions = await self.getTransactionsFromContainerInteractor.execute(containerId: container.id)
-        DispatchQueue.main.async {
-            self.originalTransactions = transactions
-            self.transactions = transactions
-        }
+    func getTransactions(container: TransactionsContainer) {
+        let total = self.getTransactionContainerCurrentTotal.execute(transactionsContainer: container)
+        self.originalTransactions = container.transactions!
+        self.transactions = container.transactions!
+        self.currentTotal = "Current balance: \(total)"
     }
     
     func getMonthString(value: Int) -> String {
