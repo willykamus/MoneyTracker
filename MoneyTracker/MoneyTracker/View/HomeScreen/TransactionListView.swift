@@ -53,8 +53,20 @@ struct TransactionListView: View {
                         Spacer()
                     }
                     
-                    Text(self.viewModel.currentTotal)
-                        
+                    HStack {
+                        Text(self.viewModel.currentTotal)
+                        if !self.viewModel.futureTotalMessage.isEmpty {
+                            Button {
+                                self.viewModel.displayFutureTotalMessage()
+                            } label: {
+                                Image(systemName: "info.circle")
+                            }
+                            .popover(isPresented: self.$viewModel.showFutureTotalMessage) {
+                                Text(self.viewModel.futureTotalMessage)
+                                    .padding()
+                            }
+                        }
+                    }
                 }.padding(.bottom, 16)
                 
                 List {

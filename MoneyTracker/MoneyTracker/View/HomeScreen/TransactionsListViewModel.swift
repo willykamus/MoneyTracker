@@ -17,6 +17,8 @@ class TransactionsListViewModel: ObservableObject {
     @Published var selectedMonth: Int = 0
     @Published var selectedMonthString: String = ""
     @Published var currentTotal: String = ""
+    @Published var showFutureTotalMessage: Bool = false
+    @Published var futureTotalMessage: String = ""
     
     private var originalTransactions: [Transaction] = []
     
@@ -28,16 +30,26 @@ class TransactionsListViewModel: ObservableObject {
     
     let getTransactionsFromContainerInteractor: GetTransactionsFromContainerInteractor = GetTransactionsFromContainerInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
     let getTransactionContainerCurrentTotal: GetTransactionContainerCurrentTotal = GetTransactionContainerCurrentTotalImpl()
+    let getTransactionContainerFutureTotal: GetTransactionContainerFutureTotal = GetTransactionContainerFutureTotalImpl()
     
     func getTransactions(container: TransactionsContainer) {
-        let total = self.getTransactionContainerCurrentTotal.execute(transactionsContainer: container)
+        
         self.originalTransactions = container.transactions!
         self.transactions = container.transactions!
+        let total = self.getTransactionContainerCurrentTotal.execute(transactionsContainer: container)
         self.currentTotal = "Current balance: \(total)"
+        if !(container.scheduledTransactions?.isEmpty ?? true) {
+            let futureTotal = self.getTransactionContainerFutureTotal.execute(transactionContainter: container)
+            self.futureTotalMessage = "Your total based on future transactions will be \(total + futureTotal)"
+        }
     }
     
     func getMonthString(value: Int) -> String {
         return DateFormatter().monthSymbols[value - 1]
+    }
+    
+    func displayFutureTotalMessage() {
+        self.showFutureTotalMessage = true
     }
     
     func sortByType() {
@@ -72,11 +84,26 @@ class TransactionsListViewModel: ObservableObject {
         case .byMonth:
             transactions = self.getTransactionsFilterBySelectedMonth()
         }
-        self.transactions = sortByDate(transactions: transactions)
+        self.sections = sortByDate(transactions: transactions)
     }
     
-    private func sortByDate(transactions: [Transaction]) -> [Transaction] {
-        return  transactions.sorted { $0.date > $1.date }
+    private func sortByDate(transactions: [Transaction]) -> [TransactionSection] {
+        var sections: [TransactionSection] = []
+        let sortedTransactions = transactions.sorted(by: { $0.date >= $1.date })
+        var sectionTransactions: [Transaction] = []
+        for i in 0..<sortedTransactions.count {
+            if i == 0 {
+                sectionTransactions.append(sortedTransactions[i])
+            } else if Calendar.current.isDate(sortedTransactions[i-1].date, inSameDayAs: sortedTransactions[i].date) {
+                sectionTransactions.append(sortedTransactions[i])
+                continue
+            } else {
+                sections.append(TransactionSection(transactions: sectionTransactions, title: sortedTransactions[i-1].date.formatted(date: .abbreviated, time: .omitted)))
+                sectionTransactions = []
+                sectionTransactions.append(sortedTransactions[i])
+            }
+        }
+        return sections
     }
     
     func sortByCategories() {
@@ -112,7 +139,7 @@ class TransactionsListViewModel: ObservableObject {
         case .category:
             self.sections = self.sortByCategories(transactions: transactions)
         case .date:
-            self.transactions = self.sortByDate(transactions: transactions)
+            self.sections = self.sortByDate(transactions: transactions)
         case .transactionType:
             self.sections = self.sortByType(transactions: transactions)
         default:
@@ -125,7 +152,7 @@ class TransactionsListViewModel: ObservableObject {
         case .category:
             self.sections = self.sortByCategories(transactions: self.originalTransactions)
         case .date:
-            self.transactions = self.sortByDate(transactions: self.originalTransactions)
+            self.sections = self.sortByDate(transactions: self.originalTransactions)
         case .transactionType:
             self.sections = self.sortByType(transactions: self.originalTransactions)
         default:

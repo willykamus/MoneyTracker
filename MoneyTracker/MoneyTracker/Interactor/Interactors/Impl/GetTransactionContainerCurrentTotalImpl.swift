@@ -13,7 +13,6 @@ class GetTransactionContainerCurrentTotalImpl: GetTransactionContainerCurrentTot
         let incomes: [Transaction] = transactionsContainer.transactions!.filter({ $0.type == .income })
         let expensesTotal: Double = expenses.sum(for: \.amount)
         let incomesTotal: Double = incomes.sum(for: \.amount)
-        
         return incomesTotal - expensesTotal
     }
 }
