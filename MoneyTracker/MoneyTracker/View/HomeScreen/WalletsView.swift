@@ -46,9 +46,13 @@ struct WalletsView: View {
                 }
             }
             .navigationTitle("Wallets")
-            .sheet(isPresented: self.$viewModel.walletCreated) {
+            .sheet(isPresented: self.$viewModel.walletCreated, onDismiss: {
+                Task {
+                    await self.viewModel.getContainers()
+                }
+            }, content: {
                 CreateWalletView(walletCreated: self.$viewModel.walletCreated)
-            }
+            })
             
         }
     }

@@ -27,17 +27,21 @@ class CreateTransactionViewModel: ObservableObject {
     func save(category: Category) async {
         if self.validateInput(category: category) {
             let transaction = Transaction(id: UUID().uuidString, amount: Double(amount)!, category: category.name, date: selectedDate, containerId: selectedContainer!.id, containerName: selectedContainer!.name, type: category.type)
-            if selectedRecurrence != .never {
-                let scheduleTransaction = ScheduledTransaction(id: UUID().uuidString, transaction: transaction, recurrence: selectedRecurrence)
+            let scheduleTransaction = ScheduledTransaction(id: UUID().uuidString, transaction: transaction, recurrence: selectedRecurrence)
+            if Calendar.current.isDate(transaction.date, inSameDayAs: Date()) {
+                await self.saveTransactionInteractor.execute(transaction: transaction, container: selectedContainer!)
+            } else {
                 await self.saveScheduleTransactionInteractor.execute(transaction: scheduleTransaction, container: selectedContainer!)
+            }
+            
+            if selectedRecurrence != .never {
                 let transactions = createNextScheduleTransactions.execute(scheduledTransactions: [scheduleTransaction])
                 for transaction in transactions {
                     await self.saveScheduleTransactionInteractor.execute(transaction: transaction, container: selectedContainer!)
+                    return
                 }
             }
-            if transaction.date < Date() {
-                await self.saveTransactionInteractor.execute(transaction: transaction, container: selectedContainer!)
-            }
+            
             
         }
     }

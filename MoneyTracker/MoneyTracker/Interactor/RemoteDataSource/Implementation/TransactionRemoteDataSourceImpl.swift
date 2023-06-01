@@ -28,7 +28,7 @@ class TransactionRemoteDataSourceImpl: TransactionRemoteDataSource {
         do {
             _ = try reference.addDocument(from: remoteEntity)
         } catch {
-            
+            print("I am here")
         }
     }
     

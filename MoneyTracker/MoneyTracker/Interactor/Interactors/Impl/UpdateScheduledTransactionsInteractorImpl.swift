@@ -18,13 +18,19 @@ class UpdateScheduledTransactionsInteractorImpl: UpdateScheduledTransactionsInte
         let currentScheduledTransaction: [ScheduledTransaction] = container.scheduledTransactions ?? []
         var scheduledTransactionsToDelete: [ScheduledTransaction] = []
         for scheduledTransaction in currentScheduledTransaction {
-            if scheduledTransaction.nextDate() <= Date() {
+            if Calendar.current.isDate(scheduledTransaction.nextDate(), inSameDayAs: Date()) || scheduledTransaction.nextDate() < Date() {
                 scheduledTransactionsToDelete.append(scheduledTransaction)
             }
         }
         await deleteScheduledTransactionInteractor.execute(scheduledTransactions: scheduledTransactionsToDelete)
         for scheduledTransaction in scheduledTransactionsToDelete {
             await saveTransactionInteractorImpl.execute(transaction: scheduledTransaction.transaction, container: container)
+            if scheduledTransaction.endDate == nil {
+                let newTransactions = createNextScheduleTransactions.execute(scheduledTransactions: [scheduledTransaction])
+                for transaction in newTransactions {
+                    await saveScheduleTransactionInteractor.execute(transaction: transaction, container: container)
+                }
+            }
         }
     }
 }

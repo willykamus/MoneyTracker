@@ -110,13 +110,13 @@ struct TransactionListView: View {
                 })
                 .onAppear {
                     Task {
-                        await self.viewModel.getTransactions(container: self.transactionsContainer)
+                        self.viewModel.getTransactions(container: self.transactionsContainer)
                     }
                 }
                 .onChange(of: self.createTransactionOpened) { value in
                     if !value {
                         Task {
-                            await self.viewModel.getTransactions(container: self.transactionsContainer)
+                            self.viewModel.getTransactions(container: self.transactionsContainer)
                         }
                     }
                 }

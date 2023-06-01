@@ -11,6 +11,7 @@ enum Recurrence: String, Codable, CaseIterable, Hashable {
     case day
     case week
     case twoWeeks
+    case endOfMonth
     case month
     case sixMonths
     case year
