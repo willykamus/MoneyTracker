@@ -46,6 +46,10 @@ struct CreateTransactionView: View {
                     }
                 }
                 
+                Section(header: Text("Comment")) {
+                    TextField("Comment", text: self.$viewModel.comment)
+                }
+                
                 Section(header: Text("Wallet")) {
                     NavigationLink(
                         destination: AvailableTransactionContainersView(selectedContainer: self.$viewModel.selectedContainer, containerListPresented: self.$transactionContainersPresented),

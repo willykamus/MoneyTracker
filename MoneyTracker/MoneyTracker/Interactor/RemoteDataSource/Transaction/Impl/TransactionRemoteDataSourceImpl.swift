@@ -10,6 +10,13 @@ import Foundation
 class TransactionRemoteDataSourceImpl: TransactionRemoteDataSource {
 
     let dataBase = FirestoreDataBase.database
+    private let dateProvider: DateProvider
+    private let userRemoteDataSource: UserRemoteDataSource
+    
+    init(dateProvider: DateProvider, userRemoteDataSource: UserRemoteDataSource) {
+        self.dateProvider = dateProvider
+        self.userRemoteDataSource = userRemoteDataSource
+    }
     
     func add(transaction: Transaction, containerId: String, userId: String) async {
         let remoteEntity = TransactionRemoteEntityMapper().toRemoteEntity(transaction: transaction)
@@ -63,5 +70,25 @@ class TransactionRemoteDataSourceImpl: TransactionRemoteDataSource {
         return []
     }
     
+    func update(container: TransactionsContainer) async {
+        guard let userId = userRemoteDataSource.currentUser()?.id else {
+            return
+        }
+        let currentScheduledTransaction: [ScheduledTransaction] = container.scheduledTransactions ?? []
+        var ids = transactions(currentScheduledTransaction: currentScheduledTransaction)
+        for scheduledTransaction in currentScheduledTransaction {
+            if Calendar.current.isDate(scheduledTransaction.nextDate(), inSameDayAs: dateProvider.nowAsDate()) || scheduledTransaction.nextDate() < dateProvider.nowAsDate() {
+                ids.remove(at: ids.firstIndex(where: { $0.0 == scheduledTransaction.id })!)
+                await self.delete(scheduleTransactionId: scheduledTransaction.id, containerId: container.id, userId: userId)
+                await self.add(transaction: scheduledTransaction.transaction, containerId: container.id, userId: userId)
+                if !ids.contains(where: { $0.1 == scheduledTransaction.transaction.id}) {
+                    //Create new schedule
+                }
+            }
+        }
+    }
     
+    private func transactions(currentScheduledTransaction: [ScheduledTransaction]) -> [(String, String)] {
+        return currentScheduledTransaction.map { ($0.id,$0.transaction.id) }
+    }
 }

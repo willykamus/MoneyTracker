@@ -28,7 +28,7 @@ class TransactionsListViewModel: ObservableObject {
     
     var transactionsDisplayOptionAvailable: [TransactionsDisplayOption] = TransactionsDisplayOption.allCases
     
-    let getTransactionsFromContainerInteractor: GetTransactionsFromContainerInteractor = GetTransactionsFromContainerInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
+    let getTransactionsFromContainerInteractor: GetTransactionsFromContainerInteractor = GetTransactionsFromContainerInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(dateProvider: DateProviderImpl(), userRemoteDataSource: UserRemoteDataSourceImpl()), userRemoteDataSource: UserRemoteDataSourceImpl())
     let getTransactionContainerCurrentTotal: GetTransactionContainerCurrentTotal = GetTransactionContainerCurrentTotalImpl()
     let getTransactionContainerFutureTotal: GetTransactionContainerFutureTotal = GetTransactionContainerFutureTotalImpl()
     

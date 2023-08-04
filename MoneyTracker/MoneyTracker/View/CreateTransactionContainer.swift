@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateTransactionContainer: View {
     
-    var viewModel: CreateTransactionContainerViewModel = CreateTransactionContainerViewModel(createTransactionContainerInteractor: CreateTransactionContainerInteractorImpl(userRemoteDataSource: UserRemoteDataSourceImpl(), transactionContainerRemoteDataSource: TransactionsContainerRemoteDataSourceImpl()))
+    var viewModel: CreateTransactionContainerViewModel = CreateTransactionContainerViewModel(createTransactionContainerInteractor: CreateTransactionContainerInteractorImpl(userRemoteDataSource: UserRemoteDataSourceImpl(), transactionContainerRemoteDataSource: TransactionsContainerRemoteDataSourceImpl(userRemoteDataSource: UserRemoteDataSourceImpl(), dateProvider: DateProviderImpl())))
     
     @State var title: String = ""
     

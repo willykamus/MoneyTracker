@@ -17,16 +17,17 @@ class CreateTransactionViewModel: ObservableObject {
     @Published var incomeCategories: [Category] = []
     @Published var expensesCategories: [Category] = []
     @Published var selectedRecurrence: Recurrence = .never
+    @Published var comment: String = ""
     
-    let saveTransactionInteractor: SaveTransactionInteractor = SaveTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
-    let saveScheduleTransactionInteractor: SaveScheduleTransactionInteractor = SaveScheduleTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
+    let saveTransactionInteractor: SaveTransactionInteractor = SaveTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(dateProvider: DateProviderImpl(), userRemoteDataSource: UserRemoteDataSourceImpl()), userRemoteDataSource: UserRemoteDataSourceImpl())
+    let saveScheduleTransactionInteractor: SaveScheduleTransactionInteractor = SaveScheduleTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(dateProvider: DateProviderImpl(), userRemoteDataSource: UserRemoteDataSourceImpl()), userRemoteDataSource: UserRemoteDataSourceImpl())
     let createNextScheduleTransactions: CreateNextScheduleTransactions = CreateNextScheduleTransactionsImpl()
     
     let getCategories: GetCategoriesInteractor = GetCategoriesInteractorImpl()
     
     func save(category: Category) async {
         if self.validateInput(category: category) {
-            let transaction = Transaction(id: UUID().uuidString, amount: Double(amount)!, category: category.name, date: selectedDate, containerId: selectedContainer!.id, containerName: selectedContainer!.name, type: category.type)
+            let transaction = Transaction(id: UUID().uuidString, amount: Double(amount)!, category: category.name, date: selectedDate, containerId: selectedContainer!.id, containerName: selectedContainer!.name, comment: comment, type: category.type)
             let scheduleTransaction = ScheduledTransaction(id: UUID().uuidString, transaction: transaction, recurrence: selectedRecurrence)
             if Calendar.current.isDate(transaction.date, inSameDayAs: Date()) {
                 await self.saveTransactionInteractor.execute(transaction: transaction, container: selectedContainer!)

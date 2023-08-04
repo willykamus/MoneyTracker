@@ -9,7 +9,7 @@ import Foundation
 
 class GetTransactionsContainerListInteractorImpl: GetTransactionsContainerListInteractor {
     
-    private let transactionContainerRemoteDataSource: TransactionsContainerRemoteDataSource = TransactionsContainerRemoteDataSourceImpl()
+    private let transactionContainerRemoteDataSource: TransactionsContainerRemoteDataSource = TransactionsContainerRemoteDataSourceImpl(userRemoteDataSource: UserRemoteDataSourceImpl(), dateProvider: DateProviderImpl())
     private let updateScheduledTransactionsInteractor: UpdateScheduledTransactionsInteractor = UpdateScheduledTransactionsInteractorImpl()
     
     func execute() async -> [TransactionsContainer] {

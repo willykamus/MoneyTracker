@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateWalletView: View {
     
     @Binding var walletCreated: Bool
-    @ObservedObject var viewModel = CreateWalletViewModel(createTransactionContainerInteractor: CreateTransactionContainerInteractorImpl(userRemoteDataSource: UserRemoteDataSourceImpl(), transactionContainerRemoteDataSource: TransactionsContainerRemoteDataSourceImpl()))
+    @ObservedObject var viewModel = CreateWalletViewModel(createTransactionContainerInteractor: CreateTransactionContainerInteractorImpl(userRemoteDataSource: UserRemoteDataSourceImpl(), transactionContainerRemoteDataSource: TransactionsContainerRemoteDataSourceImpl(userRemoteDataSource: UserRemoteDataSourceImpl(), dateProvider: DateProviderImpl())))
     
     var body: some View {
         NavigationView {

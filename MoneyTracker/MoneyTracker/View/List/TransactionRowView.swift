@@ -13,16 +13,19 @@ struct TransactionRowView: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 2) {
                 
                 Text(String(transaction.category))
-                     
-                Text(dateString(date:transaction.date))
-                    .font(.system(size: 8, weight: .light))
-                    .foregroundColor(.gray)
+                    .font(.system(size: 16))
+                
+                if !(transaction.comment?.isEmpty ?? true) {
+                    Text(String(transaction.comment!))
+                        .font(.system(size: 14, weight: .light))
+                        .foregroundColor(.gray)
+                }
+                
             }
-            
-            Spacer()
+            .frame(maxWidth: .infinity, alignment: .leading)
             
             Text(String(transaction.amount))
                 .foregroundColor(.gray)
@@ -40,6 +43,6 @@ struct TransactionRowView: View {
 
 struct TransactionRowView_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionRowView(transaction: Transaction(id: "", amount: 0.0, category: "", date: Date(), containerId: "", containerName: "", type: .income))
+        TransactionRowView(transaction: Transaction(id: "", amount: 0.0, category: "Category", date: Date(), containerId: "", containerName: "", comment: "Comment", type: .income))
     }
 }

@@ -10,9 +10,9 @@ import Foundation
 class UpdateScheduledTransactionsInteractorImpl: UpdateScheduledTransactionsInteractor {
     
     let createNextScheduleTransactions: CreateNextScheduleTransactions = CreateNextScheduleTransactionsImpl()
-    let deleteScheduledTransactionInteractor: DeleteScheduledTransactionInteractor = DeleteScheduledTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
-    let saveTransactionInteractorImpl: SaveTransactionInteractorImpl = SaveTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
-    let saveScheduleTransactionInteractor: SaveScheduleTransactionInteractor = SaveScheduleTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(), userRemoteDataSource: UserRemoteDataSourceImpl())
+    let deleteScheduledTransactionInteractor: DeleteScheduledTransactionInteractor = DeleteScheduledTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(dateProvider: DateProviderImpl(), userRemoteDataSource: UserRemoteDataSourceImpl()), userRemoteDataSource: UserRemoteDataSourceImpl())
+    let saveTransactionInteractorImpl: SaveTransactionInteractorImpl = SaveTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(dateProvider: DateProviderImpl(), userRemoteDataSource: UserRemoteDataSourceImpl()), userRemoteDataSource: UserRemoteDataSourceImpl())
+    let saveScheduleTransactionInteractor: SaveScheduleTransactionInteractor = SaveScheduleTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(dateProvider: DateProviderImpl(), userRemoteDataSource: UserRemoteDataSourceImpl()), userRemoteDataSource: UserRemoteDataSourceImpl())
     
     func execute(container: TransactionsContainer) async {
         let currentScheduledTransaction: [ScheduledTransaction] = container.scheduledTransactions ?? []

@@ -16,6 +16,8 @@ class RecurrenceMapper {
             return "Weekly"
         case .twoWeeks:
             return "Every two weeks"
+        case .endOfMonth:
+            return "Every end of month"
         case .month:
             return "Monthly"
         case .sixMonths:

@@ -14,4 +14,5 @@ protocol TransactionRemoteDataSource {
     func delete(scheduleTransactionId: String, containerId: String, userId: String) async
     func getTransactions(containerId: String, userId: String) async -> [Transaction]
     func getAllTransactions() async -> [Transaction]
+    func update(container: TransactionsContainer) async
 }

@@ -11,8 +11,14 @@ import Firebase
 
 class TransactionsContainerRemoteDataSourceImpl: TransactionsContainerRemoteDataSource {
     
-    private let userRemoteDataSource: UserRemoteDataSource = UserRemoteDataSourceImpl()
+    private let userRemoteDataSource: UserRemoteDataSource
+    private let dateProvider: DateProvider
     
+    init(userRemoteDataSource: UserRemoteDataSource, dateProvider: DateProvider) {
+        self.userRemoteDataSource = userRemoteDataSource
+        self.dateProvider = dateProvider
+    }
+
     func getContainers() async -> [TransactionsContainer] {
         var containers: [TransactionsContainer] = []
         let user  = userRemoteDataSource.currentUser()
