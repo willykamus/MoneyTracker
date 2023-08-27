@@ -88,22 +88,15 @@ class TransactionsListViewModel: ObservableObject {
     }
     
     private func sortByDate(transactions: [Transaction]) -> [TransactionSection] {
-        var sections: [TransactionSection] = []
-        let sortedTransactions = transactions.sorted(by: { $0.date >= $1.date })
-        var sectionTransactions: [Transaction] = []
-        for i in 0..<sortedTransactions.count {
-            if i == 0 {
-                sectionTransactions.append(sortedTransactions[i])
-            } else if Calendar.current.isDate(sortedTransactions[i-1].date, inSameDayAs: sortedTransactions[i].date) {
-                sectionTransactions.append(sortedTransactions[i])
-                continue
-            } else {
-                sections.append(TransactionSection(transactions: sectionTransactions, title: sortedTransactions[i-1].date.formatted(date: .abbreviated, time: .omitted)))
-                sectionTransactions = []
-                sectionTransactions.append(sortedTransactions[i])
-            }
+        let sections = Dictionary(grouping: transactions) { transaction in
+            Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: transaction.date))!
         }
-        return sections
+        let sorted = sections.sorted(by: { $0.key > $1.key})
+        var displaySections: [TransactionSection] = []
+        for section in sorted {
+            displaySections.append(TransactionSection(transactions: section.value, title: section.key.formatted(date: .abbreviated, time: .omitted)))
+        }
+        return displaySections
     }
     
     func sortByCategories() {
