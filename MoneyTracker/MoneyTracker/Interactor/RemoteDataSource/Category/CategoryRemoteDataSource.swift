@@ -9,4 +9,5 @@ import Foundation
 
 protocol CategoryRemoteDataSource {
     func getCategories() async -> Result<[Category],Error>
+    func save(categories: [Category]) async
 }

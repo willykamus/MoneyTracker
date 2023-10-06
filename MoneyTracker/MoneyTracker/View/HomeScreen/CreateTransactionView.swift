@@ -12,7 +12,7 @@ struct CreateTransactionView: View {
     @Binding var createTransactionOpened: Bool
     @State var transactionContainersPresented: Bool = false
     @State var recurrenceListOpened: Bool = false
-    @State var selectedCategory: Category = Category(id: "", type: .income, name: "")
+    @State var selectedCategory: Category = Category(id: "", type: .income, name: "", budgetCategoryType: .income)
     @State var categoryListPresented: Bool = false
     @StateObject var viewModel: CreateTransactionViewModel = CreateTransactionViewModel()
     

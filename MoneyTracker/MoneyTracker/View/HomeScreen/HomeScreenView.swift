@@ -16,9 +16,9 @@ struct HomeScreenView: View {
                     Label("Wallets", systemImage: "wallet.pass")
                 }
             
-            TransactionsView()
+            BudgetHomeView()
                 .tabItem {
-                    Label("Transactions", systemImage: "list.bullet.rectangle.portrait")
+                    Label("Budget", systemImage: "wallet.pass")
                 }
         }
     }

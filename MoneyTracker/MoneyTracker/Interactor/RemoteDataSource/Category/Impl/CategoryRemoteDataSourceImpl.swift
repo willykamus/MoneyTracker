@@ -26,4 +26,17 @@ class CategoryRemoteDataSourceImpl: CategoryRemoteDataSource {
             return Result.failure(error)
         }
     }
+    
+    func save(categories: [Category]) async {
+        for category in categories {
+            do {
+                let query = try await dataBase.collection("categories").whereField("name", isEqualTo: category.name).getDocuments()
+                let document = query.documents.first
+                try await document?.reference.updateData(["budgetCategoryType" : category.budgetCategoryType.rawValue])
+            } catch {
+                
+            }
+        }
+        
+    }
 }
