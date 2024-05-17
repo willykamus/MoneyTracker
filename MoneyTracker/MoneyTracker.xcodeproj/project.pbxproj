@@ -103,12 +103,18 @@
 		11FF377A2815E4C300466965 /* CreateTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF37792815E4C300466965 /* CreateTransactionView.swift */; };
 		11FF377C2815E4D700466965 /* CreateTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF377B2815E4D700466965 /* CreateTransactionViewModel.swift */; };
 		11FF377E2815EBCA00466965 /* AvailableTransactionContainersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF377D2815EBCA00466965 /* AvailableTransactionContainersView.swift */; };
+		1C22A1ED2BCB7CFD005CD0A1 /* BudgetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C22A1EC2BCB7CFD005CD0A1 /* BudgetDetailView.swift */; };
+		1C22A1EF2BCB7EAB005CD0A1 /* BudgetCategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C22A1EE2BCB7EAB005CD0A1 /* BudgetCategoryRow.swift */; };
 		1C2A051A2A356AB600400C1D /* SaveScheduleTransactionInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2A05192A356AB600400C1D /* SaveScheduleTransactionInteractorMock.swift */; };
 		1C9784F829E48A3200FA80C9 /* GetTransactionContainerCurrentTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9784F729E48A3200FA80C9 /* GetTransactionContainerCurrentTotal.swift */; };
 		1C9784FA29E48A6C00FA80C9 /* GetTransactionContainerCurrentTotalImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9784F929E48A6C00FA80C9 /* GetTransactionContainerCurrentTotalImpl.swift */; };
 		1C9784FE29E4908B00FA80C9 /* GetTransactionContainerCurrentTotalImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9784FD29E4908B00FA80C9 /* GetTransactionContainerCurrentTotalImplTest.swift */; };
 		1C97850029E496DD00FA80C9 /* GetTransactionContainerFutureTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9784FF29E496DD00FA80C9 /* GetTransactionContainerFutureTotal.swift */; };
 		1C97850229E4972200FA80C9 /* GetTransactionContainerFutureTotalImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C97850129E4972200FA80C9 /* GetTransactionContainerFutureTotalImpl.swift */; };
+		1C97F35D2BC78870003B5251 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C97F35C2BC78870003B5251 /* Budget.swift */; };
+		1C97F3602BC78A9D003B5251 /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C97F35F2BC78A9D003B5251 /* BudgetView.swift */; };
+		1C97F3622BC78C1D003B5251 /* BudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C97F3612BC78C1D003B5251 /* BudgetViewModel.swift */; };
+		1C97F3642BC8CB15003B5251 /* BudgetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C97F3632BC8CB15003B5251 /* BudgetRow.swift */; };
 		1CA73DAA2A64D5F800731125 /* DateProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA73DA92A64D5F800731125 /* DateProviderImpl.swift */; };
 		1CA73DAC2A64D64600731125 /* DateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA73DAB2A64D64600731125 /* DateProvider.swift */; };
 		1CA73DAE2A64D73000731125 /* DateProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA73DAD2A64D73000731125 /* DateProviderMock.swift */; };
@@ -223,12 +229,18 @@
 		11FF37792815E4C300466965 /* CreateTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTransactionView.swift; sourceTree = "<group>"; };
 		11FF377B2815E4D700466965 /* CreateTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTransactionViewModel.swift; sourceTree = "<group>"; };
 		11FF377D2815EBCA00466965 /* AvailableTransactionContainersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTransactionContainersView.swift; sourceTree = "<group>"; };
+		1C22A1EC2BCB7CFD005CD0A1 /* BudgetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailView.swift; sourceTree = "<group>"; };
+		1C22A1EE2BCB7EAB005CD0A1 /* BudgetCategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategoryRow.swift; sourceTree = "<group>"; };
 		1C2A05192A356AB600400C1D /* SaveScheduleTransactionInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveScheduleTransactionInteractorMock.swift; sourceTree = "<group>"; };
 		1C9784F729E48A3200FA80C9 /* GetTransactionContainerCurrentTotal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionContainerCurrentTotal.swift; sourceTree = "<group>"; };
 		1C9784F929E48A6C00FA80C9 /* GetTransactionContainerCurrentTotalImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionContainerCurrentTotalImpl.swift; sourceTree = "<group>"; };
 		1C9784FD29E4908B00FA80C9 /* GetTransactionContainerCurrentTotalImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionContainerCurrentTotalImplTest.swift; sourceTree = "<group>"; };
 		1C9784FF29E496DD00FA80C9 /* GetTransactionContainerFutureTotal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionContainerFutureTotal.swift; sourceTree = "<group>"; };
 		1C97850129E4972200FA80C9 /* GetTransactionContainerFutureTotalImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionContainerFutureTotalImpl.swift; sourceTree = "<group>"; };
+		1C97F35C2BC78870003B5251 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		1C97F35F2BC78A9D003B5251 /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
+		1C97F3612BC78C1D003B5251 /* BudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewModel.swift; sourceTree = "<group>"; };
+		1C97F3632BC8CB15003B5251 /* BudgetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetRow.swift; sourceTree = "<group>"; };
 		1CA73DA92A64D5F800731125 /* DateProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProviderImpl.swift; sourceTree = "<group>"; };
 		1CA73DAB2A64D64600731125 /* DateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProvider.swift; sourceTree = "<group>"; };
 		1CA73DAD2A64D73000731125 /* DateProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProviderMock.swift; sourceTree = "<group>"; };
@@ -371,6 +383,7 @@
 		113F15BD27DEDABF00D52C55 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				1C97F35B2BC78858003B5251 /* Budget */,
 				11FACC8029A6F6FE002DC395 /* Mappers */,
 				113F15BE27DEDB3100D52C55 /* Transaction.swift */,
 				113F15C027DEDB4A00D52C55 /* TransactionsContainer.swift */,
@@ -432,6 +445,7 @@
 		11801D8F27FCDB7E00D9AB4D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1C97F35E2BC78A84003B5251 /* Budget */,
 				1CBA6D3C2A28F60F00C4ECD3 /* ContainersList */,
 				111AD74129B594810055B825 /* Scheduled */,
 				11217C01294CBBF100B405BB /* List */,
@@ -523,6 +537,26 @@
 				11FACC8129A6F711002DC395 /* RecurrenceMapper.swift */,
 			);
 			path = Mappers;
+			sourceTree = "<group>";
+		};
+		1C97F35B2BC78858003B5251 /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+				1C97F35C2BC78870003B5251 /* Budget.swift */,
+			);
+			path = Budget;
+			sourceTree = "<group>";
+		};
+		1C97F35E2BC78A84003B5251 /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+				1C97F35F2BC78A9D003B5251 /* BudgetView.swift */,
+				1C97F3612BC78C1D003B5251 /* BudgetViewModel.swift */,
+				1C97F3632BC8CB15003B5251 /* BudgetRow.swift */,
+				1C22A1EC2BCB7CFD005CD0A1 /* BudgetDetailView.swift */,
+				1C22A1EE2BCB7EAB005CD0A1 /* BudgetCategoryRow.swift */,
+			);
+			path = Budget;
 			sourceTree = "<group>";
 		};
 		1CA73DA12A64D31D00731125 /* User */ = {
@@ -806,6 +840,7 @@
 				11FF377C2815E4D700466965 /* CreateTransactionViewModel.swift in Sources */,
 				113F15C527DEDB8E00D52C55 /* TransactionType.swift in Sources */,
 				11E0DA2028D163E400B2C29D /* GetCategoriesInteractor.swift in Sources */,
+				1C97F3622BC78C1D003B5251 /* BudgetViewModel.swift in Sources */,
 				110DC0A829980BE800D370FA /* TransactionState.swift in Sources */,
 				11C8135128B0215A00E94FA9 /* SaveTransactionInteractorImpl.swift in Sources */,
 				1100E2CC28A6E3AE00FE7B57 /* TransactionsListViewModel.swift in Sources */,
@@ -819,6 +854,7 @@
 				115218AD28132E6A00E8DA5A /* TransactionRemoteEntity.swift in Sources */,
 				11FACC8429A6FD39002DC395 /* RecurrenceList.swift in Sources */,
 				113F15C127DEDB4A00D52C55 /* TransactionsContainer.swift in Sources */,
+				1C22A1EF2BCB7EAB005CD0A1 /* BudgetCategoryRow.swift in Sources */,
 				113F159827DED95200D52C55 /* Persistence.swift in Sources */,
 				11F873B2280DDB370017DB9D /* CreateTransactionContainerViewModel.swift in Sources */,
 				11FACC8629A7B45B002DC395 /* ScheduledTransactionRemoteEntity.swift in Sources */,
@@ -829,6 +865,7 @@
 				110DC0B12998706200D370FA /* DateExtension.swift in Sources */,
 				11FACC9029ABC46A002DC395 /* UpdateScheduledTransactionsInteractorImpl.swift in Sources */,
 				11801D9A27FDE30D00D9AB4D /* AuthenticateUserInteractorImpl.swift in Sources */,
+				1C97F3642BC8CB15003B5251 /* BudgetRow.swift in Sources */,
 				113F15CE27DEDC6E00D52C55 /* TransactionRemoteDataSource.swift in Sources */,
 				11801D9727FDE16D00D9AB4D /* AuthenticateUserInteractor.swift in Sources */,
 				11217C03294CBC2A00B405BB /* TransactionRowView.swift in Sources */,
@@ -847,6 +884,8 @@
 				118D88DE294EB34E0051A900 /* TransactionsDisplayOption.swift in Sources */,
 				11FF377A2815E4C300466965 /* CreateTransactionView.swift in Sources */,
 				11C8134F28B0212600E94FA9 /* SaveTransactionInteractor.swift in Sources */,
+				1C97F35D2BC78870003B5251 /* Budget.swift in Sources */,
+				1C97F3602BC78A9D003B5251 /* BudgetView.swift in Sources */,
 				113F158F27DED95000D52C55 /* MoneyTrackerApp.swift in Sources */,
 				11FACC8E29ABC440002DC395 /* UpdateScheduledTransactionsInteractor.swift in Sources */,
 				113F15D527DEDE8F00D52C55 /* GetTransactionsFromContainerInteractor.swift in Sources */,
@@ -862,6 +901,7 @@
 				11FACC8A29A7DB8A002DC395 /* SaveScheduleTransactionInteractor.swift in Sources */,
 				113B825428A1DCBE00BAEB7C /* CreateWalletViewModel.swift in Sources */,
 				115FAD8F28F09F9F0012EEA5 /* AvailableCategoriesView.swift in Sources */,
+				1C22A1ED2BCB7CFD005CD0A1 /* BudgetDetailView.swift in Sources */,
 				11FACC7F29997F70002DC395 /* CreateMonthScheduleTransactions.swift in Sources */,
 				113F15CC27DEDC3500D52C55 /* CategoryRemoteDataSource.swift in Sources */,
 				113F15C327DEDB7800D52C55 /* Category.swift in Sources */,

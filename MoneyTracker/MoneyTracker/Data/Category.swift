@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Category: Identifiable, Hashable {
+struct Category: Identifiable, Hashable, Codable {
     var id: String
     var type: TransactionType
     var name: String
