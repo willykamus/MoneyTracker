@@ -14,20 +14,19 @@ struct BudgetView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(self.$budgetViewModel.budgets) { budget in
+                ForEach(self.$budgetViewModel.budgets.categories) { category in
                     Section {
                         ZStack {
-                            BudgetRow(budget: budget.wrappedValue)
-                            NavigationLink("", destination:
-                                BudgetDetailView(budget: budget)
-                            )
+                            BudgetCategoryRow(category: category)
+                            NavigationLink("") {
+                                Text("Hello World")
+                            }
                             .buttonStyle(.plain)
                             .opacity(0.0)
                         }
                     }
                 }
-            }
-            .navigationTitle("Budgets")
+            }.navigationTitle("Budgets")
         }
     }
 }

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BudgetCategoryRow: View {
     @Binding var category: BudgetCategory
-    @State var amount: String = ""
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
@@ -22,17 +21,9 @@ struct BudgetCategoryRow: View {
             Spacer()
             
             HStack(spacing: 2) {
-                TextField("", text: self.$amount)
-                    .fixedSize()
-                    .onChange(of: self.amount) { value in
-                        category.amount = Double(value) ?? 0
-                    }
-                Text("$")
+                Text("\(String(category.amount)) $")
             }
             
-        }
-        .task {
-            self.amount = String(category.amount)
         }
     }
 }
