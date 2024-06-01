@@ -31,7 +31,7 @@
 		113F15AF27DED95200D52C55 /* MoneyTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15AE27DED95200D52C55 /* MoneyTrackerUITests.swift */; };
 		113F15B127DED95200D52C55 /* MoneyTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15B027DED95200D52C55 /* MoneyTrackerUITestsLaunchTests.swift */; };
 		113F15BF27DEDB3100D52C55 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15BE27DEDB3100D52C55 /* Transaction.swift */; };
-		113F15C127DEDB4A00D52C55 /* TransactionsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15C027DEDB4A00D52C55 /* TransactionsContainer.swift */; };
+		113F15C127DEDB4A00D52C55 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15C027DEDB4A00D52C55 /* Wallet.swift */; };
 		113F15C327DEDB7800D52C55 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15C227DEDB7800D52C55 /* Category.swift */; };
 		113F15C527DEDB8E00D52C55 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15C427DEDB8E00D52C55 /* TransactionType.swift */; };
 		113F15C727DEDBA800D52C55 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F15C627DEDBA800D52C55 /* User.swift */; };
@@ -173,7 +173,7 @@
 		113F15AE27DED95200D52C55 /* MoneyTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITests.swift; sourceTree = "<group>"; };
 		113F15B027DED95200D52C55 /* MoneyTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		113F15BE27DEDB3100D52C55 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		113F15C027DEDB4A00D52C55 /* TransactionsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsContainer.swift; sourceTree = "<group>"; };
+		113F15C027DEDB4A00D52C55 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		113F15C227DEDB7800D52C55 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		113F15C427DEDB8E00D52C55 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		113F15C627DEDBA800D52C55 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -394,7 +394,7 @@
 				1C97F35B2BC78858003B5251 /* Budget */,
 				11FACC8029A6F6FE002DC395 /* Mappers */,
 				113F15BE27DEDB3100D52C55 /* Transaction.swift */,
-				113F15C027DEDB4A00D52C55 /* TransactionsContainer.swift */,
+				113F15C027DEDB4A00D52C55 /* Wallet.swift */,
 				113F15C227DEDB7800D52C55 /* Category.swift */,
 				113F15C427DEDB8E00D52C55 /* TransactionType.swift */,
 				113F15C627DEDBA800D52C55 /* User.swift */,
@@ -867,7 +867,7 @@
 				11F873B0280DD7670017DB9D /* CreateTransactionContainerInteractor.swift in Sources */,
 				115218AD28132E6A00E8DA5A /* TransactionRemoteEntity.swift in Sources */,
 				11FACC8429A6FD39002DC395 /* RecurrenceList.swift in Sources */,
-				113F15C127DEDB4A00D52C55 /* TransactionsContainer.swift in Sources */,
+				113F15C127DEDB4A00D52C55 /* Wallet.swift in Sources */,
 				1C22A1EF2BCB7EAB005CD0A1 /* BudgetCategoryRow.swift in Sources */,
 				113F159827DED95200D52C55 /* Persistence.swift in Sources */,
 				11F873B2280DDB370017DB9D /* CreateTransactionContainerViewModel.swift in Sources */,
@@ -1019,7 +1019,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1074,7 +1074,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1152,7 +1152,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3JF6M2L57N;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ching.MoneyTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1172,7 +1172,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3JF6M2L57N;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ching.MoneyTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -11,8 +11,8 @@ class CreateTransactionViewModel: ObservableObject {
     
     @Published var amount: String = ""
     @Published var selectedDate: Date = Date()
-    @Published var transactionsContainer: [TransactionsContainer] = []
-    @Published var selectedContainer: TransactionsContainer?
+    @Published var Wallet: [Wallet] = []
+    @Published var selectedContainer: Wallet?
     @Published var inputsValidated: Bool = false
     @Published var incomeCategories: [Category] = []
     @Published var expensesCategories: [Category] = []
@@ -20,7 +20,7 @@ class CreateTransactionViewModel: ObservableObject {
     @Published var comment: String = ""
     
     let saveTransactionInteractor: SaveTransactionInteractor = SaveTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(dateProvider: DateProviderImpl(), userRemoteDataSource: UserRemoteDataSourceImpl()), userRemoteDataSource: UserRemoteDataSourceImpl())
-    let saveScheduleTransactionInteractor: SaveScheduleTransactionInteractor = SaveScheduleTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(dateProvider: DateProviderImpl(), userRemoteDataSource: UserRemoteDataSourceImpl()), userRemoteDataSource: UserRemoteDataSourceImpl())
+//    let saveScheduleTransactionInteractor: SaveScheduleTransactionInteractor = SaveScheduleTransactionInteractorImpl(transactionRemoteDataSource: TransactionRemoteDataSourceImpl(dateProvider: DateProviderImpl(), userRemoteDataSource: UserRemoteDataSourceImpl()), userRemoteDataSource: UserRemoteDataSourceImpl())
     let createNextScheduleTransactions: CreateNextScheduleTransactions = CreateNextScheduleTransactionsImpl()
     
     let getCategories: GetCategoriesInteractor = GetCategoriesInteractorImpl()
@@ -31,14 +31,15 @@ class CreateTransactionViewModel: ObservableObject {
             let scheduleTransaction = ScheduledTransaction(id: UUID().uuidString, transaction: transaction, recurrence: selectedRecurrence)
             if Calendar.current.isDate(transaction.date, inSameDayAs: Date()) {
                 await self.saveTransactionInteractor.execute(transaction: transaction, container: selectedContainer!)
-            } else {
-                await self.saveScheduleTransactionInteractor.execute(transaction: scheduleTransaction, container: selectedContainer!)
-            }
+            } 
+//            else {
+//                await self.saveScheduleTransactionInteractor.execute(transaction: scheduleTransaction, container: selectedContainer!)
+//            }
             
             if selectedRecurrence != .never {
                 let transactions = createNextScheduleTransactions.execute(scheduledTransactions: [scheduleTransaction])
                 for transaction in transactions {
-                    await self.saveScheduleTransactionInteractor.execute(transaction: transaction, container: selectedContainer!)
+//                    await self.saveScheduleTransactionInteractor.execute(transaction: transaction, container: selectedContainer!)
                     return
                 }
             }

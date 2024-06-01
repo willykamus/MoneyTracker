@@ -30,7 +30,10 @@ struct BudgetDetailView: View {
 }
 
 #Preview {
-    BudgetDetailView(budget: .constant(Budget(id: UUID().uuidString, title: "Test", categories: [
-        BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Mortgage"), amount: 1000),
-        BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Car loan"), amount: 1000)])))
+    BudgetDetailView(budget: .constant(
+        Budget(id: UUID().uuidString, title: "Test", categories: [
+            BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Mortgage"), assignedAmount: 100),
+            BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Restaurant"), assignedAmount: 101),
+            BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Salario"), assignedAmount: 102)])
+    ))
 }

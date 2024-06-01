@@ -18,8 +18,8 @@ struct BudgetRow: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             HStack {
-                var count = budget.categories.count
-                var text = count > 1 ? "Categories" : "Category"
+                let count = budget.categories.count
+                let text = count > 1 ? "Categories" : "Category"
                 Text("\(count) \(text)")
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -30,5 +30,5 @@ struct BudgetRow: View {
 }
 
 #Preview {
-    BudgetRow(budget: Budget(id: "", title: "Gastos Esenciales", categories: [BudgetCategory(id: "", category: Category(id: "", type: .expense, name: "Gasto"), amount: 1000)]))
+    BudgetRow(budget: Budget(id: "", title: "", categories: [BudgetCategory(id: "", category: Category(id: "", type: .expense, name: "Mortgage"), assignedAmount: 100)]))
 }

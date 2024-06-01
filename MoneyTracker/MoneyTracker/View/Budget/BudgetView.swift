@@ -10,23 +10,76 @@ import SwiftUI
 struct BudgetView: View {
     
     @StateObject var budgetViewModel: BudgetViewModel = BudgetViewModel()
+    @State var isrPresented: Bool = false
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(self.$budgetViewModel.budgets.categories) { category in
-                    Section {
-                        ZStack {
-                            BudgetCategoryRow(category: category)
-                            NavigationLink("") {
-                                Text("Hello World")
+            ZStack {
+                List {
+                    ForEach($budgetViewModel.budget) { budget in
+                        DisclosureGroup(
+                            content: {
+                                if budget.categories.isEmpty {
+                                    ContentUnavailableView("No categories selected", systemImage: "tray.fill")
+                                } else {
+                                    ForEach(budget.categories) { budgetCategory in
+                                        NavigationLink {
+                                            Text("Hello WOrld")
+                                        } label: {
+                                            HStack {
+                                                Text(budgetCategory.wrappedValue.categoryName())
+                                                Spacer()
+                                                Text(String(budgetCategory.wrappedValue.assignedAmount))
+                                            }
+                                            .listRowInsets(.none)
+                                        }
+                                    }
+                                }
+                            },
+                            label: {
+                                Button(action: {
+                                    self.isrPresented = true
+                                }, label: {
+                                    HStack {
+                                        Text(budget.wrappedValue.title)
+                                        Spacer()
+                                        Text(String(budget.wrappedValue.amount()))
+                                    }
+                                    
+                                })
+                                .foregroundStyle(.black)
                             }
-                            .buttonStyle(.plain)
-                            .opacity(0.0)
-                        }
+                        )
+                    }
+                    .onDelete { indexs in
+                        print("Deleting")
                     }
                 }
-            }.navigationTitle("Budgets")
+                
+                VStack {
+                    Spacer()
+                    
+                    HStack {
+                        Spacer()
+                        Button {
+                            //Open Create a category
+                        } label: {
+                            FloatingButton()
+                        }
+                        .padding(.horizontal,32)
+                        .padding(.vertical,16)
+                    }
+                }
+            }
+            .toolbar {
+                EditButton()
+            }
+            .navigationTitle("Budgets")
+            .navigationDestination(isPresented: self.$isrPresented) {
+                VStack {
+                    Text("View")
+                }
+            }
         }
     }
 }

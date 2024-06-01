@@ -11,7 +11,7 @@ struct TransactionListView: View {
     @Namespace private var animation
     @State var createTransactionOpened: Bool = false
     @StateObject var viewModel = TransactionsListViewModel()
-    @State var transactionsContainer: TransactionsContainer
+    @State var Wallet: Wallet
     
     var body: some View {
         ZStack {
@@ -70,10 +70,10 @@ struct TransactionListView: View {
                 }.padding(.bottom, 16)
                 
                 List {
-                    if self.transactionsContainer.scheduledTransactions?.count ?? 0 > 0 {
+                    if self.Wallet.scheduledTransactions?.count ?? 0 > 0 {
                         Section(header: Spacer(minLength: 0)) {
                             NavigationLink {
-                                ScheduledTransactionList(scheduleTransactions: self.transactionsContainer.scheduledTransactions!)
+                                ScheduledTransactionList(scheduleTransactions: self.Wallet.scheduledTransactions!)
                             } label: {
                                 Text("Schedules transactions")
                             }
@@ -110,13 +110,13 @@ struct TransactionListView: View {
                 })
                 .onAppear {
                     Task {
-                        self.viewModel.getTransactions(container: self.transactionsContainer)
+                        self.viewModel.getTransactions(container: self.Wallet)
                     }
                 }
                 .onChange(of: self.createTransactionOpened) { value in
                     if !value {
                         Task {
-                            self.viewModel.getTransactions(container: self.transactionsContainer)
+                            self.viewModel.getTransactions(container: self.Wallet)
                         }
                     }
                 }
@@ -149,6 +149,6 @@ struct TransactionListView: View {
 
 struct TransactionListView_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionListView(transactionsContainer: TransactionsContainer(id: "", transactions: [], name: ""))
+        TransactionListView(Wallet: Wallet(id: "", transactions: [], name: ""))
     }
 }

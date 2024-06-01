@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GetTransactionContainerFutureTotal {
-    func execute(transactionContainter: TransactionsContainer) -> Double
+    func execute(transactionContainter: Wallet) -> Double
 }

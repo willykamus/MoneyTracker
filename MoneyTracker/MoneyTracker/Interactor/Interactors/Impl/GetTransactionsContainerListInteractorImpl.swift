@@ -1,5 +1,5 @@
 //
-//  GetTransactionsContainerListInteractorImpl.swift
+//  GetWalletListInteractorImpl.swift
 //  MoneyTracker
 //
 //  Created by William Ching on 2022-04-22.
@@ -7,16 +7,22 @@
 
 import Foundation
 
-class GetTransactionsContainerListInteractorImpl: GetTransactionsContainerListInteractor {
+class GetWalletListInteractorImpl: GetWalletListInteractor {
     
-    private let transactionContainerRemoteDataSource: TransactionsContainerRemoteDataSource = TransactionsContainerRemoteDataSourceImpl(userRemoteDataSource: UserRemoteDataSourceImpl(), dateProvider: DateProviderImpl())
-    private let updateScheduledTransactionsInteractor: UpdateScheduledTransactionsInteractor = UpdateScheduledTransactionsInteractorImpl()
+    private let transactionContainerRemoteDataSource: WalletRemoteDataSource = WalletRemoteDataSourceImpl(userRemoteDataSource: UserRemoteDataSourceImpl(), dateProvider: DateProviderImpl())
+//    private let updateScheduledTransactionsInteractor: UpdateScheduledTransactionsInteractor = UpdateScheduledTransactionsInteractorImpl()
     
-    func execute() async -> [TransactionsContainer] {
-        let containers = await transactionContainerRemoteDataSource.getContainers()
-        for container in containers {
-            await updateScheduledTransactionsInteractor.execute(container: container)
+    func execute() async -> [Wallet] {
+        let result = await transactionContainerRemoteDataSource.getContainers()
+        switch result {
+        case .success(let wallets):
+            return wallets
+        case .failure(let error):
+            return []
         }
-        return await transactionContainerRemoteDataSource.getContainers()
+//        for container in containers {
+//            await updateScheduledTransactionsInteractor.execute(container: container)
+//        }
+//        return await transactionContainerRemoteDataSource.getContainers()
     }
 }

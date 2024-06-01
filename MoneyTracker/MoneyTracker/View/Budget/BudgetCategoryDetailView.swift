@@ -9,13 +9,25 @@ import SwiftUI
 
 struct BudgetCategoryDetailView: View {
     
-    
+    @Binding var category: BudgetCategory
+    @StateObject var budgetCategoryDetailViewModel: BudgetCategoryDetailViewModel = BudgetCategoryDetailViewModel()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(budgetCategoryDetailViewModel.summaries, id:\.self) { summary in
+                HStack {
+                    Text(summary.title)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(summary.amount)
+                }
+            }
+        }
+        .task {
+            await budgetCategoryDetailViewModel.initialize(category: category)
+        }
     }
 }
 
 #Preview {
-    BudgetCategoryDetailView()
+    BudgetCategoryDetailView(category: .constant(BudgetCategory(id: "", category: Category(id: "", type: .expense, name: ""), assignedAmount: 100)))
 }

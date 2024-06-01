@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WalletsView: View {
     
-    @ObservedObject var viewModel: TransactionsContainerListViewModel = TransactionsContainerListViewModel()
+    @ObservedObject var viewModel: WalletListViewModel = WalletListViewModel()
     
     var body: some View {
         NavigationView {
@@ -20,11 +20,11 @@ struct WalletsView: View {
                     }
                 } else {
                     List {
-                        ForEach(viewModel.transactionsContainer) { transactionContainer in
+                        ForEach(viewModel.Wallet) { transactionContainer in
                             NavigationLink {
-                                TransactionListView(transactionsContainer: transactionContainer)
+                                TransactionListView(Wallet: transactionContainer)
                             } label: {
-                                TransactionsContainerRow(transactionsContainer: transactionContainer)
+                                WalletRow(Wallet: transactionContainer)
                             }
                         }
                     }
@@ -60,6 +60,6 @@ struct WalletsView: View {
 
 struct WalletsView_Previews: PreviewProvider {
     static var previews: some View {
-        WalletsView(viewModel: TransactionsContainerListViewModel())
+        WalletsView(viewModel: WalletListViewModel())
     }
 }

@@ -12,16 +12,16 @@ struct BudgetCategoryRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
-                Text(category.category.name)
-                Text(category.category.type.rawValue)
-                    .foregroundStyle(.gray)
-                    .font(.system(.caption))
+                Text(category.categoryName())
+//                Text(category.category.first!.type.rawValue)
+//                    .foregroundStyle(.gray)
+//                    .font(.system(.caption))
             }
             
             Spacer()
             
             HStack(spacing: 2) {
-                Text("\(String(category.amount)) $")
+                Text("\(String(category.assignedAmount)) $")
             }
             
         }
@@ -29,5 +29,7 @@ struct BudgetCategoryRow: View {
 }
 
 #Preview {
-    BudgetCategoryRow(category: .constant(BudgetCategory(id: "", category: Category(id: "", type: .expense, name: "Hello"), amount: 100)))
+    BudgetCategoryRow(category: .constant(
+            BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Mortgage"), assignedAmount: 100))
+    )
 }

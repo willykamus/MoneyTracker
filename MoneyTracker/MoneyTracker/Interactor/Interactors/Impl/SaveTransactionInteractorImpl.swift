@@ -17,8 +17,8 @@ class SaveTransactionInteractorImpl: SaveTransactionInteractor {
         self.userRemoteDataSource = userRemoteDataSource
     }
     
-    func execute(transaction: Transaction, container: TransactionsContainer) async {
+    func execute(transaction: Transaction, container: Wallet) async {
         let user = userRemoteDataSource.currentUser()
-        await self.transactionRemoteDataSource.add(transaction: transaction, containerId: container.id, userId: user!.id)
+        await self.transactionRemoteDataSource.add(transaction: transaction, userId: user!.id)
     }
 }

@@ -14,13 +14,14 @@ protocol GetAllTransactionsInteractor {
 class GetAllTransactionsInteractorImpl: GetAllTransactionsInteractor {
     
     var transactionRemoteDataSource: TransactionRemoteDataSource
+    private var userRemoteDataSource: UserRemoteDataSource = UserRemoteDataSourceImpl()
     
     init(transactionRemoteDataSource: TransactionRemoteDataSource) {
         self.transactionRemoteDataSource = transactionRemoteDataSource
     }
     
     func execute() async -> [Transaction] {
-        return await self.transactionRemoteDataSource.getAllTransactions()
+        return await self.transactionRemoteDataSource.getAllTransactions(userId: userRemoteDataSource.currentUser()!.id)
     }
     
     

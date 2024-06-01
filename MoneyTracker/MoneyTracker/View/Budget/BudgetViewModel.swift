@@ -8,9 +8,9 @@
 import Foundation
 
 class BudgetViewModel: ObservableObject {
-    @Published var budgets: Budget = Budget(id: UUID().uuidString, title: "Test", categories: [
-        BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Mortgage"), amount: 1000),
-        BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Car loan"), amount: 1000),
-        BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .income, name: "Salary"), amount: 1000)])
+    @Published var budget: [Budget] = [Budget(id: UUID().uuidString, title: "Esenciales", categories: [
+        BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Mortgage"), assignedAmount: 100),
+        BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Seguro"), assignedAmount: 101),
+        BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Carro"), assignedAmount: 102)])]
 
 }

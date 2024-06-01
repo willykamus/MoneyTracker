@@ -1,5 +1,5 @@
 //
-//  TransactionsContainerListViewModel.swift
+//  WalletListViewModel.swift
 //  MoneyTracker
 //
 //  Created by William Ching on 2022-04-22.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-class TransactionsContainerListViewModel: ObservableObject {
+class WalletListViewModel: ObservableObject {
     
-    @Published var transactionsContainer: [TransactionsContainer] = []
+    @Published var Wallet: [Wallet] = []
     @Published var noContainerMessage: String = ""
     @Published var walletCreated: Bool = false
     
-    private let getTransactionsContainerListInteractor: GetTransactionsContainerListInteractor = GetTransactionsContainerListInteractorImpl()
+    private let getWalletListInteractor: GetWalletListInteractor = GetWalletListInteractorImpl()
     
     init() {
         Task(priority: .medium) {
@@ -21,12 +21,12 @@ class TransactionsContainerListViewModel: ObservableObject {
         }
     }
     func getContainers() async {
-        let containers = await self.getTransactionsContainerListInteractor.execute()
+        let containers = await self.getWalletListInteractor.execute()
         DispatchQueue.main.async {
             if containers.isEmpty {
                 self.noContainerMessage = "Create a new wallet"
             } else {
-                self.transactionsContainer = containers
+                self.Wallet = containers
             }
             
         }
