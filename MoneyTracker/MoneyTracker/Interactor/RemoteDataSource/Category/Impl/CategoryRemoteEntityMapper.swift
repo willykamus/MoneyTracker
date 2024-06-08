@@ -9,7 +9,7 @@ import Foundation
 
 class CategoryRemoteEntityMapper {
     func toCategory(_ entity: CategoryRemoteEntity) -> Category {
-        return Category(id: entity.id ?? UUID().uuidString, type: TransactionType(rawValue: entity.type)!, name: entity.name)
+        return Category(id: entity.id ?? UUID().uuidString, type: TransactionType(rawValue: entity.type)!, name: entity.name, budget: entity.budget ?? "")
     }
 
     func toRemoteEntity(_ model: Category) -> CategoryRemoteEntity {

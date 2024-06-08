@@ -30,5 +30,5 @@ struct BudgetRow: View {
 }
 
 #Preview {
-    BudgetRow(budget: Budget(id: "", title: "", categories: [BudgetCategory(id: "", category: Category(id: "", type: .expense, name: "Mortgage"), assignedAmount: 100)]))
+    BudgetRow(budget: Budget(id: "", title: "", categories: [BudgetCategory(id: "", category: Category(id: "", type: .expense, name: "Mortgage", budget: ""), assignedAmount: 100)]))
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct BudgetView: View {
     
     @StateObject var budgetViewModel: BudgetViewModel = BudgetViewModel()
-    @State var isrPresented: Bool = false
+    @State var isPresented: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -38,7 +38,7 @@ struct BudgetView: View {
                             },
                             label: {
                                 Button(action: {
-                                    self.isrPresented = true
+                                    self.isPresented = true
                                 }, label: {
                                     HStack {
                                         Text(budget.wrappedValue.title)
@@ -62,7 +62,7 @@ struct BudgetView: View {
                     HStack {
                         Spacer()
                         Button {
-                            //Open Create a category
+                            self.isPresented = true
                         } label: {
                             FloatingButton()
                         }
@@ -75,9 +75,9 @@ struct BudgetView: View {
                 EditButton()
             }
             .navigationTitle("Budgets")
-            .navigationDestination(isPresented: self.$isrPresented) {
+            .navigationDestination(isPresented: self.$isPresented) {
                 VStack {
-                    Text("View")
+                    BudgetCreateView()
                 }
             }
         }

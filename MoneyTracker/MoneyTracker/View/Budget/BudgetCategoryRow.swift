@@ -30,6 +30,6 @@ struct BudgetCategoryRow: View {
 
 #Preview {
     BudgetCategoryRow(category: .constant(
-            BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Mortgage"), assignedAmount: 100))
+            BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Mortgage", budget: ""), assignedAmount: 100))
     )
 }

@@ -32,8 +32,8 @@ struct BudgetDetailView: View {
 #Preview {
     BudgetDetailView(budget: .constant(
         Budget(id: UUID().uuidString, title: "Test", categories: [
-            BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Mortgage"), assignedAmount: 100),
-            BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Restaurant"), assignedAmount: 101),
-            BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Salario"), assignedAmount: 102)])
+            BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Mortgage", budget: ""), assignedAmount: 100),
+            BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Restaurant", budget: ""), assignedAmount: 101),
+            BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Salario", budget: ""), assignedAmount: 102)])
     ))
 }

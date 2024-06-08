@@ -29,5 +29,5 @@ struct BudgetCategoryDetailView: View {
 }
 
 #Preview {
-    BudgetCategoryDetailView(category: .constant(BudgetCategory(id: "", category: Category(id: "", type: .expense, name: ""), assignedAmount: 100)))
+    BudgetCategoryDetailView(category: .constant(BudgetCategory(id: "", category: Category(id: "", type: .expense, name: "", budget: ""), assignedAmount: 100)))
 }
