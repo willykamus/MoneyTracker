@@ -6,53 +6,72 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct BudgetView: View {
     
-    @StateObject var budgetViewModel: BudgetViewModel = BudgetViewModel()
-    @State var isPresented: Bool = false
+    @Query(animation: .snappy) private var budgets: [Budget]
+    @Environment(\.modelContext) private var context
+    
+    @State var create: Bool = false
     
     var body: some View {
         NavigationStack {
             ZStack {
-                List {
-                    ForEach($budgetViewModel.budget) { budget in
-                        DisclosureGroup(
-                            content: {
-                                if budget.categories.isEmpty {
-                                    ContentUnavailableView("No categories selected", systemImage: "tray.fill")
-                                } else {
-                                    ForEach(budget.categories) { budgetCategory in
-                                        NavigationLink {
-                                            Text("Hello WOrld")
-                                        } label: {
-                                            HStack {
-                                                Text(budgetCategory.wrappedValue.categoryName())
-                                                Spacer()
-                                                Text(String(budgetCategory.wrappedValue.assignedAmount))
-                                            }
-                                            .listRowInsets(.none)
+                if budgets.isEmpty {
+                    ContentUnavailableView("No budget created", systemImage: "tray.fill")
+                } else {
+                    List {
+                        ForEach(budgets) { budget in
+                            Section {
+                                NavigationLink {
+                                    Text(budget.title)
+                                } label: {
+                                    BudgetCardView(budget: budget)
+                                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                            Button(action: {
+                                                context.delete(budget)
+                                            }, label: {
+                                                Image(systemName: "trash")
+                                            })
+                                            .tint(.red)
                                         }
-                                    }
                                 }
-                            },
-                            label: {
-                                Button(action: {
-                                    self.isPresented = true
-                                }, label: {
-                                    HStack {
-                                        Text(budget.wrappedValue.title)
-                                        Spacer()
-                                        Text(String(budget.wrappedValue.amount()))
-                                    }
-                                    
-                                })
-                                .foregroundStyle(.black)
                             }
-                        )
-                    }
-                    .onDelete { indexs in
-                        print("Deleting")
+//                            DisclosureGroup(
+//                                content: {
+//                                    if budget.categories.isEmpty {
+//                                        ContentUnavailableView("No categories selected", systemImage: "tray.fill")
+//                                    } else {
+//                                        ForEach(budget.categories) { category in
+//                                            NavigationLink {
+//                                                Text("Category Summary")
+//                                            } label: {
+//                                                HStack {
+//                                                    Text(category.name)
+//                                                    Spacer()
+//                                                    Text(String(category.budgetAmount ?? 0))
+//                                                }
+//                                                .listRowInsets(.none)
+//                                            }
+//                                        }
+//                                    }
+//                                },
+//                                label: {
+//                                    NavigationLink {
+//                                        Text(budget.title)
+//                                    } label: {
+//                                        HStack {
+//                                            Text(budget.title)
+//                                            Spacer()
+//                                        }
+//                                    }
+//                                }
+//                            )
+                        }
+//                        .onDelete { indexs in
+//                            print("Deleting")
+//                        }
                     }
                 }
                 
@@ -62,7 +81,7 @@ struct BudgetView: View {
                     HStack {
                         Spacer()
                         Button {
-                            self.isPresented = true
+                            self.create = true
                         } label: {
                             FloatingButton()
                         }
@@ -71,15 +90,13 @@ struct BudgetView: View {
                     }
                 }
             }
+            .sheet(isPresented: self.$create, content: {
+                BudgetCreateView(isPresented: self.$create)
+            })
             .toolbar {
                 EditButton()
             }
             .navigationTitle("Budgets")
-            .navigationDestination(isPresented: self.$isPresented) {
-                VStack {
-                    BudgetCreateView()
-                }
-            }
         }
     }
 }

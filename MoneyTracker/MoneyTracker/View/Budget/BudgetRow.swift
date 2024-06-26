@@ -23,12 +23,12 @@ struct BudgetRow: View {
                 Text("\(count) \(text)")
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Text(String(budget.amount()))
+                Text(String(budget.title))
             }
         }
     }
 }
 
-#Preview {
-    BudgetRow(budget: Budget(id: "", title: "", categories: [BudgetCategory(id: "", category: Category(id: "", type: .expense, name: "Mortgage", budget: ""), assignedAmount: 100)]))
-}
+//#Preview {
+//    BudgetRow(budget: Budget(id: "", title: "", categories: [BudgetCategory(id: "", category: Category(id: "", type: .expense, name: "Mortgage", budget: "", budgetAmount: 100), assignedAmount: 100)]))
+//}

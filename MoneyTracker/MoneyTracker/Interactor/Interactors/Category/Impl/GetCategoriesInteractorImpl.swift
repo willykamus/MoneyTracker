@@ -7,14 +7,14 @@
 
 import Foundation
 
-class GetCategoriesInteractorImpl: GetCategoriesInteractor {
-    
-    let categoriesRemoteDataSource: CategoryRemoteDataSource = CategoryRemoteDataSourceImpl()
-    
-    func execute() async -> Result<[Category], Error> {
-        return await categoriesRemoteDataSource.getCategories()
-        
-    }
-    
-    
-}
+//class GetCategoriesInteractorImpl: GetCategoriesInteractor {
+//    
+//    let categoriesRemoteDataSource: CategoryRemoteDataSource = CategoryRemoteDataSourceImpl()
+//    
+//    func execute() async -> Result<[Category], Error> {
+//        return await categoriesRemoteDataSource.getCategories()
+//        
+//    }
+//    
+//    
+//}

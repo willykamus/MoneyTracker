@@ -7,17 +7,20 @@
 
 import SwiftUI
 import Firebase
+import SwiftData
 
 @main
 struct MoneyTrackerApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    let persistenceController = PersistenceController.shared
+//    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            LoginView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            HomeScreenView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
+        .modelContainer(for: [Budget.self])
+
     }
 }
 

@@ -6,26 +6,28 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Budget: Identifiable, Hashable, Codable {
+@Model
+class Budget {
     var id: String
     var title: String
-    var categories: [BudgetCategory]
+    @Relationship(deleteRule: .deny, inverse: \Category.budget)
+    var categories: [Category] = []
     
-    func amount() -> Double {
-        let amounts = categories.map { $0.assignedAmount }
-        return amounts.reduce(into: 0) { partialResult, element in
-            partialResult += element
-        }
+    init(id: String, title: String, categories: [Category]) {
+        self.id = id
+        self.title = title
+        self.categories = categories
     }
-}
-
-struct BudgetCategory: Identifiable, Hashable, Codable {
-    var id: String
-    var category: Category
-    var assignedAmount: Double
     
-    func categoryName() -> String {
-        return category.name
+    @Transient
+    var amount: String {
+        let sum = categories.map { $0.budgetAmount }.reduce(into: 0) { partialResult, element in
+            partialResult += element ?? 0
+        }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter.string(for: sum) ?? ""
     }
 }

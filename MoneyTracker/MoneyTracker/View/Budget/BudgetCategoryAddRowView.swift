@@ -9,23 +9,23 @@ import SwiftUI
 
 struct BudgetCategoryAddRowView: View {
     
-    @Binding var budgetCategory: BudgetCategory
+    @Binding var category: Category
     @State var assignedAmount: Double = 0.0
     
     var body: some View {
         HStack {
-            Text(budgetCategory.categoryName())
+            Text(category.name)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             TextField("0.0", value: $assignedAmount, format: .currency(code: "US"))                    .keyboardType(.numberPad)
                 .multilineTextAlignment(.trailing)
                 .onChange(of: self.assignedAmount) { oldValue, newValue in
-                    self.budgetCategory.assignedAmount = newValue
+                    self.category.budgetAmount = newValue
                 }
         }
         .task {
-            if budgetCategory.assignedAmount > 0 {
-                self.assignedAmount = budgetCategory.assignedAmount
+            if category.budgetAmount ?? 0 > 0 {
+                self.assignedAmount = category.budgetAmount!
             }
         }
         
@@ -33,5 +33,5 @@ struct BudgetCategoryAddRowView: View {
 }
 
 #Preview {
-    BudgetCategoryAddRowView(budgetCategory: .constant(BudgetCategory(id: "", category: Category(id: "", type: .expense, name: "Category", budget: ""), assignedAmount: 100)))
+    BudgetCategoryAddRowView(category: .constant(Category(type: .expense, name: "Category", budgetAmount: 100)), assignedAmount: 0.0)
 }

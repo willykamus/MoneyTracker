@@ -9,57 +9,79 @@ import SwiftUI
 
 struct BudgetCreateView: View {
     
-    @State var budgetCreateViewModel: BudgetCreateViewModel = BudgetCreateViewModel()
+    @Environment(\.modelContext) private var context
+    
+    @ObservedObject var budgetCreateViewModel: BudgetCreateViewModel = BudgetCreateViewModel()
     @State var budgetName: String = ""
-    @State var budgetCategories: [BudgetCategory] = []
-    @State var availableCategories: [Category] = []
+    @Binding var isPresented: Bool
     
     var body: some View {
-        Form(content: {
-            Section {
-                TextField("", text: self.$budgetName, prompt: Text("General"))
-            } header: {
-                Text("Title")
-            }
-            
-            Section {
-                if budgetCategories.isEmpty {
-                    ContentUnavailableView("No categories added", systemImage: "tray.fill")
-                } else {
-                    ForEach($budgetCategories) { category in
-                        BudgetCategoryAddRowView(budgetCategory: category)
-                    }
+        NavigationStack {
+            Form(content: {
+                Section {
+                    TextField("", text: self.$budgetCreateViewModel.budget.title, prompt: Text("General"))
+                } header: {
+                    Text("Title")
                 }
-            } header: {
-                HStack {
-                    Spacer()
-                    Menu {
-                        ForEach(self.$availableCategories, id: \.id) { category in
-                            Button {
-                                print("Hello World")
-                            } label: {
-                                Text(category.wrappedValue.name)
-                                    .textCase(.none)
+                
+                Section {
+                    if budgetCreateViewModel.selectedCategories.isEmpty {
+                        ContentUnavailableView("No categories selected", systemImage: "tray.fill")
+                    } else {
+                        ForEach(budgetCreateViewModel.selectedCategories) { category in
+                            HStack {
+                                Button(action: {
+                                    budgetCreateViewModel.removeCategory(category: category)
+                                }, label: {
+                                    Image(systemName: "minus.circle.fill")
+                                })
+                                
+//                                BudgetCategoryAddRowView(budgetCategory: category)
+                                Text(category.name)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                             }
+                            
                         }
-                    } label: {
-                        Image(systemName: "rectangle.stack.fill.badge.plus")
-                            .font(.title3)
                     }
+                } header: {
+                    HStack {
+                        Text("Categories")
+                        Spacer()
+                        Menu {
+                            ForEach(self.$budgetCreateViewModel.availableCategories, id: \.id) { category in
+                                Button {
+                                    self.budgetCreateViewModel.assignCategoryToBudget(category: category.wrappedValue)
+                                } label: {
+                                    Text(category.wrappedValue.name)
+                                        .textCase(.none)
+                                }
+                            }
+                        } label: {
+                            Image(systemName: "rectangle.stack.fill.badge.plus")
+                                .font(.title3)
+                        }
+                    }
+                    
                 }
-
-            }
-        })
+            })
+            .onAppear(perform: {                    
+                self.budgetCreateViewModel.getAvailableCategories(modelContext: self.context)
+            })
+            .toolbar(content: {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        self.budgetCreateViewModel.save()
+                        self.isPresented.toggle()
+                    }, label: {
+                        Text("Add")
+                    })
+                }
+            })
         .navigationBarTitleDisplayMode(.inline)
-        .task {
-            var categories = await budgetCreateViewModel.getAvailableCategories()
-            DispatchQueue.main.async {
-                self.availableCategories.append(contentsOf: categories)
-            }
         }
     }
 }
 
 #Preview {
-    BudgetCreateView()
+    BudgetCreateView(isPresented: .constant(true))
 }

@@ -7,10 +7,16 @@
 
 import Foundation
 
-class BudgetViewModel: ObservableObject {
-    @Published var budget: [Budget] = [Budget(id: UUID().uuidString, title: "Esenciales", categories: [
-        BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Mortgage", budget: ""), assignedAmount: 100),
-        BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Seguro", budget: ""), assignedAmount: 101),
-        BudgetCategory(id: UUID().uuidString, category: Category(id: UUID().uuidString, type: .expense, name: "Carro", budget: ""), assignedAmount: 102)])]
-
-}
+//class BudgetViewModel: ObservableObject {
+//    @Published var budget: [Budget] = []
+//    
+//    let getBudgetsInteractor: GetBudgetsInteractor = GetBudgetsInteractorImpl()
+//    
+//    func initialize() async {
+//        let budgets = await getBudgetsInteractor.execute()
+//        DispatchQueue.main.async {
+//            self.budget = budgets
+//        }
+//    }
+//
+//}

@@ -37,7 +37,7 @@ class WalletRemoteDataSourceImpl: WalletRemoteDataSource {
                 return Result.failure(error)
             }
         }
-        return Result.failure(Swift.fatalError())
+        return Result.failure(NSError())
     }
     
     func createDataBase(for user: User) {

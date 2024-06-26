@@ -106,6 +106,17 @@
 		1C22A1ED2BCB7CFD005CD0A1 /* BudgetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C22A1EC2BCB7CFD005CD0A1 /* BudgetDetailView.swift */; };
 		1C22A1EF2BCB7EAB005CD0A1 /* BudgetCategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C22A1EE2BCB7EAB005CD0A1 /* BudgetCategoryRow.swift */; };
 		1C2A051A2A356AB600400C1D /* SaveScheduleTransactionInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2A05192A356AB600400C1D /* SaveScheduleTransactionInteractorMock.swift */; };
+		1C4EEEF52C27B4E700D45FD9 /* BudgetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4EEEF42C27B4E700D45FD9 /* BudgetCardView.swift */; };
+		1C5F83012C13EAB500530C8E /* SetCategoryToBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5F83002C13EAB500530C8E /* SetCategoryToBudget.swift */; };
+		1C5F83042C13EC8800530C8E /* SetCategoryToBudgetInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5F83032C13EC8800530C8E /* SetCategoryToBudgetInteractorImpl.swift */; };
+		1C5F83072C154C0100530C8E /* BudgetRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5F83062C154C0100530C8E /* BudgetRemoteDataSource.swift */; };
+		1C5F83092C154C2C00530C8E /* BudgetRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5F83082C154C2C00530C8E /* BudgetRemoteDataSourceImpl.swift */; };
+		1C5F830B2C154D3D00530C8E /* BudgetRemoteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5F830A2C154D3D00530C8E /* BudgetRemoteEntity.swift */; };
+		1C5F830D2C154DB400530C8E /* SaveBudgetInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5F830C2C154DB400530C8E /* SaveBudgetInteractor.swift */; };
+		1C5F830F2C154DD000530C8E /* SaveBudgetInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5F830E2C154DD000530C8E /* SaveBudgetInteractorImpl.swift */; };
+		1C5F83112C16993600530C8E /* GetBudgetsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5F83102C16993600530C8E /* GetBudgetsInteractor.swift */; };
+		1C5F83132C16996400530C8E /* GetBudgetsInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5F83122C16996400530C8E /* GetBudgetsInteractorImpl.swift */; };
+		1C5F83162C1D268800530C8E /* CategoryMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5F83152C1D268800530C8E /* CategoryMainView.swift */; };
 		1C8226EB2BF82F190018EB1B /* BudgetCategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8226EA2BF82F190018EB1B /* BudgetCategoryDetailView.swift */; };
 		1C8226ED2BF82F3E0018EB1B /* BudgetCategoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8226EC2BF82F3E0018EB1B /* BudgetCategoryDetailViewModel.swift */; };
 		1C8226EF2BF8302E0018EB1B /* GetTransactionsForCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8226EE2BF8302E0018EB1B /* GetTransactionsForCategory.swift */; };
@@ -241,6 +252,17 @@
 		1C22A1EC2BCB7CFD005CD0A1 /* BudgetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailView.swift; sourceTree = "<group>"; };
 		1C22A1EE2BCB7EAB005CD0A1 /* BudgetCategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategoryRow.swift; sourceTree = "<group>"; };
 		1C2A05192A356AB600400C1D /* SaveScheduleTransactionInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveScheduleTransactionInteractorMock.swift; sourceTree = "<group>"; };
+		1C4EEEF42C27B4E700D45FD9 /* BudgetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCardView.swift; sourceTree = "<group>"; };
+		1C5F83002C13EAB500530C8E /* SetCategoryToBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCategoryToBudget.swift; sourceTree = "<group>"; };
+		1C5F83032C13EC8800530C8E /* SetCategoryToBudgetInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCategoryToBudgetInteractorImpl.swift; sourceTree = "<group>"; };
+		1C5F83062C154C0100530C8E /* BudgetRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetRemoteDataSource.swift; sourceTree = "<group>"; };
+		1C5F83082C154C2C00530C8E /* BudgetRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
+		1C5F830A2C154D3D00530C8E /* BudgetRemoteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetRemoteEntity.swift; sourceTree = "<group>"; };
+		1C5F830C2C154DB400530C8E /* SaveBudgetInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBudgetInteractor.swift; sourceTree = "<group>"; };
+		1C5F830E2C154DD000530C8E /* SaveBudgetInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBudgetInteractorImpl.swift; sourceTree = "<group>"; };
+		1C5F83102C16993600530C8E /* GetBudgetsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBudgetsInteractor.swift; sourceTree = "<group>"; };
+		1C5F83122C16996400530C8E /* GetBudgetsInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBudgetsInteractorImpl.swift; sourceTree = "<group>"; };
+		1C5F83152C1D268800530C8E /* CategoryMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMainView.swift; sourceTree = "<group>"; };
 		1C8226EA2BF82F190018EB1B /* BudgetCategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategoryDetailView.swift; sourceTree = "<group>"; };
 		1C8226EC2BF82F3E0018EB1B /* BudgetCategoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategoryDetailViewModel.swift; sourceTree = "<group>"; };
 		1C8226EE2BF8302E0018EB1B /* GetTransactionsForCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionsForCategory.swift; sourceTree = "<group>"; };
@@ -431,6 +453,7 @@
 		113F15CF27DEDC9A00D52C55 /* RemoteDataSource */ = {
 			isa = PBXGroup;
 			children = (
+				1C5F83052C154BE200530C8E /* Budget */,
 				1CA73DAF2A64DCF600731125 /* Transaction */,
 				1CA73DA52A64D37000731125 /* TransactionContainer */,
 				1CA73DA32A64D34C00731125 /* Category */,
@@ -463,6 +486,7 @@
 		11801D8F27FCDB7E00D9AB4D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1C5F83142C1D266900530C8E /* Category */,
 				1C97F35E2BC78A84003B5251 /* Budget */,
 				1CBA6D3C2A28F60F00C4ECD3 /* ContainersList */,
 				111AD74129B594810055B825 /* Scheduled */,
@@ -489,6 +513,7 @@
 		11801D9527FDE11300D9AB4D /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				1C5F82FF2C13EA9C00530C8E /* Budget */,
 				1C8226F62C0D5F3C0018EB1B /* Category */,
 				11801D9827FDE2FD00D9AB4D /* Impl */,
 				11801D9627FDE16D00D9AB4D /* AuthenticateUserInteractor.swift */,
@@ -558,6 +583,45 @@
 			path = Mappers;
 			sourceTree = "<group>";
 		};
+		1C5F82FF2C13EA9C00530C8E /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+				1C5F83022C13EC7600530C8E /* Impl */,
+				1C5F83002C13EAB500530C8E /* SetCategoryToBudget.swift */,
+				1C5F83062C154C0100530C8E /* BudgetRemoteDataSource.swift */,
+				1C5F830C2C154DB400530C8E /* SaveBudgetInteractor.swift */,
+				1C5F83102C16993600530C8E /* GetBudgetsInteractor.swift */,
+			);
+			path = Budget;
+			sourceTree = "<group>";
+		};
+		1C5F83022C13EC7600530C8E /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				1C5F83032C13EC8800530C8E /* SetCategoryToBudgetInteractorImpl.swift */,
+				1C5F830E2C154DD000530C8E /* SaveBudgetInteractorImpl.swift */,
+				1C5F83122C16996400530C8E /* GetBudgetsInteractorImpl.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
+		1C5F83052C154BE200530C8E /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+				1C5F83082C154C2C00530C8E /* BudgetRemoteDataSourceImpl.swift */,
+				1C5F830A2C154D3D00530C8E /* BudgetRemoteEntity.swift */,
+			);
+			path = Budget;
+			sourceTree = "<group>";
+		};
+		1C5F83142C1D266900530C8E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				1C5F83152C1D268800530C8E /* CategoryMainView.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		1C8226F62C0D5F3C0018EB1B /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -598,6 +662,7 @@
 				1C8226F22C0AC2660018EB1B /* BudgetCreateView.swift */,
 				1C8226F42C0ACA0C0018EB1B /* BudgetCategoryAddRowView.swift */,
 				1C8226FC2C0D60D00018EB1B /* BudgetCreateViewModel.swift */,
+				1C4EEEF42C27B4E700D45FD9 /* BudgetCardView.swift */,
 			);
 			path = Budget;
 			sourceTree = "<group>";
@@ -863,6 +928,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				113F15D327DEDDCB00D52C55 /* GetAllTransactionsInteractor.swift in Sources */,
+				1C5F83092C154C2C00530C8E /* BudgetRemoteDataSourceImpl.swift in Sources */,
 				11FF37782815E40400466965 /* FloatingButtonView.swift in Sources */,
 				11FACC9229ABC6B1002DC395 /* DeleteScheduledTransactionInteractor.swift in Sources */,
 				113B825028A1C7C700BAEB7C /* FloatingButton.swift in Sources */,
@@ -875,13 +941,17 @@
 				118BCED627FCD1410057FF91 /* UserRemoteDataSourceImpl.swift in Sources */,
 				1C9784FA29E48A6C00FA80C9 /* GetTransactionContainerCurrentTotalImpl.swift in Sources */,
 				115218A12813204B00E8DA5A /* WalletsView.swift in Sources */,
+				1C5F83112C16993600530C8E /* GetBudgetsInteractor.swift in Sources */,
 				115218A928132B2F00E8DA5A /* GetTransactionsContainerListInteractorImpl.swift in Sources */,
+				1C5F830B2C154D3D00530C8E /* BudgetRemoteEntity.swift in Sources */,
 				11217C00294C354500B405BB /* TransactionSortOption.swift in Sources */,
 				113F15D127DEDCCF00D52C55 /* TransactionContainerRemoteDataSource.swift in Sources */,
 				11FACC8829A7B68C002DC395 /* ScheduledTransactionRemoteEntityMapper.swift in Sources */,
 				11BCF2A028CB80A900123E68 /* CategoryRemoteEntity.swift in Sources */,
 				115218A32813221A00E8DA5A /* TransactionsView.swift in Sources */,
 				11FF377C2815E4D700466965 /* CreateTransactionViewModel.swift in Sources */,
+				1C5F83012C13EAB500530C8E /* SetCategoryToBudget.swift in Sources */,
+				1C5F83132C16996400530C8E /* GetBudgetsInteractorImpl.swift in Sources */,
 				1C8226FB2C0D5FA00018EB1B /* GetAvailableCategoriesForBudgetInteractorImpl.swift in Sources */,
 				113F15C527DEDB8E00D52C55 /* TransactionType.swift in Sources */,
 				11E0DA2028D163E400B2C29D /* GetCategoriesInteractor.swift in Sources */,
@@ -904,6 +974,7 @@
 				113F159827DED95200D52C55 /* Persistence.swift in Sources */,
 				1C8226F92C0D5F710018EB1B /* GetAvailableCategoriesForBudgetInteractor.swift in Sources */,
 				11F873B2280DDB370017DB9D /* CreateTransactionContainerViewModel.swift in Sources */,
+				1C5F83072C154C0100530C8E /* BudgetRemoteDataSource.swift in Sources */,
 				11FACC8629A7B45B002DC395 /* ScheduledTransactionRemoteEntity.swift in Sources */,
 				115218A728132AF000E8DA5A /* GetTransactionsContainerListInteractor.swift in Sources */,
 				11FF37762815E16D00466965 /* TransactionListView.swift in Sources */,
@@ -916,6 +987,7 @@
 				1C97F3642BC8CB15003B5251 /* BudgetRow.swift in Sources */,
 				113F15CE27DEDC6E00D52C55 /* TransactionRemoteDataSource.swift in Sources */,
 				11801D9727FDE16D00D9AB4D /* AuthenticateUserInteractor.swift in Sources */,
+				1C5F83042C13EC8800530C8E /* SetCategoryToBudgetInteractorImpl.swift in Sources */,
 				11217C03294CBC2A00B405BB /* TransactionRowView.swift in Sources */,
 				11E0DA2228D1662200B2C29D /* GetCategoriesInteractorImpl.swift in Sources */,
 				113F159B27DED95200D52C55 /* MoneyTracker.xcdatamodeld in Sources */,
@@ -933,6 +1005,7 @@
 				11801D9227FCDB9C00D9AB4D /* LoginView.swift in Sources */,
 				118D88DE294EB34E0051A900 /* TransactionsDisplayOption.swift in Sources */,
 				11FF377A2815E4C300466965 /* CreateTransactionView.swift in Sources */,
+				1C5F830F2C154DD000530C8E /* SaveBudgetInteractorImpl.swift in Sources */,
 				11C8134F28B0212600E94FA9 /* SaveTransactionInteractor.swift in Sources */,
 				1C97F35D2BC78870003B5251 /* Budget.swift in Sources */,
 				1C97F3602BC78A9D003B5251 /* BudgetView.swift in Sources */,
@@ -943,11 +1016,13 @@
 				11BCF29E28CB808000123E68 /* CategoryRemoteEntityMapper.swift in Sources */,
 				1C8226F12BF830900018EB1B /* GetTransactionsForCategoryImpl.swift in Sources */,
 				115218AB28132B9200E8DA5A /* TransactionsContainerListViewModel.swift in Sources */,
+				1C5F83162C1D268800530C8E /* CategoryMainView.swift in Sources */,
 				113F15BF27DEDB3100D52C55 /* Transaction.swift in Sources */,
 				1100E2CE28A6E46300FE7B57 /* TransactionRemoteDataSourceImpl.swift in Sources */,
 				1CA73DAC2A64D64600731125 /* DateProvider.swift in Sources */,
 				11FACC8229A6F711002DC395 /* RecurrenceMapper.swift in Sources */,
 				1C8226FD2C0D60D00018EB1B /* BudgetCreateViewModel.swift in Sources */,
+				1C4EEEF52C27B4E700D45FD9 /* BudgetCardView.swift in Sources */,
 				1CA73DAA2A64D5F800731125 /* DateProviderImpl.swift in Sources */,
 				11801D9D27FDE36A00D9AB4D /* CurrentUserLocalDataSource.swift in Sources */,
 				11FACC8A29A7DB8A002DC395 /* SaveScheduleTransactionInteractor.swift in Sources */,
@@ -957,6 +1032,7 @@
 				11FACC7F29997F70002DC395 /* CreateMonthScheduleTransactions.swift in Sources */,
 				113F15CC27DEDC3500D52C55 /* CategoryRemoteDataSource.swift in Sources */,
 				113F15C327DEDB7800D52C55 /* Category.swift in Sources */,
+				1C5F830D2C154DB400530C8E /* SaveBudgetInteractor.swift in Sources */,
 				11F873B6280DDDCF0017DB9D /* TransactionsContainerRemoteDataSourceImpl.swift in Sources */,
 				1152189F2813202C00E8DA5A /* HomeScreenView.swift in Sources */,
 				113F15CA27DEDBF000D52C55 /* UserRemoteDataSource.swift in Sources */,
