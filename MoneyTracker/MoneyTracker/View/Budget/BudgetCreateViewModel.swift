@@ -13,7 +13,7 @@ class BudgetCreateViewModel: ObservableObject {
     
     @Published var budget: Budget = Budget(id: UUID().uuidString, title: "", categories: [])
     @Published var availableCategories: [Category] = []
-    @Published var selectedCategories: [Category] = []
+    @Published var selectedCategories: [SelectedCategory] = []
     
     func getAvailableCategories(modelContext: ModelContext) {
         do {
@@ -26,15 +26,25 @@ class BudgetCreateViewModel: ObservableObject {
     }
     
     func assignCategoryToBudget(category: Category) {
-        selectedCategories.append(category)
+        selectedCategories.append(SelectedCategory(category: category, amount: 0.0))
         availableCategories.removeAll { $0.id == category.id }
     }
     
     func removeCategory(category: Category) {
-        selectedCategories.removeAll { $0.id == category.id }
+        selectedCategories.removeAll { $0.category.id == category.id }
+        availableCategories.append(category)
     }
     
     func save() {
-        budget.categories = selectedCategories
+        for selectedCategory in selectedCategories {
+            let category = selectedCategory.category
+            category.budgetAmount = selectedCategory.amount
+            budget.categories.append(category)
+        }
     }
+}
+
+struct SelectedCategory: Hashable {
+    var category: Category
+    var amount: Double
 }

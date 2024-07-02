@@ -28,17 +28,19 @@ struct BudgetCreateView: View {
                     if budgetCreateViewModel.selectedCategories.isEmpty {
                         ContentUnavailableView("No categories selected", systemImage: "tray.fill")
                     } else {
-                        ForEach(budgetCreateViewModel.selectedCategories) { category in
+                        ForEach(budgetCreateViewModel.selectedCategories, id:\.self) { category in
                             HStack {
                                 Button(action: {
-                                    budgetCreateViewModel.removeCategory(category: category)
+                                    budgetCreateViewModel.removeCategory(category: category.category)
                                 }, label: {
                                     Image(systemName: "minus.circle.fill")
                                 })
                                 
+                                BudgetCategoryAddRowView(selectedCategory: category)
+                                
 //                                BudgetCategoryAddRowView(budgetCategory: category)
-                                Text(category.name)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+//                                Text(category.name)
+//                                    .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             
                         }
