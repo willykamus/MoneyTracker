@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BudgetCategoryAddRowView: View {
     
-    @State var selectedCategory: SelectedCategory
+    @Binding var selectedCategory: SelectedCategory
     
     var body: some View {
         HStack {
@@ -23,5 +23,5 @@ struct BudgetCategoryAddRowView: View {
 }
 
 #Preview {
-    BudgetCategoryAddRowView(selectedCategory: SelectedCategory(category: Category(type: .expense, name: "Hello", budget: nil, budgetAmount: 0), amount: 100.0))
+    BudgetCategoryAddRowView(selectedCategory: .constant(SelectedCategory(category: Category(type: .expense, name: "Hello", budget: nil, budgetAmount: 0), amount: 100.0)))
 }

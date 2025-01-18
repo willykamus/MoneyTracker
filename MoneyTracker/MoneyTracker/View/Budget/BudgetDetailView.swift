@@ -5,6 +5,33 @@
 //  Created by William Ching on 2024-04-13.
 //
 
+import SwiftUI
+
+struct BudgetDetailView: View {
+    
+    @Bindable var budget: Budget
+    
+    var body: some View {
+        List {
+            ForEach(budget.categories) { category in
+                Section {
+                    DisclosureGroup(
+                        content: { Text("Content") },
+                        label: { 
+                            HStack {
+                                Text(category.name)
+                                Spacer()
+                                Text(String(category.budgetAmount ?? 0))
+                            }
+                        }
+                    )
+                }
+            }
+        }
+    }
+}
+    
+
 //import SwiftUI
 //
 //struct BudgetDetailView: View {

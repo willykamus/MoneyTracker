@@ -25,7 +25,7 @@ struct BudgetView: View {
                         ForEach(budgets) { budget in
                             Section {
                                 NavigationLink {
-                                    Text(budget.title)
+                                    BudgetDetailView(budget: budget)
                                 } label: {
                                     BudgetCardView(budget: budget)
                                         .swipeActions(edge: .trailing, allowsFullSwipe: false) {

@@ -37,14 +37,14 @@ class BudgetCreateViewModel: ObservableObject {
     
     func save() {
         for selectedCategory in selectedCategories {
-            let category = selectedCategory.category
-            category.budgetAmount = selectedCategory.amount
-            budget.categories.append(category)
+            selectedCategory.category.budgetAmount = selectedCategory.amount
+            budget.categories.append(selectedCategory.category)
         }
     }
 }
 
-struct SelectedCategory: Hashable {
+struct SelectedCategory: Identifiable {
+    var id: UUID = UUID()
     var category: Category
     var amount: Double
 }
