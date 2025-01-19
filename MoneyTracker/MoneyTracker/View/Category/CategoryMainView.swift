@@ -14,7 +14,7 @@ struct CategoryMainView: View {
     
     @State var isPresented: Bool = false
     @State var categoryName: String = ""
-    @State var selectedType: String = "None"
+    @State var selectedType: TransactionType = .expense
     
     var body: some View {
         NavigationStack {
@@ -25,7 +25,9 @@ struct CategoryMainView: View {
                             Text(category.name)
                         }
                     }
+
                 }
+                .listSectionSpacing(.compact)
                 .overlay {
                     if categories.isEmpty {
                         ContentUnavailableView(label: {
@@ -62,10 +64,10 @@ struct CategoryMainView: View {
                             HStack {
                                 Text("Expense type")
                                 Spacer()
-                                Menu(self.selectedType.capitalized) {
+                                Menu(self.selectedType.rawValue.capitalized) {
                                     ForEach(TransactionType.allCases, id: \.self) { type in
                                         Button {
-                                            self.selectedType = type.rawValue
+                                            self.selectedType = type
                                         } label: {
                                             Text(type.rawValue.capitalized)
                                         }
@@ -79,12 +81,12 @@ struct CategoryMainView: View {
                     .toolbar {
                         ToolbarItem(placement: .topBarTrailing) {
                             Button(action: {
-                                let category = Category(type: .expense, name: self.categoryName, budgetAmount: 0)
+                                let category = Category(type: self.selectedType, name: self.categoryName, budgetAmount: 0)
                                 context.insert(category)
                             }, label: {
                                 Text("Add")
                             })
-                            .disabled(categoryName.isEmpty || self.selectedType == "None")
+                            .disabled(categoryName.isEmpty)
                         }
                     }
                 }
