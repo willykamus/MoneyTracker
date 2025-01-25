@@ -19,9 +19,25 @@ struct BudgetCreateView: View {
         NavigationStack {
             Form(content: {
                 Section {
-                    TextField("", text: self.$budgetCreateViewModel.budget.title, prompt: Text("General"))
+                    TextField("", text: self.$budgetCreateViewModel.title, prompt: Text("General"))
                 } header: {
                     Text("Title")
+                }
+                
+                Section {
+                    HStack {
+                        Text("Budget type")
+                        Spacer()
+                        Menu(self.budgetCreateViewModel.selectedType.rawValue.capitalized) {
+                            ForEach(TransactionType.allCases, id: \.self) { type in
+                                Button {
+                                    self.budgetCreateViewModel.onChangeType(type: type)
+                                } label: {
+                                    Text(type.rawValue.capitalized)
+                                }
+                            }
+                        }
+                    }
                 }
                 
                 Section {

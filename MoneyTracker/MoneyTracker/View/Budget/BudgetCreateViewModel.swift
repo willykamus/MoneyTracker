@@ -11,18 +11,26 @@ import SwiftData
 
 class BudgetCreateViewModel: ObservableObject {
     
-    @Published var budget: Budget = Budget(id: UUID().uuidString, title: "", categories: [])
+    @Published var title: String = ""
     @Published var availableCategories: [Category] = []
     @Published var selectedCategories: [SelectedCategory] = []
+    @Published var selectedType: TransactionType = .expense
+    var context: ModelContext?
     
     func getAvailableCategories(modelContext: ModelContext) {
         do {
+            self.context = modelContext
             let fetchDescriptor = FetchDescriptor<Category>(predicate: #Predicate<Category> { category in category.budget == nil })
             let categories = try modelContext.fetch(fetchDescriptor)
-            self.availableCategories = categories
+            self.availableCategories = categories.filter { $0.type == self.selectedType}
         } catch {
             
         }
+    }
+    
+    func onChangeType(type: TransactionType) {
+        self.selectedType = type
+        getAvailableCategories(modelContext: self.context!)
     }
     
     func assignCategoryToBudget(category: Category) {
@@ -36,10 +44,12 @@ class BudgetCreateViewModel: ObservableObject {
     }
     
     func save() {
+        var categories: [Category] = []
         for selectedCategory in selectedCategories {
             selectedCategory.category.budgetAmount = selectedCategory.amount
-            budget.categories.append(selectedCategory.category)
+            categories.append(selectedCategory.category)
         }
+        self.context?.insert(Budget(id: UUID().uuidString, title: self.title, categories: categories, type: self.selectedType))
     }
 }
 

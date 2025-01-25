@@ -14,11 +14,13 @@ class Budget {
     var title: String
     @Relationship(deleteRule: .deny, inverse: \Category.budget)
     var categories: [Category] = []
+    var type: TransactionType
     
-    init(id: String, title: String, categories: [Category]) {
+    init(id: String, title: String, categories: [Category], type: TransactionType) {
         self.id = id
         self.title = title
         self.categories = categories
+        self.type = type
     }
     
     @Transient

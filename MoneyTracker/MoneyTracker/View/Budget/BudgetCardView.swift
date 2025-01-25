@@ -30,5 +30,5 @@ struct BudgetCardView: View {
 }
 
 #Preview {
-    BudgetCardView(budget: Budget(id: "", title: "", categories: []))
+    BudgetCardView(budget: Budget(id: "", title: "", categories: [], type: .expense))
 }

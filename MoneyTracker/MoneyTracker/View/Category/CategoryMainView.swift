@@ -9,8 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct CategoryMainView: View {
-    @Query(animation: .snappy) private var categories: [Category]
+    
     @Environment(\.modelContext) private var context
+    @StateObject var categoryMainViewModel: CategoryMainViewModel = CategoryMainViewModel()
+    @Query(animation: .snappy) private var categories: [Category]
+
     
     @State var isPresented: Bool = false
     @State var categoryName: String = ""
@@ -20,16 +23,19 @@ struct CategoryMainView: View {
         NavigationStack {
             ZStack {
                 List {
-                    ForEach(categories) { category in
+                    ForEach(categoryMainViewModel.categorySections, id: \.self) { section in
                         Section {
-                            Text(category.name)
+                            ForEach(section.categories) { category in
+                                Text(category.name)
+                            }
+                        } header: {
+                            Text(section.title)
                         }
                     }
-
                 }
                 .listSectionSpacing(.compact)
                 .overlay {
-                    if categories.isEmpty {
+                    if categoryMainViewModel.categorySections.isEmpty {
                         ContentUnavailableView(label: {
                             Label("No categories", systemImage: "tray.fill")
                         })
@@ -50,6 +56,9 @@ struct CategoryMainView: View {
                         .padding(.vertical,16)
                     }
                 }
+            }
+            .onAppear {
+                categoryMainViewModel.intialize(contex: self.context)
             }
             .navigationTitle("Categories")
             .sheet(isPresented: self.$isPresented, onDismiss: {
@@ -83,6 +92,7 @@ struct CategoryMainView: View {
                             Button(action: {
                                 let category = Category(type: self.selectedType, name: self.categoryName, budgetAmount: 0)
                                 context.insert(category)
+                                categoryMainViewModel.intialize(contex: self.context)
                             }, label: {
                                 Text("Add")
                             })

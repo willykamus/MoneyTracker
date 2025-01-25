@@ -9,25 +9,56 @@ import SwiftUI
 
 struct BudgetDetailView: View {
     
+    @Environment(\.modelContext) private var context
+    @Environment(\.editMode) private var editMode
     @Bindable var budget: Budget
+    @State var viewModel: BudgetEditViewModel = BudgetEditViewModel()
     
     var body: some View {
         List {
             ForEach(budget.categories) { category in
                 Section {
-                    DisclosureGroup(
-                        content: { Text("Content") },
-                        label: { 
+                    HStack {
+                        Text(category.name)
+                        Spacer()
+                        Text(String(category.budgetAmount ?? 0))
+                    }
+                }
+            }
+            
+            if editMode?.wrappedValue.isEditing == true {
+                Section {
+                    if viewModel.availableCategoriesToAdd.count == 0 {
+                        ContentUnavailableView("No categories available to add", systemImage: "tray.fill")
+                    } else {
+                        ForEach($viewModel.availableCategoriesToAdd) { category in
                             HStack {
-                                Text(category.name)
-                                Spacer()
-                                Text(String(category.budgetAmount ?? 0))
+                                Button(action: {
+                                    self.viewModel.assignCategoryToBudget(selectedCategory: category.wrappedValue)
+                                }, label: {
+                                    Image(systemName: "plus.circle.fill")
+                                })
+                                
+                                BudgetCategoryAddRowView(selectedCategory: category)
                             }
                         }
-                    )
+                    }
+                } header: {
+                    HStack {
+                        Text("Categories")
+                        Spacer()
+                    }
                 }
             }
         }
+        .toolbar {
+            EditButton()
+        }
+        .onAppear(perform: {
+            self.viewModel.initialize(currentBudget: self.budget)
+            self.viewModel.getAvailableCategories(modelContext: self.context)
+        })
+        .navigationTitle(self.budget.title)
     }
 }
     

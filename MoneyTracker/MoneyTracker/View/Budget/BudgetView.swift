@@ -10,33 +10,40 @@ import SwiftData
 
 struct BudgetView: View {
     
-    @Query(animation: .snappy) private var budgets: [Budget]
+//    @Query(animation: .snappy) private var budgets: [Budget]
     @Environment(\.modelContext) private var context
+    @StateObject var viewModel = BudgetViewModel()
     
     @State var create: Bool = false
     
     var body: some View {
         NavigationStack {
             ZStack {
-                if budgets.isEmpty {
+                if self.viewModel.budgetSections.isEmpty {
                     ContentUnavailableView("No budget created", systemImage: "tray.fill")
                 } else {
                     List {
-                        ForEach(budgets) { budget in
+                        ForEach(self.viewModel.budgetSections, id: \.self) { budgetSection in
                             Section {
-                                NavigationLink {
-                                    BudgetDetailView(budget: budget)
-                                } label: {
-                                    BudgetCardView(budget: budget)
-                                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                                            Button(action: {
-                                                context.delete(budget)
-                                            }, label: {
-                                                Image(systemName: "trash")
-                                            })
-                                            .tint(.red)
-                                        }
+                                ForEach(budgetSection.budgets) { budget in
+                                    NavigationLink {
+                                        BudgetDetailView(budget: budget)
+                                    } label: {
+                                        BudgetCardView(budget: budget)
+                                            .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                                Button(action: {
+                                                    context.delete(budget)
+                                                    self.viewModel.initialize(modelContext: self.context)
+                                                }, label: {
+                                                    Image(systemName: "trash")
+                                                })
+                                                .tint(.red)
+                                            }
+                                    }
                                 }
+                                
+                            } header: {
+                                Text(budgetSection.title)
                             }
 //                            DisclosureGroup(
 //                                content: {
@@ -90,13 +97,15 @@ struct BudgetView: View {
                     }
                 }
             }
-            .sheet(isPresented: self.$create, content: {
+            .sheet(isPresented: self.$create, onDismiss: {
+                self.viewModel.initialize(modelContext: self.context)
+            }, content: {
                 BudgetCreateView(isPresented: self.$create)
             })
-            .toolbar {
-                EditButton()
-            }
             .navigationTitle("Budgets")
+            .onAppear {
+                self.viewModel.initialize(modelContext: self.context)
+            }
         }
     }
 }
