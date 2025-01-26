@@ -19,7 +19,7 @@ struct BudgetCreateView: View {
         NavigationStack {
             Form(content: {
                 Section {
-                    TextField("", text: self.$budgetCreateViewModel.title, prompt: Text("General"))
+                    TextField("", text: self.$budgetCreateViewModel.budget.title, prompt: Text("General"))
                 } header: {
                     Text("Title")
                 }
@@ -50,7 +50,9 @@ struct BudgetCreateView: View {
                                     budgetCreateViewModel.removeCategory(category: category.category.wrappedValue)
                                 }, label: {
                                     Image(systemName: "minus.circle.fill")
+                                        .foregroundStyle(.red)
                                 })
+                                .buttonStyle(PlainButtonStyle())
                                 
                                 BudgetCategoryAddRowView(selectedCategory: category)
                                 

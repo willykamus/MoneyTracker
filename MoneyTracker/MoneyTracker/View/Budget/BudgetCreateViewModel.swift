@@ -11,7 +11,7 @@ import SwiftData
 
 class BudgetCreateViewModel: ObservableObject {
     
-    @Published var title: String = ""
+    @Published var budget: Budget = Budget(id: UUID().uuidString, title: "", categories: [], type: .expense)
     @Published var availableCategories: [Category] = []
     @Published var selectedCategories: [SelectedCategory] = []
     @Published var selectedType: TransactionType = .expense
@@ -44,12 +44,11 @@ class BudgetCreateViewModel: ObservableObject {
     }
     
     func save() {
-        var categories: [Category] = []
         for selectedCategory in selectedCategories {
             selectedCategory.category.budgetAmount = selectedCategory.amount
-            categories.append(selectedCategory.category)
+            budget.categories.append(selectedCategory.category)
         }
-        self.context?.insert(Budget(id: UUID().uuidString, title: self.title, categories: categories, type: self.selectedType))
+        self.budget.type = self.selectedType
     }
 }
 

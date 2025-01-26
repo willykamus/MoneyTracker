@@ -18,8 +18,13 @@ class CategoryMainViewModel: ObservableObject {
             let expenses = categories.filter { $0.type == .expense }
             let incomes = categories.filter { $0.type == .income }
             categorySections = []
-            categorySections.append(CategorySections(title: "Income", categories: incomes))
-            categorySections.append(CategorySections(title: "Expenses", categories: expenses))
+            if !incomes.isEmpty {
+                categorySections.append(CategorySections(title: "Income", categories: incomes))
+            }
+            
+            if !expenses.isEmpty {
+                categorySections.append(CategorySections(title: "Expenses", categories: expenses))
+            }
         } catch {
             
         }

@@ -22,23 +22,27 @@ struct CategoryMainView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                List {
-                    ForEach(categoryMainViewModel.categorySections, id: \.self) { section in
-                        Section {
-                            ForEach(section.categories) { category in
-                                Text(category.name)
+                if categoryMainViewModel.categorySections.isEmpty {
+                    ContentUnavailableView("No category created", systemImage: "tray.fill")
+                } else {
+                    List {
+                        ForEach(categoryMainViewModel.categorySections, id: \.self) { section in
+                            Section {
+                                ForEach(section.categories) { category in
+                                    Text(category.name)
+                                }
+                            } header: {
+                                Text(section.title)
                             }
-                        } header: {
-                            Text(section.title)
                         }
                     }
-                }
-                .listSectionSpacing(.compact)
-                .overlay {
-                    if categoryMainViewModel.categorySections.isEmpty {
-                        ContentUnavailableView(label: {
-                            Label("No categories", systemImage: "tray.fill")
-                        })
+                    .listSectionSpacing(.compact)
+                    .overlay {
+                        if categoryMainViewModel.categorySections.isEmpty {
+                            ContentUnavailableView(label: {
+                                Label("No categories", systemImage: "tray.fill")
+                            })
+                        }
                     }
                 }
                 
@@ -56,6 +60,7 @@ struct CategoryMainView: View {
                         .padding(.vertical,16)
                     }
                 }
+                
             }
             .onAppear {
                 categoryMainViewModel.intialize(contex: self.context)
