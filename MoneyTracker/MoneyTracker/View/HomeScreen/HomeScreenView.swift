@@ -11,14 +11,19 @@ struct HomeScreenView: View {
     
     var body: some View {
         TabView {
-            WalletsView()
+//            WalletsView()
+//                .tabItem {
+//                    Label("Wallets", systemImage: "wallet.pass")
+//                }
+            
+            BudgetView()
                 .tabItem {
-                    Label("Wallets", systemImage: "wallet.pass")
+                    Label("Budgets", systemImage: "list.bullet.rectangle.portrait")
                 }
             
-            TransactionsView()
+            CategoryMainView()
                 .tabItem {
-                    Label("Transactions", systemImage: "list.bullet.rectangle.portrait")
+                    Label("Category", systemImage: "list.bullet.rectangle.portrait")
                 }
         }
     }

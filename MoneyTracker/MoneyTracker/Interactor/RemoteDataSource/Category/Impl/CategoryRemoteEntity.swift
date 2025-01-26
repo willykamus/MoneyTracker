@@ -9,7 +9,8 @@ import Foundation
 import FirebaseFirestoreSwift
 
 struct CategoryRemoteEntity: Codable {
-    var id: String?
+    @DocumentID var id: String?
     var name: String
     var type: String
+    var budget: String?
 }

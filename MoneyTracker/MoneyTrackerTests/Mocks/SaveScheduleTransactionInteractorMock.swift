@@ -11,7 +11,7 @@ import Foundation
 class SaveScheduleTransactionInteractorMock: SaveScheduleTransactionInteractor {
     var executCalled: Bool = false
     var executeCallCount: Int = 0
-    func execute(transaction: MoneyTracker.ScheduledTransaction, container: MoneyTracker.TransactionsContainer) async {
+    func execute(transaction: MoneyTracker.ScheduledTransaction, container: MoneyTracker.Wallet) async {
         executCalled = true
         executeCallCount += executeCallCount
     }

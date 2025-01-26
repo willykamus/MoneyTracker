@@ -8,9 +8,9 @@
 import Foundation
 
 class GetTransactionContainerCurrentTotalImpl: GetTransactionContainerCurrentTotal {
-    func execute(transactionsContainer: TransactionsContainer) -> Double {
-        let expenses: [Transaction] = transactionsContainer.transactions!.filter({ $0.type == .expense })
-        let incomes: [Transaction] = transactionsContainer.transactions!.filter({ $0.type == .income })
+    func execute(Wallet: Wallet) -> Double {
+        let expenses: [Transaction] = Wallet.transactions!.filter({ $0.type == .expense })
+        let incomes: [Transaction] = Wallet.transactions!.filter({ $0.type == .income })
         let expensesTotal: Double = expenses.sum(for: \.amount)
         let incomesTotal: Double = incomes.sum(for: \.amount)
         return incomesTotal - expensesTotal

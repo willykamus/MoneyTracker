@@ -6,9 +6,19 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Category: Identifiable, Hashable {
-    var id: String
+@Model
+class Category {
     var type: TransactionType
     var name: String
+    var budget: Budget?
+    var budgetAmount: Double?
+    
+    init(type: TransactionType, name: String, budget: Budget? = nil, budgetAmount: Double? = nil) {
+        self.type = type
+        self.name = name
+        self.budget = budget
+        self.budgetAmount = budgetAmount
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  TransactionsContainerRow.swift
+//  WalletRow.swift
 //  MoneyTracker
 //
 //  Created by William Ching on 2022-04-22.
@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct TransactionsContainerRow: View {
+struct WalletRow: View {
     
-    var transactionsContainer: TransactionsContainer
+    var Wallet: Wallet
     
     var body: some View {
-        Text(transactionsContainer.name)
+        Text(Wallet.name)
     }
 }
 
-struct TransactionsContainerRow_Previews: PreviewProvider {
+struct WalletRow_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionsContainerRow(transactionsContainer: TransactionsContainer(id: "1", name: "Nothing"))
+        WalletRow(Wallet: Wallet(id: "1", name: "Nothing"))
     }
 }

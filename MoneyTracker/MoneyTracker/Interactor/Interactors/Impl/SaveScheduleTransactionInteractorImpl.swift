@@ -7,18 +7,18 @@
 
 import Foundation
 
-class SaveScheduleTransactionInteractorImpl: SaveScheduleTransactionInteractor {
-    
-    let transactionRemoteDataSource: TransactionRemoteDataSource
-    let userRemoteDataSource: UserRemoteDataSource
-    
-    init(transactionRemoteDataSource: TransactionRemoteDataSource, userRemoteDataSource: UserRemoteDataSource) {
-        self.transactionRemoteDataSource = transactionRemoteDataSource
-        self.userRemoteDataSource = userRemoteDataSource
-    }
-    
-    func execute(transaction: ScheduledTransaction, container: TransactionsContainer) async {
-        let user = userRemoteDataSource.currentUser()
-        await self.transactionRemoteDataSource.add(scheduleTransaction: transaction, containerId: container.id, userId: user!.id)
-    }
-}
+//class SaveScheduleTransactionInteractorImpl: SaveScheduleTransactionInteractor {
+//    
+//    let transactionRemoteDataSource: TransactionRemoteDataSource
+//    let userRemoteDataSource: UserRemoteDataSource
+//    
+//    init(transactionRemoteDataSource: TransactionRemoteDataSource, userRemoteDataSource: UserRemoteDataSource) {
+//        self.transactionRemoteDataSource = transactionRemoteDataSource
+//        self.userRemoteDataSource = userRemoteDataSource
+//    }
+//    
+//    func execute(transaction: ScheduledTransaction, container: Wallet) async {
+//        let user = userRemoteDataSource.currentUser()
+//        await self.transactionRemoteDataSource.add(scheduleTransaction: transaction, containerId: container.id, userId: user!.id)
+//    }
+//}

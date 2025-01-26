@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol TransactionsContainerRemoteDataSource {
-    func getContainers() async -> [TransactionsContainer]
+protocol WalletRemoteDataSource {
+    func getContainers() async -> Result<[Wallet], Error>
     func createDataBase(for user: User)
-    func createContainer(container: TransactionsContainer, user: User) -> Bool
+    func createContainer(container: Wallet, user: User) -> Bool
 }

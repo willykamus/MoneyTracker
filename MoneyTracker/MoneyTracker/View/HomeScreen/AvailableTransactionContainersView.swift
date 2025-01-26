@@ -9,19 +9,19 @@ import SwiftUI
 
 struct AvailableTransactionContainersView: View {
     
-    @Binding var selectedContainer: TransactionsContainer?
+    @Binding var selectedContainer: Wallet?
     @Binding var containerListPresented: Bool
     
-    @ObservedObject var viewModel: TransactionsContainerListViewModel = TransactionsContainerListViewModel()
+    @ObservedObject var viewModel: WalletListViewModel = WalletListViewModel()
     
     var body: some View {
         
-        List (viewModel.transactionsContainer) { transactionsContainer in
+        List (viewModel.Wallet) { Wallet in
             Button {
-                self.selectedContainer = transactionsContainer
+                self.selectedContainer = Wallet
                 self.containerListPresented.toggle()
             } label: {
-                Text(transactionsContainer.name)
+                Text(Wallet.name)
             }
 
         }

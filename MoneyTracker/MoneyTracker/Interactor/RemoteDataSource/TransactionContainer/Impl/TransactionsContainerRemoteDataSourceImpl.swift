@@ -1,5 +1,5 @@
 //
-//  TransactionsContainerRemoteDataSourceImpl.swift
+//  WalletRemoteDataSourceImpl.swift
 //  MoneyTracker
 //
 //  Created by William Ching on 2022-04-18.
@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestoreSwift
 import Firebase
 
-class TransactionsContainerRemoteDataSourceImpl: TransactionsContainerRemoteDataSource {
+class WalletRemoteDataSourceImpl: WalletRemoteDataSource {
     
     private let userRemoteDataSource: UserRemoteDataSource
     private let dateProvider: DateProvider
@@ -19,47 +19,43 @@ class TransactionsContainerRemoteDataSourceImpl: TransactionsContainerRemoteData
         self.dateProvider = dateProvider
     }
 
-    func getContainers() async -> [TransactionsContainer] {
-        var containers: [TransactionsContainer] = []
+    func getContainers() async -> Result<[Wallet], Error> {
+        var wallets: [Wallet] = []
         let user  = userRemoteDataSource.currentUser()
         if let id: String = user?.id {
-            let reference = FirestoreDataBase.database.collection("users").document(id).collection("transactionsContainers")
+            let reference = FirestoreDataBase.database.collection("users").document(id).collection("wallets")
             do {
                 let query = try await reference.getDocuments()
                 for document in query.documents {
-                    let remoteEntity = try document.data(as: TransactionsContainerRemoteEntity.self)
-                    var container = TransactionsContainerRemoteEntityMapper().toTransactionContainer(remoteEntity: remoteEntity)
-                    let transactions = await self.getTransactions(from: document, container: container)
-                    let scheduledTransactions = await self.getScheduledTransactions(from: document, container: container)
-                    container.transactions = transactions
-                    container.scheduledTransactions = scheduledTransactions
-                    containers.append(container)
+                    let remoteEntity = try document.data(as: WalletRemoteEntity.self)
+                    var wallet = WalletRemoteEntityMapper().toTransactionContainer(remoteEntity: remoteEntity)
+                    wallets.append(wallet)
                 }
-                return containers
+                return Result.success(wallets)
             } catch {
                 print(error.localizedDescription)
-                return []
+                return Result.failure(error)
             }
         }
-        return []
+        return Result.failure(NSError())
     }
     
     func createDataBase(for user: User) {
         
     }
     
-    func createContainer(container: TransactionsContainer, user: User) -> Bool {
-        let entity = TransactionsContainerRemoteEntityMapper().toRemoteEntity(object: container)
+    func createContainer(container: Wallet, user: User) -> Bool {
+        let entity = WalletRemoteEntityMapper().toRemoteEntity(object: container)
         let entityId: String = entity.id!
         do {
-            try FirestoreDataBase.database.collection("users").document(user.id).collection("transactionsContainers").document(entityId).setData(from: container)
+            try FirestoreDataBase.database.collection("users").document(user.id).collection("wallets").document(entityId).setData(from: container)
             return true
         } catch {
             return false
         }
     }
     
-    private func getTransactions(from document: DocumentSnapshot, container: TransactionsContainer) async -> [Transaction] {
+    private func getTransactions(from document: DocumentSnapshot, container: Wallet) async -> [Transaction] {
         do {
             var transactions: [Transaction] = []
             let query = try await document.reference.collection("transactions").getDocuments()
@@ -73,7 +69,7 @@ class TransactionsContainerRemoteDataSourceImpl: TransactionsContainerRemoteData
         }
     }
     
-    private func getScheduledTransactions(from document: DocumentSnapshot, container: TransactionsContainer) async -> [ScheduledTransaction] {
+    private func getScheduledTransactions(from document: DocumentSnapshot, container: Wallet) async -> [ScheduledTransaction] {
         do {
             var transactions: [ScheduledTransaction] = []
             let query = try await document.reference.collection("scheduleTransactions").getDocuments()

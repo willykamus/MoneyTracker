@@ -23,12 +23,12 @@ final class GetTransactionContainerCurrentTotalImplTest: XCTestCase {
         let transactions = [Transaction(id: "", amount: 1, category: "", date: Date(), containerId: "", containerName: "", type: .expense),
                             Transaction(id: "", amount: 2, category: "", date: Date(), containerId: "", containerName: "", type: .expense),
                             Transaction(id: "", amount: 4, category: "", date: Date(), containerId: "", containerName: "", type: .income)]
-        let container = TransactionsContainer(id: "", transactions: transactions, scheduledTransactions: [], name: "")
+        let container = Wallet(id: "", transactions: transactions, scheduledTransactions: [], name: "")
         
         let testSubject: GetTransactionContainerCurrentTotal = GetTransactionContainerCurrentTotalImpl()
         
         // When
-        let total = testSubject.execute(transactionsContainer: container)
+        let total = testSubject.execute(Wallet: container)
         
         // Then
         XCTAssertEqual(1, total)
@@ -39,12 +39,12 @@ final class GetTransactionContainerCurrentTotalImplTest: XCTestCase {
         let transactions = [Transaction(id: "", amount: 1, category: "", date: Date(), containerId: "", containerName: "", type: .expense),
                             Transaction(id: "", amount: 2, category: "", date: Date(), containerId: "", containerName: "", type: .expense),
                             Transaction(id: "", amount: 1, category: "", date: Date(), containerId: "", containerName: "", type: .income)]
-        let container = TransactionsContainer(id: "", transactions: transactions, scheduledTransactions: [], name: "")
+        let container = Wallet(id: "", transactions: transactions, scheduledTransactions: [], name: "")
         
         let testSubject: GetTransactionContainerCurrentTotal = GetTransactionContainerCurrentTotalImpl()
         
         // When
-        let total = testSubject.execute(transactionsContainer: container)
+        let total = testSubject.execute(Wallet: container)
         
         // Then
         XCTAssertEqual(-2, total)
@@ -55,12 +55,12 @@ final class GetTransactionContainerCurrentTotalImplTest: XCTestCase {
         let transactions = [Transaction(id: "", amount: 1, category: "", date: Date(), containerId: "", containerName: "", type: .expense),
                             Transaction(id: "", amount: 2, category: "", date: Date(), containerId: "", containerName: "", type: .expense),
                             Transaction(id: "", amount: 3, category: "", date: Date(), containerId: "", containerName: "", type: .income)]
-        let container = TransactionsContainer(id: "", transactions: transactions, scheduledTransactions: [], name: "")
+        let container = Wallet(id: "", transactions: transactions, scheduledTransactions: [], name: "")
         
         let testSubject: GetTransactionContainerCurrentTotal = GetTransactionContainerCurrentTotalImpl()
         
         // When
-        let total = testSubject.execute(transactionsContainer: container)
+        let total = testSubject.execute(Wallet: container)
         
         // Then
         XCTAssertEqual(0, total)

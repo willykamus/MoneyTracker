@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct TransactionsContainer: Identifiable, Hashable, Codable {
+struct Wallet: Identifiable, Hashable, Codable {
     
-    static func == (lhs: TransactionsContainer, rhs: TransactionsContainer) -> Bool {
+    static func == (lhs: Wallet, rhs: Wallet) -> Bool {
         return lhs.id == rhs.id
     }
     

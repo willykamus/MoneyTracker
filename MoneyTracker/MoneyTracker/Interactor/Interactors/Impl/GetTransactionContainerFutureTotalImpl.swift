@@ -8,7 +8,7 @@
 import Foundation
 
 class GetTransactionContainerFutureTotalImpl: GetTransactionContainerFutureTotal {
-    func execute(transactionContainter: TransactionsContainer) -> Double {
+    func execute(transactionContainter: Wallet) -> Double {
         if let scheduledTransactions = transactionContainter.scheduledTransactions {
             let futureExpenses = scheduledTransactions.filter { $0.transaction.type == .expense }
             let futureIncomes = scheduledTransactions.filter { $0.transaction.type == .income }

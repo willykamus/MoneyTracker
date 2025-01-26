@@ -32,11 +32,11 @@ class TransactionsListViewModel: ObservableObject {
     let getTransactionContainerCurrentTotal: GetTransactionContainerCurrentTotal = GetTransactionContainerCurrentTotalImpl()
     let getTransactionContainerFutureTotal: GetTransactionContainerFutureTotal = GetTransactionContainerFutureTotalImpl()
     
-    func getTransactions(container: TransactionsContainer) {
+    func getTransactions(container: Wallet) {
         
         self.originalTransactions = container.transactions!
         self.transactions = container.transactions!
-        let total = self.getTransactionContainerCurrentTotal.execute(transactionsContainer: container)
+        let total = self.getTransactionContainerCurrentTotal.execute(Wallet: container)
         self.currentTotal = "Current balance: \(total)"
         if !(container.scheduledTransactions?.isEmpty ?? true) {
             let futureTotal = self.getTransactionContainerFutureTotal.execute(transactionContainter: container)

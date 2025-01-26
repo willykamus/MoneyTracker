@@ -8,5 +8,5 @@
 import Foundation
 
 protocol UpdateScheduledTransactionsInteractor {
-    func execute(container: TransactionsContainer) async
+    func execute(container: Wallet) async
 }

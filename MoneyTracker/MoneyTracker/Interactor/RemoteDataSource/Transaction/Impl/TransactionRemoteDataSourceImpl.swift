@@ -8,7 +8,6 @@
 import Foundation
 
 class TransactionRemoteDataSourceImpl: TransactionRemoteDataSource {
-
     let dataBase = FirestoreDataBase.database
     private let dateProvider: DateProvider
     private let userRemoteDataSource: UserRemoteDataSource
@@ -18,20 +17,35 @@ class TransactionRemoteDataSourceImpl: TransactionRemoteDataSource {
         self.userRemoteDataSource = userRemoteDataSource
     }
     
-    func add(transaction: Transaction, containerId: String, userId: String) async {
+    func add(transaction: Transaction, userId: String) async {
         let remoteEntity = TransactionRemoteEntityMapper().toRemoteEntity(transaction: transaction)
-        let reference = dataBase.collection("users").document(userId).collection("transactionsContainers").document(containerId).collection("transactions")
+        let reference = dataBase.collection("users").document(userId).collection("transactions")
         do {
             _ = try reference.addDocument(from: remoteEntity)
 
         } catch {
-
+            print(error)
+        }
+    }
+    
+    func getTransactions(category: Category, userId: String) async -> Result<[Transaction],Error> {
+        let reference = dataBase.collection("users").document(userId).collection("transactions").whereField("category", isEqualTo: category.name)
+        do {
+            let query = try await reference.getDocuments()
+            var transactions: [Transaction] = []
+            for transaction in query.documents {
+                let entity = try transaction.data(as: TransactionRemoteEntity.self)
+                transactions.append(TransactionRemoteEntityMapper().toTransaction(remoteEntity: entity))
+            }
+            return Result.success(transactions)
+        } catch {
+            return Result.failure(error)
         }
     }
     
     func add(scheduleTransaction: ScheduledTransaction, containerId: String, userId: String) async {
         let remoteEntity = ScheduledTransactionRemoteEntityMapper().toRemoteEntity(scheduledTransaction: scheduleTransaction)
-        let reference = dataBase.collection("users").document(userId).collection("transactionsContainers").document(containerId).collection("scheduleTransactions")
+        let reference = dataBase.collection("users").document(userId).collection("Wallets").document(containerId).collection("scheduleTransactions")
         do {
             _ = try reference.addDocument(from: remoteEntity)
         } catch {
@@ -39,20 +53,20 @@ class TransactionRemoteDataSourceImpl: TransactionRemoteDataSource {
         }
     }
     
-    func delete(transaction: Transaction) async {
+    func delete(transaction: Transaction, userId: String) async {
         
     }
     
     func delete(scheduleTransactionId: String, containerId: String, userId: String) async {
         do {
-            try await dataBase.collection("users").document(userId).collection("transactionsContainers").document(containerId).collection("scheduleTransactions").document(scheduleTransactionId).delete()
+            try await dataBase.collection("users").document(userId).collection("Wallets").document(containerId).collection("scheduleTransactions").document(scheduleTransactionId).delete()
         } catch {
             
         }
     }
     
     func getTransactions(containerId: String, userId: String) async -> [Transaction] {
-        let reference = dataBase.collection("users").document(userId).collection("transactionsContainers").document(containerId).collection("transactions")
+        let reference = dataBase.collection("users").document(userId).collection("transactions").whereField("containerId", isEqualTo: containerId)
         do {
             let query = try await reference.getDocuments()
             var transactions: [Transaction] = []
@@ -66,11 +80,22 @@ class TransactionRemoteDataSourceImpl: TransactionRemoteDataSource {
         }
     }
     
-    func getAllTransactions() async -> [Transaction] {
-        return []
+    func getAllTransactions(userId: String) async -> [Transaction] {
+        let reference = dataBase.collection("users").document(userId).collection("transactions")
+        do {
+            let query = try await reference.getDocuments()
+            var transactions: [Transaction] = []
+            for transaction in query.documents {
+                let entity = try transaction.data(as: TransactionRemoteEntity.self)
+                transactions.append(TransactionRemoteEntityMapper().toTransaction(remoteEntity: entity))
+            }
+            return transactions
+        } catch {
+            return []
+        }
     }
     
-    func update(container: TransactionsContainer) async {
+    func update(container: Wallet) async {
         guard let userId = userRemoteDataSource.currentUser()?.id else {
             return
         }
@@ -80,7 +105,7 @@ class TransactionRemoteDataSourceImpl: TransactionRemoteDataSource {
             if Calendar.current.isDate(scheduledTransaction.nextDate(), inSameDayAs: dateProvider.nowAsDate()) || scheduledTransaction.nextDate() < dateProvider.nowAsDate() {
                 ids.remove(at: ids.firstIndex(where: { $0.0 == scheduledTransaction.id })!)
                 await self.delete(scheduleTransactionId: scheduledTransaction.id, containerId: container.id, userId: userId)
-                await self.add(transaction: scheduledTransaction.transaction, containerId: container.id, userId: userId)
+//                await self.add(scheduleTransaction: scheduledTransaction.transaction, containerId: container.id, userId: userId)
                 if !ids.contains(where: { $0.1 == scheduledTransaction.transaction.id}) {
                     //Create new schedule
                 }
