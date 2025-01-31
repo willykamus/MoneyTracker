@@ -21,6 +21,11 @@ struct HomeScreenView: View {
                     Label("Budgets", systemImage: "list.bullet.rectangle.portrait")
                 }
             
+            TransactionsMainView()
+                .tabItem {
+                    Label("Transactions", systemImage: "list.bullet.rectangle.portrait")
+                }
+            
             CategoryMainView()
                 .tabItem {
                     Label("Category", systemImage: "list.bullet.rectangle.portrait")

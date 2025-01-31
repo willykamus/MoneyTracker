@@ -5,8 +5,8 @@
 //  Created by William Ching on 2023-04-10.
 //
 
-import Foundation
-
-protocol GetTransactionContainerCurrentTotal {
-    func execute(Wallet: Wallet) -> Double
-}
+//import Foundation
+//
+//protocol GetTransactionContainerCurrentTotal {
+//    func execute(Wallet: Wallet) -> Double
+//}

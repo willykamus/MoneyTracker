@@ -19,7 +19,7 @@ struct MoneyTrackerApp: App {
             HomeScreenView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
-        .modelContainer(for: [Budget.self])
+        .modelContainer(for: [Budget.self, Category.self, Transaction.self])
 
     }
 }

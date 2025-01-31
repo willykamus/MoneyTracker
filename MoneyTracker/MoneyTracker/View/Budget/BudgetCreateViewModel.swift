@@ -44,11 +44,13 @@ class BudgetCreateViewModel: ObservableObject {
     }
     
     func save() {
-        for selectedCategory in selectedCategories {
-            selectedCategory.category.budgetAmount = selectedCategory.amount
-            budget.categories.append(selectedCategory.category)
+        if !budget.title.isEmpty {
+            for selectedCategory in selectedCategories {
+                selectedCategory.category.budgetAmount = selectedCategory.amount
+                budget.categories.append(selectedCategory.category)
+            }
+            self.budget.type = self.selectedType
         }
-        self.budget.type = self.selectedType
     }
 }
 
